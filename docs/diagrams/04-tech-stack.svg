@@ -1,83 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#F2F5F8"/>
       <stop offset="100%" stop-color="#E4EAEF"/>
     </linearGradient>
   </defs>
-
   <rect width="1920" height="1080" fill="url(#bg)"/>
   <rect width="1920" height="8" fill="#FF5A36"/>
 
   <text x="96" y="88" font-family="Georgia, 'Times New Roman', serif" font-size="48" font-weight="700" fill="#0B1F33">Tech Stack Architecture</text>
-  <text x="96" y="128" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="20" fill="#5A6A7A">Suggested layers for hackathon MVP * glue light, agents heavy</text>
+  <text x="96" y="128" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="20" fill="#5A6A7A">Suggested layers for hackathon MVP -- glue light, agents heavy</text>
 
-  <!-- Layer stack from top to bottom -->
-  <g font-family="Segoe UI, Helvetica, Arial, sans-serif">
-    <!-- Frontend -->
-    <rect x="96" y="180" width="1728" height="100" rx="10" fill="#FFFFFF" stroke="#C5D0DB" stroke-width="1.5"/>
-    <rect x="96" y="180" width="12" height="100" rx="0" fill="#FF5A36"/>
-    <text x="140" y="225" font-size="14" fill="#FF5A36" font-weight="700" letter-spacing="2">PRESENTATION</text>
-    <text x="140" y="258" font-size="24" fill="#0B1F33" font-weight="600">Next.js dashboard  ·  opportunity + preview + thumbnails + decision log + schedule</text>
-    <text x="1580" y="245" font-size="16" fill="#5A6A7A">Streamlit OK if time-tight</text>
+  <rect x="96" y="180" width="1728" height="100" rx="10" fill="#FFFFFF" stroke="#C5D0DB" stroke-width="1.5"/>
+  <rect x="96" y="180" width="12" height="100" fill="#FF5A36"/>
+  <text x="140" y="225" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14" fill="#FF5A36" font-weight="700" letter-spacing="2">PRESENTATION</text>
+  <text x="140" y="258" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="22" fill="#0B1F33" font-weight="600">Next.js dashboard -- opportunity, preview, thumbnails, decision log, schedule</text>
 
-    <!-- API -->
-    <rect x="96" y="300" width="1728" height="100" rx="10" fill="#FFFFFF" stroke="#C5D0DB" stroke-width="1.5"/>
-    <rect x="96" y="300" width="12" height="100" fill="#2E6B9E"/>
-    <text x="140" y="345" font-size="14" fill="#2E6B9E" font-weight="700" letter-spacing="2">API / GLUE</text>
-    <text x="140" y="378" font-size="24" fill="#0B1F33" font-weight="600">Python FastAPI  ·  stage endpoints  ·  orchestrator runner  ·  SQLite / local disk</text>
+  <rect x="96" y="300" width="1728" height="100" rx="10" fill="#FFFFFF" stroke="#C5D0DB" stroke-width="1.5"/>
+  <rect x="96" y="300" width="12" height="100" fill="#2E6B9E"/>
+  <text x="140" y="345" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14" fill="#2E6B9E" font-weight="700" letter-spacing="2">API / GLUE</text>
+  <text x="140" y="378" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="22" fill="#0B1F33" font-weight="600">Python FastAPI -- stage endpoints, orchestrator runner, SQLite / local disk</text>
 
-    <!-- Agents -->
-    <rect x="96" y="420" width="1728" height="220" rx="10" fill="#0B1F33"/>
-    <text x="140" y="465" font-size="14" fill="#FF5A36" font-weight="700" letter-spacing="2">DECISION + AGENT LAYER</text>
-    <text x="140" y="500" font-size="22" fill="#FFFFFF" font-weight="600">Claude API (tool use / function calling) as the orchestrator brain</text>
+  <rect x="96" y="420" width="1728" height="220" rx="10" fill="#0B1F33"/>
+  <text x="140" y="465" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14" fill="#FF5A36" font-weight="700" letter-spacing="2">DECISION + AGENT LAYER</text>
+  <text x="140" y="500" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="22" fill="#FFFFFF" font-weight="600">Claude API (tool use / function calling) as the orchestrator brain</text>
 
-    <!-- agent chips -->
-    <rect x="140" y="530" width="240" height="70" rx="8" fill="#163A5F"/>
-    <text x="260" y="572" text-anchor="middle" font-size="16" fill="#FFFFFF">Creator DNA</text>
+  <rect x="140" y="530" width="240" height="70" rx="8" fill="#163A5F"/>
+  <text x="260" y="572" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="16" fill="#FFFFFF">Creator DNA</text>
+  <rect x="400" y="530" width="240" height="70" rx="8" fill="#163A5F"/>
+  <text x="520" y="572" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="16" fill="#FFFFFF">Opportunity</text>
+  <rect x="660" y="530" width="240" height="70" rx="8" fill="#163A5F"/>
+  <text x="780" y="572" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="16" fill="#FFFFFF">Script</text>
+  <rect x="920" y="530" width="240" height="70" rx="8" fill="#163A5F"/>
+  <text x="1040" y="572" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="16" fill="#FFFFFF">Thumbnail + SEO</text>
+  <rect x="1180" y="530" width="280" height="70" rx="8" fill="#00A86B"/>
+  <text x="1320" y="572" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="16" fill="#FFFFFF" font-weight="700">Style-Fit Scorer</text>
+  <rect x="1480" y="530" width="300" height="70" rx="8" fill="#163A5F" stroke="#FF5A36" stroke-width="2"/>
+  <text x="1630" y="572" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="16" fill="#FFFFFF">Decision Logger</text>
 
-    <rect x="400" y="530" width="240" height="70" rx="8" fill="#163A5F"/>
-    <text x="520" y="572" text-anchor="middle" font-size="16" fill="#FFFFFF">Opportunity</text>
+  <rect x="96" y="660" width="1728" height="160" rx="10" fill="#FFFFFF" stroke="#C5D0DB" stroke-width="1.5"/>
+  <rect x="96" y="660" width="12" height="160" fill="#00A86B"/>
+  <text x="140" y="705" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14" fill="#00A86B" font-weight="700" letter-spacing="2">EXECUTION LAYER - REUSE EXISTING</text>
 
-    <rect x="660" y="530" width="240" height="70" rx="8" fill="#163A5F"/>
-    <text x="780" y="572" text-anchor="middle" font-size="16" fill="#FFFFFF">Script</text>
+  <rect x="140" y="730" width="300" height="60" rx="8" fill="#F2F5F8" stroke="#C5D0DB"/>
+  <text x="290" y="766" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="15" fill="#0B1F33" font-weight="600">HyperFrames - video</text>
+  <rect x="460" y="730" width="300" height="60" rx="8" fill="#F2F5F8" stroke="#C5D0DB"/>
+  <text x="610" y="766" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="15" fill="#0B1F33" font-weight="600">faster-whisper - captions</text>
+  <rect x="780" y="730" width="300" height="60" rx="8" fill="#F2F5F8" stroke="#C5D0DB"/>
+  <text x="930" y="766" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="15" fill="#0B1F33" font-weight="600">TTS - ElevenLabs / edge</text>
+  <rect x="1100" y="730" width="300" height="60" rx="8" fill="#F2F5F8" stroke="#C5D0DB"/>
+  <text x="1250" y="766" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="15" fill="#0B1F33" font-weight="600">SVG to PNG - resvg</text>
+  <rect x="1420" y="730" width="360" height="60" rx="8" fill="#F2F5F8" stroke="#C5D0DB"/>
+  <text x="1600" y="766" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="15" fill="#0B1F33" font-weight="600">YouTube Data API - publish</text>
 
-    <rect x="920" y="530" width="240" height="70" rx="8" fill="#163A5F"/>
-    <text x="1040" y="572" text-anchor="middle" font-size="16" fill="#FFFFFF">Thumbnail + SEO</text>
-
-    <rect x="1180" y="530" width="280" height="70" rx="8" fill="#00A86B"/>
-    <text x="1320" y="572" text-anchor="middle" font-size="16" fill="#FFFFFF" font-weight="700">Style-Fit Scorer</text>
-
-    <rect x="1480" y="530" width="300" height="70" rx="8" fill="#163A5F" stroke="#FF5A36" stroke-width="2"/>
-    <text x="1630" y="572" text-anchor="middle" font-size="16" fill="#FFFFFF">Decision Logger</text>
-
-    <!-- Execution -->
-    <rect x="96" y="660" width="1728" height="160" rx="10" fill="#FFFFFF" stroke="#C5D0DB" stroke-width="1.5"/>
-    <rect x="96" y="660" width="12" height="160" fill="#00A86B"/>
-    <text x="140" y="705" font-size="14" fill="#00A86B" font-weight="700" letter-spacing="2">EXECUTION LAYER  ·  REUSE EXISTING</text>
-
-    <rect x="140" y="730" width="300" height="60" rx="8" fill="#F2F5F8" stroke="#C5D0DB"/>
-    <text x="290" y="766" text-anchor="middle" font-size="15" fill="#0B1F33" font-weight="600">HyperFrames · video</text>
-
-    <rect x="460" y="730" width="300" height="60" rx="8" fill="#F2F5F8" stroke="#C5D0DB"/>
-    <text x="610" y="766" text-anchor="middle" font-size="15" fill="#0B1F33" font-weight="600">faster-whisper · captions</text>
-
-    <rect x="780" y="730" width="300" height="60" rx="8" fill="#F2F5F8" stroke="#C5D0DB"/>
-    <text x="930" y="766" text-anchor="middle" font-size="15" fill="#0B1F33" font-weight="600">TTS · ElevenLabs / edge</text>
-
-    <rect x="1100" y="730" width="300" height="60" rx="8" fill="#F2F5F8" stroke="#C5D0DB"/>
-    <text x="1250" y="766" text-anchor="middle" font-size="15" fill="#0B1F33" font-weight="600">SVG ’ PNG · resvg</text>
-
-    <rect x="1420" y="730" width="360" height="60" rx="8" fill="#F2F5F8" stroke="#C5D0DB"/>
-    <text x="1600" y="766" text-anchor="middle" font-size="15" fill="#0B1F33" font-weight="600">YouTube Data API · publish</text>
-  </g>
-
-  <!-- Note -->
   <rect x="96" y="860" width="1728" height="80" rx="8" fill="#FFFFFF" stroke="#FF5A36" stroke-width="1.5"/>
-  <text x="128" y="910" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="18" fill="#0B1F33">
-    <tspan font-weight="700" fill="#FF5A36">Principle: </tspan>
-    Reuse execution mechanics (HyperFrames, SVG’PNG). Own the decision layer (DNA, opportunity, style-fit, feedback).
-  </text>
-
-  <text x="96" y="1020" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="16" fill="#8A96A3">Architecture poster 04  ·  Tech stack  ·  aftertake / Creator Twin</text>
+  <text x="128" y="910" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="18" fill="#0B1F33"><tspan font-weight="700" fill="#FF5A36">Principle: </tspan>Reuse execution mechanics (HyperFrames, SVG to PNG). Own the decision layer (DNA, opportunity, style-fit, feedback).</text>
+<text x="96" y="1020" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="16" fill="#8A96A3">Architecture poster 04  |  Tech stack  |  aftertake / Creator Twin</text>
 </svg>

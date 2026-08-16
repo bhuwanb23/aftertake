@@ -1,78 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#F2F5F8"/>
       <stop offset="100%" stop-color="#E4EAEF"/>
     </linearGradient>
   </defs>
-
   <rect width="1920" height="1080" fill="url(#bg)"/>
   <rect width="1920" height="8" fill="#FF5A36"/>
 
   <text x="96" y="88" font-family="Georgia, 'Times New Roman', serif" font-size="48" font-weight="700" fill="#0B1F33">Hackathon MVP Path</text>
-  <text x="96" y="128" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="20" fill="#5A6A7A">Cut ruthlessly to one linear happy path * polish only after it works end-to-end once</text>
+  <text x="96" y="128" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="20" fill="#5A6A7A">Cut ruthlessly to one linear happy path -- polish only after it works end-to-end once</text>
 
-  <!-- Must ship column -->
   <rect x="96" y="170" width="1100" height="740" rx="12" fill="#FFFFFF" stroke="#C5D0DB"/>
   <rect x="96" y="170" width="1100" height="56" rx="12" fill="#00A86B"/>
   <rect x="96" y="202" width="1100" height="24" fill="#00A86B"/>
-  <text x="128" y="210" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="20" fill="#FFFFFF" font-weight="700">MUST SHIP  ·  10-step happy path</text>
+  <text x="128" y="210" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="20" fill="#FFFFFF" font-weight="700">MUST SHIP - 10-step happy path</text>
 
-  <g font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="17" fill="#0B1F33">
-    <circle cx="160" cy="280" r="18" fill="#00A86B"/><text x="160" y="286" text-anchor="middle" font-size="14" fill="#FFF" font-weight="700">1</text>
-    <text x="200" y="286">Seed catalog (5?10 videos) ’ Creator DNA profile</text>
+    <circle cx="160" cy="280" r="18" fill="#00A86B"/>
+    <text x="160" y="286" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14" fill="#FFFFFF" font-weight="700">1</text>
+    <text x="200" y="286" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="17" fill="#0B1F33">Seed catalog (5-10 videos) -> Creator DNA profile</text>
 
-    <circle cx="160" cy="340" r="18" fill="#00A86B"/><text x="160" y="346" text-anchor="middle" font-size="14" fill="#FFF" font-weight="700">2</text>
-    <text x="200" y="346">Opportunity agent: next topic + DNA-tied rationale</text>
+    <circle cx="160" cy="340" r="18" fill="#00A86B"/>
+    <text x="160" y="346" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14" fill="#FFFFFF" font-weight="700">2</text>
+    <text x="200" y="346" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="17" fill="#0B1F33">Opportunity agent: next topic + DNA-tied rationale</text>
 
-    <circle cx="160" cy="400" r="18" fill="#00A86B"/><text x="160" y="406" text-anchor="middle" font-size="14" fill="#FFF" font-weight="700">3</text>
-    <text x="200" y="406">Script agent writes in learned voice</text>
+    <circle cx="160" cy="400" r="18" fill="#00A86B"/>
+    <text x="160" y="406" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14" fill="#FFFFFF" font-weight="700">3</text>
+    <text x="200" y="406" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="17" fill="#0B1F33">Script agent writes in learned voice</text>
 
-    <circle cx="160" cy="460" r="18" fill="#00A86B"/><text x="160" y="466" text-anchor="middle" font-size="14" fill="#FFF" font-weight="700">4</text>
-    <text x="200" y="466">HyperFrames renders one short video (simple template OK)</text>
+    <circle cx="160" cy="460" r="18" fill="#00A86B"/>
+    <text x="160" y="466" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14" fill="#FFFFFF" font-weight="700">4</text>
+    <text x="200" y="466" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="17" fill="#0B1F33">HyperFrames renders one short video (simple template OK)</text>
 
-    <circle cx="160" cy="520" r="18" fill="#00A86B"/><text x="160" y="526" text-anchor="middle" font-size="14" fill="#FFF" font-weight="700">5</text>
-    <text x="200" y="526">Auto-captions burned in</text>
+    <circle cx="160" cy="520" r="18" fill="#00A86B"/>
+    <text x="160" y="526" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14" fill="#FFFFFF" font-weight="700">5</text>
+    <text x="200" y="526" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="17" fill="#0B1F33">Auto-captions burned in</text>
 
-    <circle cx="160" cy="580" r="18" fill="#00A86B"/><text x="160" y="586" text-anchor="middle" font-size="14" fill="#FFF" font-weight="700">6</text>
-    <text x="200" y="586">2?3 SVG thumbnails ’ agent picks via thumbnail_style</text>
+    <circle cx="160" cy="580" r="18" fill="#00A86B"/>
+    <text x="160" y="586" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14" fill="#FFFFFF" font-weight="700">6</text>
+    <text x="200" y="586" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="17" fill="#0B1F33">2-3 SVG thumbnails -> agent picks via thumbnail_style</text>
 
-    <circle cx="160" cy="640" r="18" fill="#00A86B"/><text x="160" y="646" text-anchor="middle" font-size="14" fill="#FFF" font-weight="700">7</text>
-    <text x="200" y="646">Title / description / tags via title_formula</text>
+    <circle cx="160" cy="640" r="18" fill="#00A86B"/>
+    <text x="160" y="646" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14" fill="#FFFFFF" font-weight="700">7</text>
+    <text x="200" y="646" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="17" fill="#0B1F33">Title / description / tags via title_formula</text>
 
-    <circle cx="160" cy="700" r="18" fill="#FF5A36"/><text x="160" y="706" text-anchor="middle" font-size="14" fill="#FFF" font-weight="700">8</text>
-    <text x="200" y="706" font-weight="700">Style-fit scorer * live reject ’ regenerate (strongest demo beat)</text>
+    <circle cx="160" cy="700" r="18" fill="#FF5A36"/>
+    <text x="160" y="706" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14" fill="#FFFFFF" font-weight="700">8</text>
+    <text x="200" y="706" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="17" fill="#0B1F33">Style-fit scorer -- live reject -> regenerate (strongest demo beat)</text>
 
-    <circle cx="160" cy="760" r="18" fill="#00A86B"/><text x="160" y="766" text-anchor="middle" font-size="14" fill="#FFF" font-weight="700">9</text>
-    <text x="200" y="766">Dashboard with full decision log</text>
+    <circle cx="160" cy="760" r="18" fill="#00A86B"/>
+    <text x="160" y="766" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14" fill="#FFFFFF" font-weight="700">9</text>
+    <text x="200" y="766" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="17" fill="#0B1F33">Dashboard with full decision log</text>
 
-    <circle cx="160" cy="820" r="18" fill="#00A86B"/><text x="160" y="826" text-anchor="middle" font-size="14" fill="#FFF" font-weight="700">10</text>
-    <text x="200" y="826">One real platform post (YouTube) * others can be mocked</text>
-  </g>
-
-  <!-- Stretch / cut -->
+    <circle cx="160" cy="820" r="18" fill="#00A86B"/>
+    <text x="160" y="826" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14" fill="#FFFFFF" font-weight="700">10</text>
+    <text x="200" y="826" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="17" fill="#0B1F33">One real platform post (YouTube) -- others can be mocked</text>
   <rect x="1240" y="170" width="584" height="340" rx="12" fill="#FFFFFF" stroke="#C5D0DB"/>
   <rect x="1240" y="170" width="584" height="56" rx="12" fill="#8A96A3"/>
   <rect x="1240" y="202" width="584" height="24" fill="#8A96A3"/>
-  <text x="1272" y="210" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="18" fill="#FFFFFF" font-weight="700">STRETCH  ·  only after E2E works</text>
-  <g font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="16" fill="#5A6A7A">
-    <text x="1272" y="280">" Real feedback loop ’ DNA</text>
-    <text x="1272" y="320">" Multi-platform scheduling</text>
-    <text x="1272" y="360">" Analytics dashboard</text>
-    <text x="1272" y="400">" Comment moderation</text>
-  </g>
+  <text x="1272" y="210" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="18" fill="#FFFFFF" font-weight="700">STRETCH - only after E2E works</text>
+  <text x="1272" y="280" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="16" fill="#5A6A7A">* Real feedback loop into DNA</text>
+  <text x="1272" y="320" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="16" fill="#5A6A7A">* Multi-platform scheduling</text>
+  <text x="1272" y="360" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="16" fill="#5A6A7A">* Analytics dashboard</text>
+  <text x="1272" y="400" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="16" fill="#5A6A7A">* Comment moderation</text>
 
-  <!-- Team split -->
   <rect x="1240" y="540" width="584" height="370" rx="12" fill="#0B1F33"/>
   <text x="1272" y="590" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14" fill="#FF5A36" font-weight="700" letter-spacing="2">TEAM SPLIT</text>
-  <g font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="16" fill="#FFFFFF">
-    <text x="1272" y="640"><tspan fill="#FF5A36" font-weight="700">A</tspan>  Video pipeline (script + HyperFrames + TTS)</text>
-    <text x="1272" y="685"><tspan fill="#FF5A36" font-weight="700">B</tspan>  Visuals (SVG thumbs + metadata/SEO)</text>
-    <text x="1272" y="730"><tspan fill="#FF5A36" font-weight="700">C</tspan>  Orchestrator + decision logging</text>
-    <text x="1272" y="775"><tspan fill="#FF5A36" font-weight="700">D</tspan>  Dashboard + publish</text>
-    <text x="1272" y="840" fill="#A8B0BC" font-size="14">Solo/2: combine A+C and B+D</text>
-  </g>
-
-  <text x="96" y="980" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="16" fill="#8A96A3">Architecture poster 06  ·  MVP scope  ·  aftertake / Creator Twin</text>
-  <text x="1824" y="980" text-anchor="end" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="16" fill="#8A96A3">Scaffold for 1?3, 6?8 already exists</text>
+  <text x="1272" y="640" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="16" fill="#FFFFFF"><tspan fill="#FF5A36" font-weight="700">A</tspan>  Video pipeline (script + HyperFrames + TTS)</text>
+  <text x="1272" y="685" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="16" fill="#FFFFFF"><tspan fill="#FF5A36" font-weight="700">B</tspan>  Visuals (SVG thumbs + metadata/SEO)</text>
+  <text x="1272" y="730" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="16" fill="#FFFFFF"><tspan fill="#FF5A36" font-weight="700">C</tspan>  Orchestrator + decision logging</text>
+  <text x="1272" y="775" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="16" fill="#FFFFFF"><tspan fill="#FF5A36" font-weight="700">D</tspan>  Dashboard + publish</text>
+  <text x="1272" y="840" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14" fill="#A8B0BC">Solo/2: combine A+C and B+D</text>
+<text x="96" y="980" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="16" fill="#8A96A3">Architecture poster 06  |  MVP scope  |  aftertake / Creator Twin</text>
 </svg>

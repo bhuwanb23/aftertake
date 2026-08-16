@@ -1,100 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#F2F5F8"/>
       <stop offset="100%" stop-color="#E4EAEF"/>
     </linearGradient>
-    <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-      <path d="M0,0 L6,3 L0,6 Z" fill="#2E6B9E"/>
-    </marker>
-    <marker id="arrG" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-      <path d="M0,0 L6,3 L0,6 Z" fill="#00A86B"/>
-    </marker>
-    <marker id="arrR" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-      <path d="M0,0 L6,3 L0,6 Z" fill="#E85D04"/>
-    </marker>
   </defs>
-
   <rect width="1920" height="1080" fill="url(#bg)"/>
   <rect width="1920" height="8" fill="#FF5A36"/>
 
-  <text x="96" y="88" font-family="Georgia, 'Times New Roman', serif" font-size="48" font-weight="700" fill="#0B1F33">Orchestrator &amp; Feedback Loop</text>
-  <text x="96" y="128" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="20" fill="#5A6A7A">State machine with a quality gate * and a stretch loop that makes it self-improving</text>
+  <text x="96" y="88" font-family="Georgia, 'Times New Roman', serif" font-size="48" font-weight="700" fill="#0B1F33">Orchestrator and Feedback Loop</text>
+  <text x="96" y="128" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="20" fill="#5A6A7A">State machine with a quality gate -- and a stretch loop that makes it self-improving</text>
 
-  <!-- Center flow -->
-  <g font-family="Segoe UI, Helvetica, Arial, sans-serif">
-    <!-- Orchestrator hub -->
-    <rect x="720" y="180" width="480" height="100" rx="12" fill="#0B1F33"/>
-    <text x="960" y="225" text-anchor="middle" font-size="14" fill="#FF5A36" font-weight="700" letter-spacing="2">ORCHESTRATOR</text>
-    <text x="960" y="255" text-anchor="middle" font-size="22" fill="#FFFFFF" font-weight="600">Calls stages · logs rationale</text>
+  <rect x="720" y="180" width="480" height="100" rx="12" fill="#0B1F33"/>
+  <text x="960" y="225" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14" fill="#FF5A36" font-weight="700" letter-spacing="2">ORCHESTRATOR</text>
+  <text x="960" y="255" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="22" fill="#FFFFFF" font-weight="600">Calls stages | logs rationale</text>
 
-    <!-- Pipeline row -->
-    <rect x="160" y="360" width="200" height="90" rx="8" fill="#FFFFFF" stroke="#2E6B9E" stroke-width="2"/>
-    <text x="260" y="400" text-anchor="middle" font-size="13" fill="#2E6B9E" font-weight="700">STAGES 1?2</text>
-    <text x="260" y="428" text-anchor="middle" font-size="16" fill="#0B1F33" font-weight="600">DNA + Opportunity</text>
+  <rect x="160" y="360" width="200" height="90" rx="8" fill="#FFFFFF" stroke="#2E6B9E" stroke-width="2"/>
+  <text x="260" y="400" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" fill="#2E6B9E" font-weight="700">STAGES 1-2</text>
+  <text x="260" y="428" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="16" fill="#0B1F33" font-weight="600">DNA + Opportunity</text>
 
-    <rect x="420" y="360" width="200" height="90" rx="8" fill="#FFFFFF" stroke="#2E6B9E" stroke-width="2"/>
-    <text x="520" y="400" text-anchor="middle" font-size="13" fill="#2E6B9E" font-weight="700">STAGES 3?5</text>
-    <text x="520" y="428" text-anchor="middle" font-size="16" fill="#0B1F33" font-weight="600">Script ’ Video</text>
+  <rect x="420" y="360" width="200" height="90" rx="8" fill="#FFFFFF" stroke="#2E6B9E" stroke-width="2"/>
+  <text x="520" y="400" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" fill="#2E6B9E" font-weight="700">STAGES 3-5</text>
+  <text x="520" y="428" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="16" fill="#0B1F33" font-weight="600">Script to Video</text>
 
-    <rect x="680" y="360" width="200" height="90" rx="8" fill="#FFFFFF" stroke="#2E6B9E" stroke-width="2"/>
-    <text x="780" y="400" text-anchor="middle" font-size="13" fill="#2E6B9E" font-weight="700">STAGES 6?7</text>
-    <text x="780" y="428" text-anchor="middle" font-size="16" fill="#0B1F33" font-weight="600">Thumb + Meta</text>
+  <rect x="680" y="360" width="200" height="90" rx="8" fill="#FFFFFF" stroke="#2E6B9E" stroke-width="2"/>
+  <text x="780" y="400" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" fill="#2E6B9E" font-weight="700">STAGES 6-7</text>
+  <text x="780" y="428" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="16" fill="#0B1F33" font-weight="600">Thumb + Meta</text>
 
-    <!-- Style fit GATE -->
-    <rect x="960" y="350" width="240" height="110" rx="10" fill="#0B1F33" stroke="#00A86B" stroke-width="3"/>
-    <text x="1080" y="395" text-anchor="middle" font-size="13" fill="#00A86B" font-weight="700">STAGE 8 · GATE</text>
-    <text x="1080" y="425" text-anchor="middle" font-size="20" fill="#FFFFFF" font-weight="700">Style-Fit Scorer</text>
-    <text x="1080" y="450" text-anchor="middle" font-size="13" fill="#A8C5B8">threshold check</text>
+  <rect x="960" y="350" width="240" height="110" rx="10" fill="#0B1F33" stroke="#00A86B" stroke-width="3"/>
+  <text x="1080" y="395" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" fill="#00A86B" font-weight="700">STAGE 8 - GATE</text>
+  <text x="1080" y="425" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="20" fill="#FFFFFF" font-weight="700">Style-Fit Scorer</text>
+  <text x="1080" y="450" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" fill="#A8C5B8">threshold check</text>
 
-    <rect x="1280" y="360" width="200" height="90" rx="8" fill="#FFFFFF" stroke="#0B1F33" stroke-width="2"/>
-    <text x="1380" y="400" text-anchor="middle" font-size="13" fill="#0B1F33" font-weight="700">STAGES 9?10</text>
-    <text x="1380" y="428" text-anchor="middle" font-size="16" fill="#0B1F33" font-weight="600">Dash + Publish</text>
+  <rect x="1280" y="360" width="200" height="90" rx="8" fill="#FFFFFF" stroke="#0B1F33" stroke-width="2"/>
+  <text x="1380" y="400" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" fill="#0B1F33" font-weight="700">STAGES 9-10</text>
+  <text x="1380" y="428" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="16" fill="#0B1F33" font-weight="600">Dash + Publish</text>
 
-    <rect x="1540" y="360" width="220" height="90" rx="8" fill="#FFFFFF" stroke="#0B1F33" stroke-width="2" stroke-dasharray="5 3"/>
-    <text x="1650" y="400" text-anchor="middle" font-size="13" fill="#0B1F33" font-weight="700">STAGE 11</text>
-    <text x="1650" y="428" text-anchor="middle" font-size="16" fill="#0B1F33" font-weight="600">Feedback (stretch)</text>
+  <rect x="1540" y="360" width="220" height="90" rx="8" fill="#FFFFFF" stroke="#0B1F33" stroke-width="2" stroke-dasharray="5 3"/>
+  <text x="1650" y="400" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" fill="#0B1F33" font-weight="700">STAGE 11</text>
+  <text x="1650" y="428" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="16" fill="#0B1F33" font-weight="600">Feedback (stretch)</text>
 
-    <!-- arrows -->
-    <line x1="360" y1="405" x2="412" y2="405" stroke="#2E6B9E" stroke-width="2" marker-end="url(#arr)"/>
-    <line x1="620" y1="405" x2="672" y2="405" stroke="#2E6B9E" stroke-width="2" marker-end="url(#arr)"/>
-    <line x1="880" y1="405" x2="952" y2="405" stroke="#2E6B9E" stroke-width="2" marker-end="url(#arr)"/>
-    <line x1="1200" y1="405" x2="1272" y2="405" stroke="#00A86B" stroke-width="2" marker-end="url(#arrG)"/>
-    <line x1="1480" y1="405" x2="1532" y2="405" stroke="#2E6B9E" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="360" y1="405" x2="412" y2="405" stroke="#2E6B9E" stroke-width="2"/>
+  <line x1="620" y1="405" x2="672" y2="405" stroke="#2E6B9E" stroke-width="2"/>
+  <line x1="880" y1="405" x2="952" y2="405" stroke="#2E6B9E" stroke-width="2"/>
+  <line x1="1200" y1="405" x2="1272" y2="405" stroke="#00A86B" stroke-width="2"/>
+  <line x1="1480" y1="405" x2="1532" y2="405" stroke="#2E6B9E" stroke-width="2"/>
+  <text x="1235" y="335" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" fill="#00A86B" font-weight="700">PASS -&gt;</text>
 
-    <!-- Pass label -->
-    <text x="1235" y="335" font-size="13" fill="#00A86B" font-weight="700">PASS ’</text>
-  </g>
-
-  <!-- Reject loop -->
-  <path d="M1080,460 L1080,560 L780,560 L780,460" fill="none" stroke="#E85D04" stroke-width="2.5" stroke-dasharray="8 5" marker-end="url(#arrR)"/>
+  <path d="M1080,460 L1080,560 L780,560 L780,460" fill="none" stroke="#E85D04" stroke-width="2.5" stroke-dasharray="8 5"/>
   <rect x="820" y="530" width="280" height="40" rx="6" fill="#FFF4ED" stroke="#E85D04"/>
-  <text x="960" y="556" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14" fill="#E85D04" font-weight="700">REJECT ’ regenerate 6?7</text>
+  <text x="960" y="556" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14" fill="#E85D04" font-weight="700">REJECT -&gt; regenerate 6-7</text>
 
-  <!-- Decision log panel -->
   <rect x="160" y="620" width="780" height="280" rx="12" fill="#FFFFFF" stroke="#C5D0DB"/>
-  <text x="192" y="670" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14" fill="#FF5A36" font-weight="700" letter-spacing="2">DECISION LOG  ·  DEMO MOMENT</text>
-  <g font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="16" fill="#0B1F33">
-    <text x="192" y="720">" Opportunity picked because DNA trait X correlated with CTR</text>
-    <text x="192" y="760">" Thumbnail B chosen * matches learned contrast / face crop</text>
-    <text x="192" y="800">" Style-fit: 0.62 ’ REJECTED (title formula mismatch)</text>
-    <text x="192" y="840">" Regenerated title · re-scored 0.84 ’ PASSED</text>
-    <text x="192" y="880" fill="#5A6A7A">Proof of judgment * not a fixed script</text>
-  </g>
+  <text x="192" y="670" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14" fill="#FF5A36" font-weight="700" letter-spacing="2">DECISION LOG - DEMO MOMENT</text>
+  <text x="192" y="720" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="16" fill="#0B1F33">* Opportunity picked because DNA trait X correlated with CTR</text>
+  <text x="192" y="760" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="16" fill="#0B1F33">* Thumbnail B chosen -- matches learned contrast / face crop</text>
+  <text x="192" y="800" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="16" fill="#0B1F33">* Style-fit: 0.62 -&gt; REJECTED (title formula mismatch)</text>
+  <text x="192" y="840" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="16" fill="#0B1F33">* Regenerated title, re-scored 0.84 -&gt; PASSED</text>
+  <text x="192" y="880" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="16" fill="#5A6A7A">Proof of judgment -- not a fixed script</text>
 
-  <!-- Feedback panel -->
   <rect x="980" y="620" width="780" height="280" rx="12" fill="#0B1F33"/>
-  <text x="1012" y="670" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14" fill="#00A86B" font-weight="700" letter-spacing="2">FEEDBACK LOOP  ·  STRETCH</text>
-  <g font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="17" fill="#FFFFFF">
-    <text x="1012" y="730">1. Pull real post performance after publish</text>
-    <text x="1012" y="775">2. Compare vs Opportunity Agent--s predicted fit</text>
-    <text x="1012" y="820">3. Feed deltas back into next Creator DNA pass</text>
-    <text x="1012" y="865" fill="#A8C5B8">Recommendations get sharper over time</text>
-  </g>
-
-  <!-- big feedback arrow hint -->
-  <path d="M1650,450 L1650,600" fill="none" stroke="#00A86B" stroke-width="2" stroke-dasharray="4 4"/>
-  <text x="1665" y="530" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12" fill="#00A86B" font-weight="700" transform="rotate(90 1665 530)">TO DNA</text>
-
-  <text x="96" y="980" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="16" fill="#8A96A3">Architecture poster 05  ·  Orchestrator + gate + feedback  ·  aftertake / Creator Twin</text>
+  <text x="1012" y="670" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14" fill="#00A86B" font-weight="700" letter-spacing="2">FEEDBACK LOOP - STRETCH</text>
+  <text x="1012" y="730" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="17" fill="#FFFFFF">1. Pull real post performance after publish</text>
+  <text x="1012" y="775" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="17" fill="#FFFFFF">2. Compare vs Opportunity Agent predicted fit</text>
+  <text x="1012" y="820" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="17" fill="#FFFFFF">3. Feed deltas back into next Creator DNA pass</text>
+  <text x="1012" y="865" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="17" fill="#A8C5B8">Recommendations get sharper over time</text>
+<text x="96" y="980" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="16" fill="#8A96A3">Architecture poster 05  |  Orchestrator + gate + feedback  |  aftertake / Creator Twin</text>
 </svg>

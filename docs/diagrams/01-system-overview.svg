@@ -1,99 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#F2F5F8"/>
       <stop offset="100%" stop-color="#E4EAEF"/>
     </linearGradient>
-    <linearGradient id="hero" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#0B1F33"/>
-      <stop offset="100%" stop-color="#163A5F"/>
-    </linearGradient>
-    <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse">
-      <circle cx="1" cy="1" r="1" fill="#0B1F33" opacity="0.06"/>
-    </pattern>
   </defs>
-
   <rect width="1920" height="1080" fill="url(#bg)"/>
-  <rect width="1920" height="1080" fill="url(#dots)"/>
+  <rect width="1920" height="8" fill="#FF5A36"/>
 
-  <!-- Top bar -->
-  <rect x="0" y="0" width="1920" height="8" fill="#FF5A36"/>
-
-  <!-- Brand -->
   <text x="96" y="88" font-family="Georgia, 'Times New Roman', serif" font-size="56" font-weight="700" fill="#0B1F33">Creator Twin</text>
-  <text x="96" y="132" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="22" fill="#5A6A7A" letter-spacing="1">A personalized, self-improving content decision engine</text>
+  <text x="96" y="132" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="22" fill="#5A6A7A">A personalized, self-improving content decision engine</text>
 
-  <!-- Hero band -->
-  <rect x="96" y="176" width="1728" height="120" rx="8" fill="url(#hero)"/>
-  <text x="128" y="230" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="18" fill="#FF5A36" letter-spacing="3" font-weight="600">THE PITCH</text>
-  <text x="128" y="268" font-family="Georgia, 'Times New Roman', serif" font-size="28" fill="#F7F9FB">Not 'topic in ’ video out.' An editorial brain that learns a creator, decides what to make next, and gates every asset before it ships.</text>
+  <rect x="96" y="176" width="1728" height="120" rx="8" fill="#0B1F33"/>
+  <text x="128" y="230" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="18" fill="#FF5A36" font-weight="600" letter-spacing="3">THE PITCH</text>
+  <text x="128" y="268" font-family="Georgia, 'Times New Roman', serif" font-size="26" fill="#F7F9FB">Not topic-in / video-out. An editorial brain that learns a creator, decides what to make next, and gates every asset before it ships.</text>
 
-  <!-- Four pillars -->
   <g transform="translate(96, 340)">
-    <!-- 1 -->
     <rect width="400" height="420" rx="10" fill="#FFFFFF" stroke="#C5D0DB" stroke-width="1.5"/>
-    <rect width="400" height="8" rx="0" fill="#FF5A36"/>
+    <rect width="400" height="8" fill="#FF5A36"/>
     <text x="32" y="56" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14" fill="#FF5A36" font-weight="700" letter-spacing="2">01  LEARN</text>
     <text x="32" y="110" font-family="Georgia, 'Times New Roman', serif" font-size="32" fill="#0B1F33">Creator DNA</text>
-    <text x="32" y="160" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="18" fill="#5A6A7A">
-      <tspan x="32" dy="0">Ingest titles, transcripts,</tspan>
-      <tspan x="32" dy="28">thumbnails &amp; real performance.</tspan>
-      <tspan x="32" dy="28">Extract voice, hooks, title</tspan>
-      <tspan x="32" dy="28">formula, thumbnail style.</tspan>
-    </text>
+    <text x="32" y="165" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="18" fill="#5A6A7A">Ingest titles, transcripts,</text>
+    <text x="32" y="193" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="18" fill="#5A6A7A">thumbnails and real</text>
+    <text x="32" y="221" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="18" fill="#5A6A7A">performance. Extract voice,</text>
+    <text x="32" y="249" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="18" fill="#5A6A7A">hooks, title formula,</text>
+    <text x="32" y="277" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="18" fill="#5A6A7A">thumbnail style.</text>
     <circle cx="48" cy="340" r="10" fill="#FF5A36"/>
     <text x="72" y="346" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="15" fill="#0B1F33">Who you already are</text>
 
-    <!-- 2 -->
     <g transform="translate(440,0)">
       <rect width="400" height="420" rx="10" fill="#FFFFFF" stroke="#C5D0DB" stroke-width="1.5"/>
       <rect width="400" height="8" fill="#2E6B9E"/>
       <text x="32" y="56" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14" fill="#2E6B9E" font-weight="700" letter-spacing="2">02  DECIDE</text>
       <text x="32" y="110" font-family="Georgia, 'Times New Roman', serif" font-size="32" fill="#0B1F33">Opportunity</text>
-      <text x="32" y="160" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="18" fill="#5A6A7A">
-        <tspan x="32" dy="0">Cross DNA with niche trends.</tspan>
-        <tspan x="32" dy="28">Recommend next ideas with</tspan>
-        <tspan x="32" dy="28">fit score + rationale tied to</tspan>
-        <tspan x="32" dy="28">the creator--s own wins.</tspan>
-      </text>
+      <text x="32" y="165" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="18" fill="#5A6A7A">Cross DNA with niche trends.</text>
+      <text x="32" y="193" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="18" fill="#5A6A7A">Recommend next ideas with</text>
+      <text x="32" y="221" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="18" fill="#5A6A7A">fit score + rationale tied to</text>
+      <text x="32" y="249" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="18" fill="#5A6A7A">the creator's own wins.</text>
       <circle cx="48" cy="340" r="10" fill="#2E6B9E"/>
       <text x="72" y="346" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="15" fill="#0B1F33">What to make next</text>
     </g>
 
-    <!-- 3 -->
     <g transform="translate(880,0)">
       <rect width="400" height="420" rx="10" fill="#FFFFFF" stroke="#C5D0DB" stroke-width="1.5"/>
       <rect width="400" height="8" fill="#00A86B"/>
       <text x="32" y="56" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14" fill="#00A86B" font-weight="700" letter-spacing="2">03  GATE</text>
       <text x="32" y="110" font-family="Georgia, 'Times New Roman', serif" font-size="32" fill="#0B1F33">Style-Fit</text>
-      <text x="32" y="160" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="18" fill="#5A6A7A">
-        <tspan x="32" dy="0">Critic agent checks assets</tspan>
-        <tspan x="32" dy="28">against Creator DNA.</tspan>
-        <tspan x="32" dy="28">Below threshold ’ reject</tspan>
-        <tspan x="32" dy="28">and regenerate. Judgment.</tspan>
-      </text>
+      <text x="32" y="165" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="18" fill="#5A6A7A">Critic agent checks assets</text>
+      <text x="32" y="193" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="18" fill="#5A6A7A">against Creator DNA.</text>
+      <text x="32" y="221" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="18" fill="#5A6A7A">Below threshold: reject and</text>
+      <text x="32" y="249" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="18" fill="#5A6A7A">regenerate. Judgment.</text>
       <circle cx="48" cy="340" r="10" fill="#00A86B"/>
       <text x="72" y="346" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="15" fill="#0B1F33">Does it actually sound like you?</text>
     </g>
 
-    <!-- 4 -->
     <g transform="translate(1320,0)">
       <rect width="408" height="420" rx="10" fill="#FFFFFF" stroke="#C5D0DB" stroke-width="1.5"/>
       <rect width="408" height="8" fill="#0B1F33"/>
       <text x="32" y="56" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14" fill="#0B1F33" font-weight="700" letter-spacing="2">04  IMPROVE</text>
       <text x="32" y="110" font-family="Georgia, 'Times New Roman', serif" font-size="32" fill="#0B1F33">Feedback</text>
-      <text x="32" y="160" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="18" fill="#5A6A7A">
-        <tspan x="32" dy="0">Real post performance</tspan>
-        <tspan x="32" dy="28">feeds back into DNA.</tspan>
-        <tspan x="32" dy="28">Recommendations get</tspan>
-        <tspan x="32" dy="28">sharper over time.</tspan>
-      </text>
+      <text x="32" y="165" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="18" fill="#5A6A7A">Real post performance</text>
+      <text x="32" y="193" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="18" fill="#5A6A7A">feeds back into DNA.</text>
+      <text x="32" y="221" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="18" fill="#5A6A7A">Recommendations get</text>
+      <text x="32" y="249" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="18" fill="#5A6A7A">sharper over time.</text>
       <circle cx="48" cy="340" r="10" fill="#0B1F33"/>
       <text x="72" y="346" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="15" fill="#0B1F33">Close the loop</text>
     </g>
   </g>
-
-  <!-- Footer -->
-  <text x="96" y="1020" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="16" fill="#8A96A3">Architecture poster 01  ·  High-level system overview  ·  aftertake / Creator Twin</text>
-  <text x="1824" y="1020" text-anchor="end" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="16" fill="#8A96A3">Decision layer, not generation mechanics</text>
+<text x="96" y="1020" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="16" fill="#8A96A3">Architecture poster 01  |  System overview  |  aftertake / Creator Twin</text>
 </svg>

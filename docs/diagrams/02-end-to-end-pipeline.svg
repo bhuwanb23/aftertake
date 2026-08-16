@@ -1,122 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#F2F5F8"/>
       <stop offset="100%" stop-color="#E4EAEF"/>
     </linearGradient>
-    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-      <path d="M0,0 L6,3 L0,6 Z" fill="#2E6B9E"/>
-    </marker>
   </defs>
-
   <rect width="1920" height="1080" fill="url(#bg)"/>
   <rect width="1920" height="8" fill="#FF5A36"/>
 
   <text x="96" y="88" font-family="Georgia, 'Times New Roman', serif" font-size="48" font-weight="700" fill="#0B1F33">End-to-End Pipeline</text>
-  <text x="96" y="128" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="20" fill="#5A6A7A">Eleven stages · one orchestrator · logged decisions at every gate</text>
+  <text x="96" y="128" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="20" fill="#5A6A7A">Eleven stages | one orchestrator | logged decisions at every gate</text>
 
-  <!-- Phase labels -->
-  <g font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2">
-    <text x="96" y="190" fill="#FF5A36">PHASE A · PROFILE</text>
-    <text x="520" y="190" fill="#2E6B9E">PHASE B · CREATE</text>
-    <text x="1080" y="190" fill="#00A86B">PHASE C · QUALITY</text>
-    <text x="1480" y="190" fill="#0B1F33">PHASE D · SHIP</text>
-  </g>
+  <text x="96" y="190" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" fill="#FF5A36" font-weight="700" letter-spacing="2">PHASE A - PROFILE</text>
+  <text x="536" y="190" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" fill="#2E6B9E" font-weight="700" letter-spacing="2">PHASE B - CREATE</text>
+  <text x="1636" y="190" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" fill="#00A86B" font-weight="700" letter-spacing="2">GATE</text>
 
-  <!-- Stage boxes helper: row 1 -->
-  <g font-family="Segoe UI, Helvetica, Arial, sans-serif">
-    <!-- S1 -->
     <rect x="96" y="210" width="180" height="100" rx="8" fill="#FFFFFF" stroke="#FF5A36" stroke-width="2"/>
-    <text x="112" y="245" font-size="12" fill="#FF5A36" font-weight="700">STAGE 1</text>
-    <text x="112" y="275" font-size="16" fill="#0B1F33" font-weight="600">Creator DNA</text>
-    <text x="112" y="296" font-size="12" fill="#5A6A7A">Ingest + extract</text>
+    <text x="112" y="245" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12" fill="#FF5A36" font-weight="700">STAGE 1</text>
+    <text x="112" y="275" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="16" fill="#0B1F33" font-weight="600">Creator DNA</text>
+    <text x="112" y="296" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12" fill="#5A6A7A">Ingest + extract</text>
 
-    <!-- S2 -->
     <rect x="316" y="210" width="180" height="100" rx="8" fill="#FFFFFF" stroke="#FF5A36" stroke-width="2"/>
-    <text x="332" y="245" font-size="12" fill="#FF5A36" font-weight="700">STAGE 2</text>
-    <text x="332" y="275" font-size="16" fill="#0B1F33" font-weight="600">Opportunity</text>
-    <text x="332" y="296" font-size="12" fill="#5A6A7A">Next idea + fit</text>
+    <text x="332" y="245" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12" fill="#FF5A36" font-weight="700">STAGE 2</text>
+    <text x="332" y="275" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="16" fill="#0B1F33" font-weight="600">Opportunity</text>
+    <text x="332" y="296" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12" fill="#5A6A7A">Next idea + fit</text>
+<line x1="276" y1="260" x2="308" y2="260" stroke="#2E6B9E" stroke-width="2"/>
+<polygon points="308,254 316,260 308,266" fill="#2E6B9E"/>
 
-    <!-- arrows between -->
-    <line x1="276" y1="260" x2="308" y2="260" stroke="#2E6B9E" stroke-width="2" marker-end="url(#arrow)"/>
-
-    <!-- S3 -->
     <rect x="536" y="210" width="180" height="100" rx="8" fill="#FFFFFF" stroke="#2E6B9E" stroke-width="2"/>
-    <text x="552" y="245" font-size="12" fill="#2E6B9E" font-weight="700">STAGE 3</text>
-    <text x="552" y="275" font-size="16" fill="#0B1F33" font-weight="600">Script Agent</text>
-    <text x="552" y="296" font-size="12" fill="#5A6A7A">Voice + pacing</text>
-    <line x1="496" y1="260" x2="528" y2="260" stroke="#2E6B9E" stroke-width="2" marker-end="url(#arrow)"/>
+    <text x="552" y="245" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12" fill="#2E6B9E" font-weight="700">STAGE 3</text>
+    <text x="552" y="275" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="16" fill="#0B1F33" font-weight="600">Script Agent</text>
+    <text x="552" y="296" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12" fill="#5A6A7A">Voice + pacing</text>
+<line x1="496" y1="260" x2="528" y2="260" stroke="#2E6B9E" stroke-width="2"/>
+<polygon points="528,254 536,260 528,266" fill="#2E6B9E"/>
 
-    <!-- S4 -->
     <rect x="756" y="210" width="180" height="100" rx="8" fill="#FFFFFF" stroke="#2E6B9E" stroke-width="2"/>
-    <text x="772" y="245" font-size="12" fill="#2E6B9E" font-weight="700">STAGE 4</text>
-    <text x="772" y="275" font-size="16" fill="#0B1F33" font-weight="600">Video Render</text>
-    <text x="772" y="296" font-size="12" fill="#5A6A7A">HyperFrames</text>
-    <line x1="716" y1="260" x2="748" y2="260" stroke="#2E6B9E" stroke-width="2" marker-end="url(#arrow)"/>
+    <text x="772" y="245" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12" fill="#2E6B9E" font-weight="700">STAGE 4</text>
+    <text x="772" y="275" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="16" fill="#0B1F33" font-weight="600">Video Render</text>
+    <text x="772" y="296" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12" fill="#5A6A7A">HyperFrames</text>
+<line x1="716" y1="260" x2="748" y2="260" stroke="#2E6B9E" stroke-width="2"/>
+<polygon points="748,254 756,260 748,266" fill="#2E6B9E"/>
 
-    <!-- S5 -->
     <rect x="976" y="210" width="180" height="100" rx="8" fill="#FFFFFF" stroke="#2E6B9E" stroke-width="2"/>
-    <text x="992" y="245" font-size="12" fill="#2E6B9E" font-weight="700">STAGE 5</text>
-    <text x="992" y="275" font-size="16" fill="#0B1F33" font-weight="600">Captions</text>
-    <text x="992" y="296" font-size="12" fill="#5A6A7A">Whisper + burn-in</text>
-    <line x1="936" y1="260" x2="968" y2="260" stroke="#2E6B9E" stroke-width="2" marker-end="url(#arrow)"/>
+    <text x="992" y="245" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12" fill="#2E6B9E" font-weight="700">STAGE 5</text>
+    <text x="992" y="275" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="16" fill="#0B1F33" font-weight="600">Captions</text>
+    <text x="992" y="296" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12" fill="#5A6A7A">Whisper + burn-in</text>
+<line x1="936" y1="260" x2="968" y2="260" stroke="#2E6B9E" stroke-width="2"/>
+<polygon points="968,254 976,260 968,266" fill="#2E6B9E"/>
 
-    <!-- S6 -->
     <rect x="1196" y="210" width="180" height="100" rx="8" fill="#FFFFFF" stroke="#2E6B9E" stroke-width="2"/>
-    <text x="1212" y="245" font-size="12" fill="#2E6B9E" font-weight="700">STAGE 6</text>
-    <text x="1212" y="275" font-size="16" fill="#0B1F33" font-weight="600">Thumbnails</text>
-    <text x="1212" y="296" font-size="12" fill="#5A6A7A">SVG ’ PNG</text>
-    <line x1="1156" y1="260" x2="1188" y2="260" stroke="#2E6B9E" stroke-width="2" marker-end="url(#arrow)"/>
+    <text x="1212" y="245" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12" fill="#2E6B9E" font-weight="700">STAGE 6</text>
+    <text x="1212" y="275" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="16" fill="#0B1F33" font-weight="600">Thumbnails</text>
+    <text x="1212" y="296" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12" fill="#5A6A7A">SVG to PNG</text>
+<line x1="1156" y1="260" x2="1188" y2="260" stroke="#2E6B9E" stroke-width="2"/>
+<polygon points="1188,254 1196,260 1188,266" fill="#2E6B9E"/>
 
-    <!-- S7 -->
     <rect x="1416" y="210" width="180" height="100" rx="8" fill="#FFFFFF" stroke="#2E6B9E" stroke-width="2"/>
-    <text x="1432" y="245" font-size="12" fill="#2E6B9E" font-weight="700">STAGE 7</text>
-    <text x="1432" y="275" font-size="16" fill="#0B1F33" font-weight="600">Metadata</text>
-    <text x="1432" y="296" font-size="12" fill="#5A6A7A">Title / SEO</text>
-    <line x1="1376" y1="260" x2="1408" y2="260" stroke="#2E6B9E" stroke-width="2" marker-end="url(#arrow)"/>
+    <text x="1432" y="245" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12" fill="#2E6B9E" font-weight="700">STAGE 7</text>
+    <text x="1432" y="275" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="16" fill="#0B1F33" font-weight="600">Metadata</text>
+    <text x="1432" y="296" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12" fill="#5A6A7A">Title / SEO</text>
+<line x1="1376" y1="260" x2="1408" y2="260" stroke="#2E6B9E" stroke-width="2"/>
+<polygon points="1408,254 1416,260 1408,266" fill="#2E6B9E"/>
+  <rect x="1636" y="210" width="188" height="100" rx="8" fill="#0B1F33" stroke="#00A86B" stroke-width="3"/>
+  <text x="1652" y="245" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12" fill="#00A86B" font-weight="700">STAGE 8</text>
+  <text x="1652" y="275" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="16" fill="#FFFFFF" font-weight="600">Style-Fit Gate</text>
+  <text x="1652" y="296" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12" fill="#A8C5B8">Pass or regenerate</text>
+  <line x1="1596" y1="260" x2="1628" y2="260" stroke="#2E6B9E" stroke-width="2"/>
+  <polygon points="1628,254 1636,260 1628,266" fill="#2E6B9E"/>
 
-    <!-- S8 style gate - highlighted -->
-    <rect x="1636" y="210" width="188" height="100" rx="8" fill="#0B1F33" stroke="#00A86B" stroke-width="3"/>
-    <text x="1652" y="245" font-size="12" fill="#00A86B" font-weight="700">STAGE 8</text>
-    <text x="1652" y="275" font-size="16" fill="#FFFFFF" font-weight="600">Style-Fit Gate</text>
-    <text x="1652" y="296" font-size="12" fill="#A8C5B8">Pass or regenerate</text>
-    <line x1="1596" y1="260" x2="1628" y2="260" stroke="#2E6B9E" stroke-width="2" marker-end="url(#arrow)"/>
-  </g>
-
-  <!-- Reject loop callout -->
   <path d="M1730,320 L1730,400 L1300,400 L1300,320" fill="none" stroke="#E85D04" stroke-width="2" stroke-dasharray="6 4"/>
-  <text x="1380" y="390" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14" fill="#E85D04" font-weight="700">REJECT ’ regenerate thumbnails / metadata</text>
+  <text x="1340" y="390" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14" fill="#E85D04" font-weight="700">REJECT -&gt; regenerate thumbnails / metadata</text>
 
-  <!-- Bottom stages -->
-  <g font-family="Segoe UI, Helvetica, Arial, sans-serif">
-    <rect x="536" y="460" width="240" height="110" rx="8" fill="#FFFFFF" stroke="#0B1F33" stroke-width="2"/>
-    <text x="556" y="500" font-size="12" fill="#0B1F33" font-weight="700">STAGE 9</text>
-    <text x="556" y="530" font-size="18" fill="#0B1F33" font-weight="600">Dashboard</text>
-    <text x="556" y="552" font-size="13" fill="#5A6A7A">Preview + decision log</text>
+  <rect x="536" y="460" width="240" height="110" rx="8" fill="#FFFFFF" stroke="#0B1F33" stroke-width="2"/>
+  <text x="556" y="500" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12" fill="#0B1F33" font-weight="700">STAGE 9</text>
+  <text x="556" y="530" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="18" fill="#0B1F33" font-weight="600">Dashboard</text>
+  <text x="556" y="552" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" fill="#5A6A7A">Preview + decision log</text>
 
-    <rect x="840" y="460" width="240" height="110" rx="8" fill="#FFFFFF" stroke="#0B1F33" stroke-width="2"/>
-    <text x="860" y="500" font-size="12" fill="#0B1F33" font-weight="700">STAGE 10</text>
-    <text x="860" y="530" font-size="18" fill="#0B1F33" font-weight="600">Schedule / Publish</text>
-    <text x="860" y="552" font-size="13" fill="#5A6A7A">Platform APIs</text>
+  <rect x="840" y="460" width="240" height="110" rx="8" fill="#FFFFFF" stroke="#0B1F33" stroke-width="2"/>
+  <text x="860" y="500" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12" fill="#0B1F33" font-weight="700">STAGE 10</text>
+  <text x="860" y="530" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="18" fill="#0B1F33" font-weight="600">Schedule / Publish</text>
+  <text x="860" y="552" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" fill="#5A6A7A">Platform APIs</text>
 
-    <rect x="1144" y="460" width="240" height="110" rx="8" fill="#FFFFFF" stroke="#0B1F33" stroke-width="2" stroke-dasharray="5 3"/>
-    <text x="1164" y="500" font-size="12" fill="#0B1F33" font-weight="700">STAGE 11 · STRETCH</text>
-    <text x="1164" y="530" font-size="18" fill="#0B1F33" font-weight="600">Feedback Loop</text>
-    <text x="1164" y="552" font-size="13" fill="#5A6A7A">Performance ’ DNA</text>
+  <rect x="1144" y="460" width="240" height="110" rx="8" fill="#FFFFFF" stroke="#0B1F33" stroke-width="2" stroke-dasharray="5 3"/>
+  <text x="1164" y="500" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12" fill="#0B1F33" font-weight="700">STAGE 11 - STRETCH</text>
+  <text x="1164" y="530" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="18" fill="#0B1F33" font-weight="600">Feedback Loop</text>
+  <text x="1164" y="552" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" fill="#5A6A7A">Performance -&gt; DNA</text>
 
-    <line x1="1730" y1="310" x2="1730" y2="515" stroke="#2E6B9E" stroke-width="2"/>
-    <line x1="1730" y1="515" x2="1384" y2="515" stroke="#2E6B9E" stroke-width="2" marker-end="url(#arrow)"/>
-    <line x1="776" y1="515" x2="832" y2="515" stroke="#2E6B9E" stroke-width="2" marker-end="url(#arrow)"/>
-    <line x1="1080" y1="515" x2="1136" y2="515" stroke="#2E6B9E" stroke-width="2" marker-end="url(#arrow)"/>
-  </g>
+  <line x1="1730" y1="310" x2="1730" y2="515" stroke="#2E6B9E" stroke-width="2"/>
+  <line x1="1730" y1="515" x2="1384" y2="515" stroke="#2E6B9E" stroke-width="2"/>
+  <line x1="776" y1="515" x2="832" y2="515" stroke="#2E6B9E" stroke-width="2"/>
+  <line x1="1080" y1="515" x2="1136" y2="515" stroke="#2E6B9E" stroke-width="2"/>
 
-  <!-- Orchestrator bar -->
   <rect x="96" y="640" width="1728" height="140" rx="10" fill="#0B1F33"/>
   <text x="128" y="690" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14" fill="#FF5A36" font-weight="700" letter-spacing="2">ORCHESTRATOR</text>
-  <text x="128" y="730" font-family="Georgia, 'Times New Roman', serif" font-size="28" fill="#FFFFFF">Single agent / state machine * calls each stage as a tool</text>
-  <text x="128" y="770" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="16" fill="#A8B0BC">Logs every decision with a short rationale · including reject ’ regenerate cycles · best demo moment</text>
+  <text x="128" y="730" font-family="Georgia, 'Times New Roman', serif" font-size="28" fill="#FFFFFF">Single agent / state machine -- calls each stage as a tool</text>
+  <text x="128" y="770" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="16" fill="#A8B0BC">Logs every decision with a short rationale, including reject/regenerate cycles -- best demo moment</text>
 
-  <!-- Input callout -->
   <rect x="96" y="820" width="520" height="80" rx="8" fill="#FFFFFF" stroke="#C5D0DB"/>
   <text x="120" y="855" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14" fill="#5A6A7A">INPUT</text>
   <text x="120" y="880" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="18" fill="#0B1F33" font-weight="600">Creator connects channel / catalog sample</text>
@@ -127,7 +108,6 @@
 
   <rect x="1200" y="820" width="624" height="80" rx="8" fill="#FFFFFF" stroke="#00A86B" stroke-width="2"/>
   <text x="1224" y="855" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14" fill="#00A86B">DIFFERENTIATOR</text>
-  <text x="1224" y="880" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="18" fill="#0B1F33" font-weight="600">Style-fit gate * judgment, not a fixed script</text>
-
-  <text x="96" y="980" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="16" fill="#8A96A3">Architecture poster 02  ·  End-to-end pipeline  ·  aftertake / Creator Twin</text>
+  <text x="1224" y="880" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="18" fill="#0B1F33" font-weight="600">Style-fit gate -- judgment, not a fixed script</text>
+<text x="96" y="980" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="16" fill="#8A96A3">Architecture poster 02  |  End-to-end pipeline  |  aftertake / Creator Twin</text>
 </svg>
