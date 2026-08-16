@@ -4,11 +4,11 @@
   "bgm": {
     "path": "assets/bgm/track.wav",
     "volume": 0.12,
-    "mode": "detached-seed-loop",
-    "duration_s": null
+    "mode": "ffmpeg-ambient",
+    "duration_s": 43
   },
-  "bgm_pending": true,
-  "bgm_provider": "musicgen",
+  "bgm_pending": false,
+  "bgm_provider": "ffmpeg",
   "bgm_pid": 23872,
   "bgm_log": "D:\\projects\\website\\aftertake\\videos\\creator-twin-demo\\assets\\bgm\\bgm-1786900877809.log",
   "bgm_mode": "detached-seed-loop",
