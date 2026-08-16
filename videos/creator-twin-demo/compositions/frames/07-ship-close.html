@@ -1,0 +1,120 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+      font-family: Georgia, "Times New Roman", serif;
+      color: #0b1f33;
+      background: #f2f5f8;
+    }
+    .bg { position: absolute; inset: 0; background: #f2f5f8; }
+    .tiles {
+      position: absolute;
+      left: 160px;
+      top: 140px;
+      display: flex;
+      gap: 24px;
+    }
+    .tile {
+      width: 360px;
+      height: 200px;
+      background: #fff;
+      border: 1.5px solid rgba(11, 31, 51, 0.12);
+      border-radius: 14px;
+      padding: 28px;
+    }
+    .tile .k {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #5a6a7a;
+      margin-bottom: 14px;
+    }
+    .tile .v {
+      font-size: 30px;
+      font-weight: 600;
+    }
+    .publish {
+      position: absolute;
+      left: 50%;
+      top: 400px;
+      transform: translateX(-50%);
+      background: #ff5a36;
+      color: #fff;
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 22px 64px;
+      border-radius: 100px;
+    }
+    .lockup {
+      position: absolute;
+      left: 50%;
+      top: 560px;
+      transform: translateX(-50%);
+      text-align: center;
+      width: 1400px;
+    }
+    .brand {
+      font-size: 72px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 18px;
+    }
+    .tag {
+      font-size: 28px;
+      color: #5a6a7a;
+      line-height: 1.35;
+    }
+    .tag .accent { color: #ff5a36; font-weight: 600; }
+    .glow {
+      position: absolute;
+      width: 640px;
+      height: 640px;
+      left: 50%;
+      top: 520px;
+      transform: translate(-50%, -40%);
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,90,54,0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+  </style>
+
+  <div id="root" data-composition-id="07-ship-close" data-width="1920" data-height="1080">
+    <div class="bg clip" data-start="0" data-duration="6.613" data-track-index="0"></div>
+    <div class="glow" id="glow"></div>
+    <div class="tiles">
+      <div class="tile" id="d1"><div class="k">Dashboard</div><div class="v">Preview ready</div></div>
+      <div class="tile" id="d2"><div class="k">Schedule</div><div class="v">Queued to publish</div></div>
+      <div class="tile" id="d3"><div class="k">Decision log</div><div class="v">Full audit trail</div></div>
+    </div>
+    <div class="publish" id="pub">Publish</div>
+    <div class="lockup" id="lockup">
+      <div class="brand">Creator Twin</div>
+      <div class="tag">Decide what to make — and whether it is <span class="accent">actually you</span>.</div>
+    </div>
+  </div>
+
+  <script>
+    window.__timelines = window.__timelines || {};
+    const tl = gsap.timeline({ paused: true });
+    gsap.set(["#d1", "#d2", "#d3"], { opacity: 0, y: 24 });
+    gsap.set("#pub", { opacity: 0, scale: 0.9 });
+    gsap.set("#lockup", { opacity: 0, y: 20 });
+    gsap.set("#glow", { opacity: 0, scale: 0.75 });
+    tl.to("#d1", { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, 0.15);
+    tl.to("#d2", { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, 0.35);
+    tl.to("#d3", { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, 0.55);
+    tl.to("#pub", { opacity: 1, scale: 1, duration: 0.45, ease: "back.out(1.5)" }, 2.0);
+    tl.to("#pub", { scale: 0.96, duration: 0.12, yoyo: true, repeat: 1, ease: "power2.inOut" }, 2.6);
+    tl.to(["#d1", "#d2", "#d3", "#pub"], { opacity: 0.15, duration: 0.4, ease: "power2.out" }, 4.0);
+    tl.to("#lockup", { opacity: 1, y: 0, duration: 0.55, ease: "power3.out" }, 4.2);
+    tl.to("#glow", { opacity: 1, scale: 1, duration: 0.7, ease: "power2.out" }, 4.4);
+    window.__timelines["07-ship-close"] = tl;
+  </script>
+</template>

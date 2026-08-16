@@ -1,0 +1,19 @@
+{
+  "generated_at": "2026-08-16T17:27:25.304Z",
+  "enabled": true,
+  "provider": "musicgen",
+  "mode": "detached-seed-loop",
+  "path": "assets/bgm/track.wav",
+  "log": "D:\\projects\\website\\aftertake\\videos\\creator-twin-demo\\assets\\bgm\\bgm-1786900877809.log",
+  "pid": 23872,
+  "target_duration_s": 42.965,
+  "seed_duration_s": 28,
+  "loop_count": 2,
+  "timeout_ms": 120000,
+  "status": "timeout",
+  "ready": false,
+  "waited_ms": 120004,
+  "process_alive": true,
+  "message": "Timed out waiting for assets/bgm/track.wav; assemble-index will skip BGM if still absent.",
+  "log_tail": "Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\r\n[transformers] Model config: pad_token_id must be `None` or an integer within the vocabulary (between 0 and 2047), got 2048. This may result in unexpected behavior.\r\n[transformers] Model config: bos_token_id must be `None` or an integer within the vocabulary (between 0 and 2047), got 2048. This may result in unexpected behavior.\r\n"
+}
