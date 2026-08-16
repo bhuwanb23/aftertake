@@ -1,0 +1,36 @@
+Creator Twin — A Personalized, Self-Improving Content Decision Engine
+
+PITCH
+Creator Twin doesn't generate generic AI content — it learns a specific creator's actual voice, thumbnail style, and title formula from their existing catalog and real performance data, then acts as their editorial brain: deciding what to make next (not just how), generating it in their established style, and gating every asset through a style-fit check before it can ship. After publishing, it closes the loop — real performance feeds back into the profile, so recommendations get sharper over time.
+
+WHY NOT TOPIC-IN VIDEO-OUT
+The generate-a-video-from-a-topic-and-auto-publish pattern is already solved. What none of those tools do:
+- Learn a specific creator's established voice/style from their own catalog
+- Decide what to make next based on the creator's own performance data
+- Close the loop — use real post-performance to improve future decisions
+
+Creator Twin reuses execution mechanics (HyperFrames for video, SVG to PNG for thumbnails, an orchestrator) but innovates on the decision layer.
+
+PROBLEM
+Creators lose hours per video to repetitive work. Existing automation produces generic output with no judgment about brand fit or whether it's the right thing to make next.
+
+END-TO-END FLOW
+1. Creator DNA Agent — ingest titles, transcripts, thumbnails, performance; extract tone, hooks, title formula, thumbnail style
+2. Opportunity Agent — cross DNA with niche trends; recommend next ideas with fit score and rationale
+3. Script Agent — write script in learned voice/pacing
+4. Video Render — HyperFrames HTML to MP4
+5. Captions — Whisper burn-in
+6. Thumbnail Agent — SVG to PNG following thumbnail_style
+7. Metadata / SEO — title formula, not generic templates
+8. Style-Fit Scorer — quality gate; reject and regenerate below threshold
+9. Dashboard — preview, decision log, schedule
+10. Schedule / Publish — platform APIs
+11. Feedback Loop — performance back into DNA
+
+Orchestrator is a state machine that calls each stage as a tool and logs every decision with rationale — including reject/regenerate cycles.
+
+STACK
+Claude API orchestrator, HyperFrames, faster-whisper, TTS, SVG to PNG, FastAPI, Next.js dashboard, SQLite, YouTube Data API.
+
+DIFFERENTIATOR
+Every comparable repo automates making content. Creator Twin automates deciding what to make and whether it's actually you.
