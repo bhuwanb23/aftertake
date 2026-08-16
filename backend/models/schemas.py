@@ -207,3 +207,18 @@ class Metadata(BaseModel):
     category: str = ""
     scheduled_publish_time: str | None = None  # ISO timestamp, null until scheduled
     platform_targets: list[str] = ["youtube"]
+
+
+# --- Schema 7: Quality Score ------------------------------------------------
+class QualityScore(BaseModel):
+    """The scorer agent's evaluation of a generated asset against the creator's
+    DNA profile. Rule: passed == (overall_score >= threshold_used)."""
+    asset_id: str
+    overall_score: float = Field(ge=0.0, le=1.0, description="Weighted composite of the dimension scores")
+    thumbnail_fit_score: float = Field(ge=0.0, le=1.0)
+    title_fit_score: float = Field(ge=0.0, le=1.0)
+    voice_fit_score: float = Field(ge=0.0, le=1.0)
+    passed: bool = False
+    threshold_used: float = Field(default=0.75, ge=0.0, le=1.0)
+    rejection_reason: str | None = None  # set only when passed is False
+    regeneration_count: int = Field(default=0, ge=0, le=2, description="Max 2 — the retry cap")
