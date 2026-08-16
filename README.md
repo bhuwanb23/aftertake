@@ -12,6 +12,26 @@ AfterTake conditions every decision and every generated asset on the creator's
 own learned profile — the innovation is the decision layer, not the generation
 mechanics.
 
+## Phase 0 Lock
+
+**MVP sentence** — A creator seeds their past content catalog, the system learns
+their unique voice and style from real performance data, recommends what to make
+next with a rationale tied to their actual best-performing content traits,
+generates a script and thumbnail in that learned style, scores it against their
+profile through a quality gate that can reject and regenerate, and presents the
+full decision log alongside the output before publishing.
+
+**Differentiation** — Every comparable tool takes a topic as input and generates
+generic content. AfterTake takes a specific creator's own catalog and performance
+history, learns what makes them distinctive and what has actually worked, and
+uses that profile to decide what to make next and whether the output actually
+sounds and looks like them — not like generic AI.
+
+**Never cut** — the DNA agent producing a real profile from the seed catalog; the
+opportunity recommendation with a rationale tied to the profile; the scorer's
+live reject/regenerate cycle visible in the decision log; the decision log shown
+in the UI with stage-by-stage reasoning.
+
 ## Run Instructions
 
 ### Database (Phase 0)
