@@ -268,3 +268,23 @@ class GeneratedAsset(BaseModel):
     metadata: Metadata | None = None
     quality_score: QualityScore | None = None  # null until the scorer has run
     pipeline_run_id: str = ""
+
+
+# --- Schema 10: Pipeline Run ------------------------------------------------
+class PipelineRun(BaseModel):
+    """One complete end-to-end execution of the pipeline — the container that
+    links all other objects from one run together. Polled by the dashboard via
+    /pipeline/{run_id}/status."""
+    id: str
+    creator_id: str
+    started_at: str  # ISO timestamp
+    completed_at: str | None = None  # null while the run is in progress
+    status: str = "running"  # running | complete | failed | partial
+    current_stage: str = ""  # updated in real time; drives the PipelineProgress UI
+    opportunity_id: str | None = None  # null until the opportunity agent selects one
+    asset_id: str | None = None  # null until generation completes
+    stages_completed: list[str] = []  # ordered
+    stages_failed: list[str] = []
+    total_duration_seconds: float | None = None  # null until the run completes
+    total_llm_calls: int = 0
+    regeneration_count: int = 0
