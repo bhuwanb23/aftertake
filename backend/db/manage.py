@@ -56,7 +56,7 @@ def cmd_inspect(_args):
         "SELECT name FROM sqlite_master WHERE type='table' AND name NOT LIKE 'sqlite_%' ORDER BY name"
     ).fetchall()
     if not rows:
-        print(f"No tables yet at {database.database_path()} — run `init` first.")
+        print(f"No tables yet at {database.database_path()} - run `init` first.")
     for r in rows:
         t = r["name"]
         n = conn.execute(f"SELECT COUNT(*) AS c FROM {t}").fetchone()["c"]
