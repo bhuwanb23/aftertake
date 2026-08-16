@@ -241,3 +241,30 @@ class DecisionLogEntry(BaseModel):
     output_summary: str = ""
     score: float | None = None  # null for stages that don't produce a score
     status: str = "success"  # success | rejected | regenerated | failed
+
+
+# --- Schema 9: Generated Asset ---------------------------------------------
+class VideoInfo(BaseModel):
+    """Render state of the asset's video. file_path/duration_seconds are null
+    until rendering is complete."""
+    file_path: str | None = None
+    duration_seconds: int | None = None
+    resolution: str = "1920x1080"
+    has_captions: bool = False
+    render_status: str = "pending"  # pending | rendering | complete | failed
+
+
+class GeneratedAsset(BaseModel):
+    """The complete production package for one piece of content. The DB stores
+    script_id/metadata_id refs and thumbnails/quality_score keyed by asset_id;
+    this model carries the assembled full objects."""
+    id: str
+    opportunity_id: str
+    creator_id: str
+    created_at: str = ""  # ISO timestamp
+    script: Script | None = None
+    video: VideoInfo = VideoInfo()
+    thumbnails: list[ThumbnailVariant] = []
+    metadata: Metadata | None = None
+    quality_score: QualityScore | None = None  # null until the scorer has run
+    pipeline_run_id: str = ""
