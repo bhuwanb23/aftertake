@@ -1,0 +1,106 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+      font-family: Georgia, "Times New Roman", serif;
+      color: #0b1f33;
+      background: #f2f5f8;
+    }
+    .bg {
+      position: absolute;
+      inset: 0;
+      background: #f2f5f8;
+    }
+    .label {
+      position: absolute;
+      top: 72px;
+      left: 96px;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #ff5a36;
+    }
+    .title {
+      position: absolute;
+      top: 110px;
+      left: 96px;
+      font-size: 56px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    .cards {
+      position: absolute;
+      left: 96px;
+      top: 240px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      width: 880px;
+    }
+    .card {
+      background: #ffffff;
+      border: 1.5px solid rgba(11, 31, 51, 0.12);
+      border-radius: 14px;
+      padding: 28px 32px;
+      min-height: 140px;
+    }
+    .card .k {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #ff5a36;
+      margin-bottom: 12px;
+    }
+    .card .v {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+    .poster {
+      position: absolute;
+      right: 72px;
+      top: 180px;
+      width: 760px;
+      height: 520px;
+      object-fit: cover;
+      border-radius: 14px;
+      border: 1.5px solid rgba(11, 31, 51, 0.12);
+      box-shadow: none;
+    }
+  </style>
+
+  <div id="root" data-composition-id="02-creator-dna" data-width="1920" data-height="1080">
+    <div class="bg clip" data-start="0" data-duration="5.867" data-track-index="0"></div>
+    <div class="label" id="label">Stage 01 · Learn</div>
+    <div class="title" id="title">Creator DNA</div>
+    <img class="poster" id="poster" src="assets/01-system-overview.png" alt="" />
+    <div class="cards">
+      <div class="card" id="c1"><div class="k">Trait</div><div class="v">Voice</div></div>
+      <div class="card" id="c2"><div class="k">Trait</div><div class="v">Hooks</div></div>
+      <div class="card" id="c3"><div class="k">Trait</div><div class="v">Title formula</div></div>
+      <div class="card" id="c4"><div class="k">Trait</div><div class="v">Thumbnail style</div></div>
+    </div>
+  </div>
+
+  <script>
+    window.__timelines = window.__timelines || {};
+    const tl = gsap.timeline({ paused: true });
+    gsap.set(["#label", "#title"], { opacity: 0, y: 18 });
+    gsap.set("#poster", { opacity: 0, x: 40 });
+    gsap.set(["#c1", "#c2", "#c3", "#c4"], { opacity: 0, y: 36, scale: 0.94 });
+    tl.to("#label", { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, 0.05);
+    tl.to("#title", { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, 0.2);
+    tl.to("#poster", { opacity: 1, x: 0, duration: 0.6, ease: "power3.out" }, 0.35);
+    tl.to("#c1", { opacity: 1, y: 0, scale: 1, duration: 0.45, ease: "power3.out" }, 1.2);
+    tl.to("#c2", { opacity: 1, y: 0, scale: 1, duration: 0.45, ease: "power3.out" }, 1.45);
+    tl.to("#c3", { opacity: 1, y: 0, scale: 1, duration: 0.45, ease: "power3.out" }, 1.7);
+    tl.to("#c4", { opacity: 1, y: 0, scale: 1, duration: 0.45, ease: "power3.out" }, 1.95);
+    window.__timelines["02-creator-dna"] = tl;
+  </script>
+</template>

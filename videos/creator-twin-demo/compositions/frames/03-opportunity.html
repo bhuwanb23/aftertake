@@ -1,0 +1,130 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+      font-family: Georgia, "Times New Roman", serif;
+      color: #0b1f33;
+    }
+    .bg-clip { position: absolute; inset: 0; }
+    .bg-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.28;
+    }
+    .veil {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, #f2f5f8 0%, rgba(242,245,248,0.94) 58%, rgba(242,245,248,0.7) 100%);
+    }
+    .score-wrap {
+      position: absolute;
+      left: 160px;
+      top: 220px;
+      width: 420px;
+      text-align: center;
+    }
+    .score-label {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #2e6b9e;
+      margin-bottom: 16px;
+    }
+    .ring {
+      width: 260px;
+      height: 260px;
+      margin: 0 auto 12px;
+      border-radius: 50%;
+      border: 10px solid rgba(46, 107, 158, 0.2);
+      border-top-color: #2e6b9e;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .num {
+      font-size: 88px;
+      font-weight: 700;
+      color: #ff5a36;
+      font-variant-numeric: tabular-nums;
+    }
+    .card {
+      position: absolute;
+      right: 120px;
+      top: 280px;
+      width: 780px;
+      background: #fff;
+      border: 1.5px solid rgba(11, 31, 51, 0.12);
+      border-radius: 14px;
+      padding: 36px 40px;
+    }
+    .card .k {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #ff5a36;
+      margin-bottom: 14px;
+    }
+    .card .v {
+      font-size: 34px;
+      font-weight: 600;
+      line-height: 1.25;
+      margin-bottom: 18px;
+    }
+    .card .r {
+      font-size: 22px;
+      color: #5a6a7a;
+      line-height: 1.4;
+    }
+  </style>
+
+  <div id="root" data-composition-id="03-opportunity" data-width="1920" data-height="1080">
+    <div class="bg-clip clip" data-start="0" data-duration="5.888" data-track-index="0">
+      <img class="bg-img" src="assets/02-end-to-end-pipeline.png" alt="" />
+      <div class="veil"></div>
+    </div>
+    <div class="score-wrap" id="score">
+      <div class="score-label">Fit score</div>
+      <div class="ring" id="ring"><div class="num" id="num">0</div></div>
+    </div>
+    <div class="card" id="card">
+      <div class="k">Opportunity</div>
+      <div class="v">Next: Retention Hooks That Match Your Top CTR Traits</div>
+      <div class="r" id="rationale">Rationale tied to your own best-performing DNA — not generic trend-chasing.</div>
+    </div>
+  </div>
+
+  <script>
+    window.__timelines = window.__timelines || {};
+    const tl = gsap.timeline({ paused: true });
+    const state = { n: 0 };
+    gsap.set("#score", { opacity: 0, scale: 0.9 });
+    gsap.set("#card", { opacity: 0, x: 60 });
+    gsap.set("#rationale", { opacity: 0, y: 10 });
+    tl.to("#score", { opacity: 1, scale: 1, duration: 0.5, ease: "power3.out" }, 0.15);
+    tl.to(
+      state,
+      {
+        n: 87,
+        duration: 2.0,
+        ease: "power2.out",
+        onUpdate: () => {
+          document.querySelector("#num").textContent = String(Math.round(state.n));
+        },
+      },
+      1.4
+    );
+    tl.to("#ring", { rotation: 360, duration: 2.0, ease: "power2.out" }, 1.4);
+    tl.to("#card", { opacity: 1, x: 0, duration: 0.55, ease: "power3.out" }, 2.4);
+    tl.to("#rationale", { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, 3.8);
+    window.__timelines["03-opportunity"] = tl;
+  </script>
+</template>
