@@ -222,3 +222,22 @@ class QualityScore(BaseModel):
     threshold_used: float = Field(default=0.75, ge=0.0, le=1.0)
     rejection_reason: str | None = None  # set only when passed is False
     regeneration_count: int = Field(default=0, ge=0, le=2, description="Max 2 — the retry cap")
+
+
+# --- Schema 8: Decision Log Entry -------------------------------------------
+class DecisionLogEntry(BaseModel):
+    """One recorded decision by the orchestrator at any pipeline stage. The full
+    set for one run is the decision log — the demo's most important output.
+    rationale is a readable explanation of the agent's reasoning, not a
+    technical log; it must reference the creator's DNA profile where relevant."""
+    id: str
+    pipeline_run_id: str
+    creator_id: str
+    timestamp: str  # ISO timestamp
+    stage: str  # dna_agent | opportunity_agent | script_agent | thumbnail_agent | metadata_agent | scorer | regenerate | publish
+    decision: str  # plain language, 1-2 sentences
+    rationale: str = ""
+    input_summary: str = ""
+    output_summary: str = ""
+    score: float | None = None  # null for stages that don't produce a score
+    status: str = "success"  # success | rejected | regenerated | failed
