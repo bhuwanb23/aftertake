@@ -37,7 +37,8 @@
       font-family: Montserrat, sans-serif;
       font-weight: 800;
       font-size: 120px;
-      color: rgba(243, 238, 230, 0.04);
+      color: #5E636C;
+      -webkit-text-fill-color: #5E636C;
       letter-spacing: 0.12em;
     }
     .grain {
@@ -124,12 +125,12 @@
     <div class="clip" id="atmosphere" data-start="0" data-duration="8.905" data-track-index="0">
       <div class="grid"></div>
       <div class="radial" id="radial"></div>
-      <div class="ghost">GATE</div>
+      <div class="ghost" data-layout-allow-overflow data-layout-allow-occlusion data-layout-allow-overlap>GATE</div>
       <div class="grain"></div>
     </div>
     <div class="center" id="center">
       <div class="label">Stage 08 Â· Style-Fit Gate</div>
-      <div class="score" id="score">0.00</div>
+      <div class="score" id="score" data-layout-allow-overlap>0.00</div>
       <div class="badge reject" id="badgeReject">Rejected</div>
       <div class="badge pass" id="badgePass" style="opacity:0; position:absolute; left:50%; transform:translateX(-50%); margin-top:20px;">Passed</div>
     </div>

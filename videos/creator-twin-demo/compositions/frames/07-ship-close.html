@@ -37,7 +37,8 @@
       font-family: Montserrat, sans-serif;
       font-weight: 800;
       font-size: 200px;
-      color: rgba(243, 238, 230, 0.035);
+      color: #5E636C;
+      -webkit-text-fill-color: #5E636C;
       letter-spacing: -0.04em;
       white-space: nowrap;
     }
@@ -122,7 +123,7 @@
     <div class="clip" id="atmosphere" data-start="0" data-duration="6.251" data-track-index="0">
       <div class="grid"></div>
       <div class="radial" id="radial"></div>
-      <div class="ghost">AFTERTAKE</div>
+      <div class="ghost" data-layout-allow-overflow data-layout-allow-occlusion data-layout-allow-overlap>AFTERTAKE</div>
       <div class="grain"></div>
     </div>
     <div class="tiles">
@@ -131,8 +132,8 @@
       <div class="tile" id="d3"><div class="k">Decision log</div><div class="v">Full audit trail</div></div>
     </div>
     <div class="publish" id="pub">Publish</div>
-    <div class="lockup" id="lockup">
-      <div class="brand">Aftertake</div>
+    <div class="lockup" id="lockup" data-layout-allow-overlap>
+      <div class="brand" data-layout-allow-overlap>Aftertake</div>
       <div class="tag">Decide what to make â€” and whether it is <span class="accent">actually you</span>.</div>
     </div>
   </div>
