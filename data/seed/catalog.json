@@ -1,0 +1,197 @@
+{
+  "creator_id": "creator_001",
+  "videos": [
+    {
+      "id": "sv_001",
+      "title": "I Used Notion for 30 Days — Here's What Actually Happened",
+      "description": "",
+      "transcript": "So I gave Notion an honest 30 days. Not a weekend, not a quick test — 30 full days of actually using it for everything. And here is what nobody tells you: the first week is painful, the second week is boring, and somewhere in week three it actually clicks. By day 30 I knew exactly whether it was worth it.",
+      "duration_seconds": 487,
+      "published_at": "2024-01-15",
+      "platform": "youtube",
+      "performance": {
+        "views": 420000,
+        "likes": 18400,
+        "comments": 1240,
+        "shares": null,
+        "ctr": 9.2,
+        "avg_retention": 58.0,
+        "watch_time_hours": 32954.0
+      },
+      "thumbnail": {
+        "url": "",
+        "description": "Orange solid background. Creator standing center-left, looking directly into camera with a surprised expression, mouth slightly open, eyebrows raised. Bold white text in the top right corner reading '30 DAYS' in very large letters. Smaller white text below reading 'WAS IT WORTH IT?'. Creator is holding a laptop with the Notion logo visible on screen."
+      },
+      "tags": ["notion", "productivity", "30 day challenge", "note taking app", "organization", "notion review", "productivity tools 2024", "notion tutorial"],
+      "category": "Science & Technology"
+    },
+    {
+      "id": "sv_002",
+      "title": "5 Chrome Extensions That Saved Me 3 Hours a Week",
+      "description": "",
+      "transcript": "I tracked my time for 3 weeks. These 5 extensions came out of that. I am not guessing — I measured the actual time saved. Each one of these saved me at least 20 minutes a day, and three of them completely changed how I work.",
+      "duration_seconds": 324,
+      "published_at": "2024-01-29",
+      "platform": "youtube",
+      "performance": {
+        "views": 380000,
+        "likes": 16200,
+        "comments": 890,
+        "shares": null,
+        "ctr": 8.7,
+        "avg_retention": 61.0,
+        "watch_time_hours": 20862.0
+      },
+      "thumbnail": {
+        "url": "",
+        "description": "Dark blue solid background. Five Chrome extension icons arranged in a clean grid on the right half of the frame. Creator face on the left half, looking excited with eyebrows raised. Bold white text at the top center reading '5 TOOLS' in all caps. No props, no graphic elements, clean layout."
+      },
+      "tags": ["chrome extensions", "productivity", "browser tools", "time saving", "productivity hacks", "work smarter", "chrome tips"],
+      "category": "Science & Technology"
+    },
+    {
+      "id": "sv_003",
+      "title": "Why I Stopped Using Todoist (And What I Use Instead)",
+      "description": "",
+      "transcript": "For two years Todoist was my system. Then one morning I realized I was spending more time managing the app than actually doing the work. Here is why I stopped, and the tool I switched to instead.",
+      "duration_seconds": 412,
+      "published_at": "2024-02-12",
+      "platform": "youtube",
+      "performance": {
+        "views": 95000,
+        "likes": 3800,
+        "comments": 420,
+        "shares": null,
+        "ctr": 5.1,
+        "avg_retention": 44.0,
+        "watch_time_hours": 4784.0
+      },
+      "thumbnail": {
+        "url": "",
+        "description": "White background. Todoist logo on the left with a large red X over it. Arrow pointing right to a different app logo on the right. Creator face small at the bottom center, neutral expression. Text overlay at top reading 'why I switched' in mixed case, not bold."
+      },
+      "tags": ["todoist", "task management", "productivity apps", "app comparison", "getting things done", "todoist alternative"],
+      "category": "Science & Technology"
+    },
+    {
+      "id": "sv_004",
+      "title": "7 Things Productive People Do Before 9 AM",
+      "description": "",
+      "transcript": "Productive people don't have more willpower, they have a better morning. I studied my own best days and found 7 things that happen before 9 AM every single time. These aren't habits you have to build over months — most of them take under two minutes.",
+      "duration_seconds": 398,
+      "published_at": "2024-02-26",
+      "platform": "youtube",
+      "performance": {
+        "views": 510000,
+        "likes": 22100,
+        "comments": 1890,
+        "shares": null,
+        "ctr": 10.3,
+        "avg_retention": 63.0,
+        "watch_time_hours": 35522.0
+      },
+      "thumbnail": {
+        "url": "",
+        "description": "Red solid background. Alarm clock graphic on the left side. Creator on the right side, smiling broadly with eyes wide. Bold white text in the top left reading '7 THINGS' in very large all-caps letters. Clean, simple, high contrast."
+      },
+      "tags": ["morning routine", "productivity", "habits", "early riser", "daily routine", "self improvement", "time management"],
+      "category": "Science & Technology"
+    },
+    {
+      "id": "sv_005",
+      "title": "My Full Productivity Setup Tour 2024",
+      "description": "",
+      "transcript": "People keep asking about my setup, so here it is. This is the full tour — every desk, every monitor, every cable. It took me a while to get this right, and I think a few of these choices will surprise you.",
+      "duration_seconds": 721,
+      "published_at": "2024-03-11",
+      "platform": "youtube",
+      "performance": {
+        "views": 28000,
+        "likes": 890,
+        "comments": 143,
+        "shares": null,
+        "ctr": 3.2,
+        "avg_retention": 38.0,
+        "watch_time_hours": 2131.0
+      },
+      "thumbnail": {
+        "url": "",
+        "description": "Photo of a desk setup, slightly blurred background. Small text overlay at the bottom reading 'My Setup Tour 2024' in regular weight font. No creator face visible. No bold colors. No graphic elements."
+      },
+      "tags": ["desk setup", "productivity setup", "workspace tour", "home office", "monitors", "ergonomics"],
+      "category": "Science & Technology"
+    },
+    {
+      "id": "sv_006",
+      "title": "I Tried the Pomodoro Technique for a Month",
+      "description": "",
+      "transcript": "I tried the Pomodoro technique for a month. Not because I believed in it, but because I was desperate. Here is what actually happened to my focus, my schedule, and my guilt about never finishing anything.",
+      "duration_seconds": 356,
+      "published_at": "2024-03-25",
+      "platform": "youtube",
+      "performance": {
+        "views": 71000,
+        "likes": 2900,
+        "comments": 310,
+        "shares": null,
+        "ctr": 4.8,
+        "avg_retention": 47.0,
+        "watch_time_hours": 3300.0
+      },
+      "thumbnail": {
+        "url": "",
+        "description": "Red solid background. Timer graphic in the center. White bold text reading 'POMODORO' at the top. Creator face not visible — timer is the only focal point."
+      },
+      "tags": ["pomodoro", "focus", "time management", "productivity", "deep work", "30 day challenge"],
+      "category": "Science & Technology"
+    },
+    {
+      "id": "sv_007",
+      "title": "Obsidian vs Notion — Which One Actually Wins?",
+      "description": "",
+      "transcript": "Obsidian and Notion — which one actually wins? I've used both for over a year, and I am done being polite about it. One of these is clearly better for most people, and the answer is not what the internet thinks.",
+      "duration_seconds": 445,
+      "published_at": "2024-04-08",
+      "platform": "youtube",
+      "performance": {
+        "views": 290000,
+        "likes": 12400,
+        "comments": 1650,
+        "shares": null,
+        "ctr": 7.9,
+        "avg_retention": 55.0,
+        "watch_time_hours": 19716.0
+      },
+      "thumbnail": {
+        "url": "",
+        "description": "Black solid background. Obsidian logo on the left. Notion logo on the right. Creator face in the center between the two logos, looking intensely at the camera with a slight smirk, arms crossed. Bold white text at the top reading 'VS' in very large letters. Clean battle-style layout."
+      },
+      "tags": ["obsidian", "notion", "note taking apps", "app comparison", "knowledge management", "vs video", "productivity"],
+      "category": "Science & Technology"
+    },
+    {
+      "id": "sv_008",
+      "title": "How I Organize My Digital Life",
+      "description": "",
+      "transcript": "My digital life was a mess, so I fixed it. This is how I organize everything now — files, notes, inboxes, bookmarks. If you have more than three places where stuff lives, this video is for you.",
+      "duration_seconds": 634,
+      "published_at": "2024-04-22",
+      "platform": "youtube",
+      "performance": {
+        "views": 19000,
+        "likes": 610,
+        "comments": 87,
+        "shares": null,
+        "ctr": 2.9,
+        "avg_retention": 35.0,
+        "watch_time_hours": 1171.0
+      },
+      "thumbnail": {
+        "url": "",
+        "description": "Abstract geometric graphic with blue and grey shapes. No creator face. No text overlay. No recognizable focal point. Looks like a stock image."
+      },
+      "tags": ["digital organization", "file management", "productivity", "notes", "inbox zero", "workflow"],
+      "category": "Science & Technology"
+    }
+  ]
+}
