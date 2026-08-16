@@ -1,153 +1,130 @@
-﻿---
+---
 format: 1920x1080
 duration: 43s
-message: "Creator Twin walks your full decision pipeline - so every asset is actually you"
+message: "Aftertake walks your full decision pipeline - so every asset is actually you"
 arc: "Demo Loop - Hook to DNA to Opportunity to Make to Package to Gate to Ship"
 audience: "hackathon judges and creator-tool builders"
 mode: autonomous
-music: confident minimal tech underscore
+music: confident cinematic tech underscore driving
 captions: off
 ---
 
 ## Video direction
 
-- palette: canvas #F2F5F8, ink #0B1F33, accent coral #FF5A36, positive #00A86B, navy panels #0B1F33, muted #5A6A7A (from frame.md)
-- type: Georgia display + Georgia body; big H1 for brand, cards for stages
-- motion grammar: VO-paced reveals, power3.out entrances, no front-load; hold still after last reveal; kinetic slam on hook; stagger cards on DNA/package; count-up on opportunity and gate
-- held frames: Frame 7 hold on lockup; Frame 6 holds on PASSED badge
-- never: purple AI glow, floating screensaver drift, slideshow dump-then-freeze, fake browser chrome
+- palette: canvas #0B1220, ink #F3EEE6, coral #FF4D2E, teal #2EC4B6, panels #121A2B (frame.md)
+- type: Syne display, Outfit body, JetBrains Mono labels
+- atmosphere every frame: grain + ghost AFTERTAKE + coral radial + geometric grid (ambient breathe)
+- motion: VO-paced reveals, power3.out, kinetic slam on hook, constellation assemble, count-up, reject loop, lockup
+- never: empty flat slides, dim poster plates, purple AI glow, cream terracotta
 
-## Frame 1 â€” Hook
+## Frame 1 — Hook
 
 - status: animated
 - src: compositions/frames/01-hook.html
-- duration: 6.165s
+- duration: 5.973s
 - transition_in: cut
-- scene: Brand + editorial-brain promise - not topic-in video-out
-- voiceover: Creator Twin is not another topic-in, video-out machine. It is your editorial brain.
+- scene: Kinetic Aftertake promise over navy cinema atmosphere
+- voiceover: Aftertake is not another topic-in, video-out machine. It is your editorial brain.
 - blueprint: kinetic-type-beats (Adapt)
-- focal: 03-decision-layer.png
-- roles: 03-decision-layer.png = background (dim ~40%)
-- asset_candidates: 03-decision-layer.png - competitors vs Creator Twin split
-- poster: 2.5
+- poster: 2.8
 - sfx: impact-soft
 
-Adapt: kinetic token swap signature; poster as dim background plate.
-Scene 1 (0.0-2.0s): dim poster background; eyebrow CREATOR TWIN; line "topic in / video out" seats center - Centered, ~55% frame. kinetic-beat-slam on the phrase.
-Scene 2 (2.0-4.2s): phrase hard-swaps to "editorial brain" in coral accent; secondary line "Not another generic AI video tool" rises under.
-Scene 3 (4.2-6.165s): hold brand wordmark + editorial brain line still; subtle ambient-glow-bloom behind mark.
+Scene 1 (0.0-2.2s): navy atmosphere; ghost AFTERTAKE; line "topic in / video out" slams center.
+Scene 2 (2.2-4.5s): phrase swaps to "editorial brain" in coral; brand wordmark Aftertake locks top.
+Scene 3 (4.5-7.0s): hold with coral radial bloom; subline "Personalized content decisions."
 
-## Frame 2 â€” Creator DNA
+## Frame 2 — Creator DNA
 
 - status: animated
 - src: compositions/frames/02-creator-dna.html
 - duration: 5.867s
 - transition_in: crossfade
-- scene: Learn pillar - DNA traits assemble from catalog
+- scene: DNA trait constellation assembling around Aftertake hub
 - voiceover: It learns your voice, hooks, titles, and thumbnails from your catalog and real performance.
-- blueprint: grid-card-assemble (Reproduce)
-- focal: 01-system-overview.png
-- roles: 01-system-overview.png = supporting
-- asset_candidates: 01-system-overview.png - Learn / Decide / Gate / Improve pillars
-- poster: 3.0
+- blueprint: constellation-hub (Adapt)
+- poster: 3.2
 - sfx: whoosh
 
-Scene 1 (0.0-1.2s): stage label LEARN / CREATOR DNA upper-left; overview poster seats right as supporting plate ~40% width.
-Scene 2 (1.2-4.2s): four DNA cards stagger-assemble left: Voice, Hooks, Title formula, Thumbnail style - asymmetric 55/45; depth-scatter-assemble feel via staggered y/opacity.
-Scene 3 (4.2-5.867s): cards hold; LEARN badge pulses once via ambient-glow-bloom.
+Scene 1 (0.0-1.5s): stage label CREATOR DNA; hub node seats center.
+Scene 2 (1.5-5.0s): four trait nodes Voice / Hooks / Title / Thumbnail orbit-assemble with link lines.
+Scene 3 (5.0-7.0s): hold constellation; LEARN badge teal.
 
-## Frame 3 â€” Opportunity
+## Frame 3 — Opportunity
 
 - status: animated
 - src: compositions/frames/03-opportunity.html
 - duration: 5.888s
 - transition_in: crossfade
-- scene: Fit score + next-idea card with DNA rationale
-- voiceover: Then it decides what to make next - with a fit score tied to your own best-performing traits.
+- scene: Fit score ring count-up and opportunity card
+- voiceover: Then it decides what to make next — with a fit score tied to your own best-performing traits.
 - blueprint: dataviz-countup (Adapt)
-- focal: 02-end-to-end-pipeline.png
-- roles: 02-end-to-end-pipeline.png = background (dim ~35%)
-- asset_candidates: 02-end-to-end-pipeline.png - opportunity stage in the pipeline
-- poster: 3.0
+- poster: 3.2
 - sfx: riser
 
-Scene 1 (0.0-1.4s): dim pipeline poster; big FIT SCORE label; ring + number 0 center - Centered.
-Scene 2 (1.4-3.8s): counting-dynamic-scale 0 to 87; opportunity card slides from right with title "Next: Retention Hooks That Match Your Top CTR Traits".
-Scene 3 (3.8-5.888s): rationale line under card; hold on 87% fit.
+Scene 1 (0.0-1.5s): FIT SCORE label; ring at zero.
+Scene 2 (1.5-4.2s): count 0 to 87; opportunity card slides in.
+Scene 3 (4.2-7.0s): rationale line; hold.
 
-## Frame 4 â€” Make
+## Frame 4 — Make
 
 - status: animated
 - src: compositions/frames/04-make.html
 - duration: 5.611s
-- transition_in: wipe
-- scene: Script lines to HyperFrames render to captions burn-in
-- voiceover: Script, video, and captions generate in your established style - powered by HyperFrames.
+- transition_in: crossfade
+- scene: Agent progress theater for script video captions
+- voiceover: Script, video, and captions generate in your established style — powered by HyperFrames.
 - blueprint: agent-progress-theater (Adapt)
-- focal: 02-end-to-end-pipeline.png
-- roles: 02-end-to-end-pipeline.png = supporting
-- asset_candidates: 02-end-to-end-pipeline.png - create-phase stages highlighted
-- poster: 2.8
+- poster: 3.0
 - sfx: ui click
 
-Scene 1 (0.0-1.5s): checklist row Script Agent appears and checks off.
-Scene 2 (1.5-3.5s): HyperFrames render row checks; mini frame preview panel grows.
-Scene 3 (3.5-5.611s): Captions burn-in row checks; hold on completed stack + HyperFrames badge.
+Scene 1 (0.0-2.0s): Script Agent row checks.
+Scene 2 (2.0-4.5s): HyperFrames panel lights; render row checks.
+Scene 3 (4.5-7.0s): Captions row checks; hold completed stack.
 
-## Frame 5 â€” Package
+## Frame 5 — Package
 
 - status: animated
 - src: compositions/frames/05-package.html
 - duration: 4.416s
 - transition_in: crossfade
-- scene: SVG to PNG thumbnails + title formula metadata
-- voiceover: Thumbnails and titles follow your formula - not generic templates.
+- scene: Three thumbnail tiles and title formula
+- voiceover: Thumbnails and titles follow your formula — not generic templates.
 - blueprint: grid-card-assemble (Adapt)
-- focal: 01-system-overview.png
-- roles: 01-system-overview.png = supporting
-- asset_candidates: 01-system-overview.png - style pillars reminder
-- poster: 2.2
+- poster: 2.5
 - sfx: whoosh
 
-Scene 1 (0.0-1.2s): three thumbnail variant cards assemble staggered.
-Scene 2 (1.2-2.8s): variant B highlights with coral border; label CHOSEN.
-Scene 3 (2.8-4.416s): title formula line types in under; hold.
+Scene 1 (0.0-1.5s): three thumb tiles assemble.
+Scene 2 (1.5-3.5s): variant B chosen with coral frame.
+Scene 3 (3.5-6.0s): title formula mono line; hold.
 
-## Frame 6 â€” Style-Fit Gate
+## Frame 6 — Style-Fit Gate
 
 - status: animated
 - src: compositions/frames/06-style-fit-gate.html
 - duration: 8.405s
-- transition_in: wipe
-- scene: Style-fit reject to regenerate to pass
-- voiceover: A style-fit gate scores every asset. Below threshold - reject, regenerate, then pass. Judgment, not a fixed script.
+- transition_in: crossfade
+- scene: Style-fit reject regenerate pass with decision log
+- voiceover: A style-fit gate scores every asset. Below threshold — reject, regenerate, then pass. Judgment, not a fixed script.
 - blueprint: dataviz-countup (Adapt)
-- focal: 05-orchestrator-feedback.png
-- roles: 05-orchestrator-feedback.png = background (dim ~40%)
-- asset_candidates: 05-orchestrator-feedback.png - reject loop and decision log
-- poster: 4.0
+- poster: 4.5
 - sfx: impact-soft
 
-Scene 1 (0.0-2.2s): STYLE-FIT label; score counts 0 to 0.62; REJECTED badge slam - Centered.
-Scene 2 (2.2-5.0s): dashed reject loop arrow; regenerate flash; score resets then climbs to 0.84.
-Scene 3 (5.0-8.405s): PASSED badge coral/green; decision log lines stagger in; hold - judgment not a fixed script.
+Scene 1 (0.0-2.5s): score to 0.62; REJECTED badge.
+Scene 2 (2.5-5.5s): loop arc; regenerate; score to 0.84.
+Scene 3 (5.5-9.0s): PASSED teal; decision log; hold.
 
-## Frame 7 â€” Ship and Close
+## Frame 7 — Ship and Close
 
 - status: animated
 - src: compositions/frames/07-ship-close.html
-- duration: 6.613s
+- duration: 6.251s
 - transition_in: crossfade
-- scene: Dashboard, publish, feedback tease, brand lockup
-- voiceover: Preview, publish, and close the loop. Creator Twin - decide what to make, and whether it is actually you.
+- scene: Dashboard tiles into Aftertake lockup
+- voiceover: Preview, publish, and close the loop. Aftertake — decide what to make, and whether it is actually you.
 - blueprint: logo-assemble-lockup (Adapt)
-- focal: 05-orchestrator-feedback.png
-- roles: 05-orchestrator-feedback.png = supporting
-- asset_candidates: 05-orchestrator-feedback.png - dashboard and feedback panels
 - poster: 3.5
 - sfx: impact-soft
 
-Scene 1 (0.0-2.0s): dashboard tiles Preview / Schedule / Decision log assemble.
-Scene 2 (2.0-4.2s): PUBLISH pill presses; feedback loop arc draws.
-Scene 3 (4.2-6.613s): Creator Twin wordmark lockup + tagline hold; ambient-glow-bloom.
-
+Scene 1 (0.0-2.2s): three dashboard tiles assemble.
+Scene 2 (2.2-4.2s): PUBLISH pill presses.
+Scene 3 (4.2-7.0s): Aftertake wordmark + tagline lockup hold.

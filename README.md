@@ -14,8 +14,30 @@ mechanics.
 
 ## Run Instructions
 
-*Placeholder — run instructions land once the backend and frontend scaffolds are
-wired (Phase 1+).*
+### Database (Phase 0)
+
+Everything runs from the repo root with the backend venv's python:
+
+```bash
+# Create tables from backend/db/sql/*.sql (idempotent — safe to rerun)
+backend/.venv/Scripts/python -m backend.db.manage init
+
+# Wipe all tables, then re-create them from the schema files
+backend/.venv/Scripts/python -m backend.db.manage reset
+
+# List tables + row counts
+backend/.venv/Scripts/python -m backend.db.manage inspect
+
+# Print the resolved DB file path (DATABASE_PATH from .env, default ./aftertake.db)
+backend/.venv/Scripts/python -m backend.db.manage path
+```
+
+The schema is one SQL file per table in `backend/db/sql/` — applied in sorted
+filename order on `init` and on backend startup.
+
+### Backend (Phase 1+)
+
+*Placeholder — once dependencies are installed: `uvicorn backend.main:app --reload`.*
 
 ## What Is Real vs Mocked
 

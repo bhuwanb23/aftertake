@@ -22,7 +22,7 @@
         width: 1920px;
         height: 1080px;
         overflow: hidden;
-        background: #F2F5F8;
+        background: #0B1220;
       }
       .scene {
         position: absolute;
@@ -37,7 +37,7 @@
       id="root"
       data-composition-id="main"
       data-start="0"
-      data-duration="42.965"
+      data-duration="42.411"
       data-width="1920"
       data-height="1080"
     >
@@ -47,14 +47,14 @@
         data-composition-id="01-hook"
         data-composition-src="compositions/frames/01-hook.html"
         data-start="0"
-        data-duration="6.665"
+        data-duration="6.473"
         data-track-index="0"
       ></div>
       <audio
         id="el-01-hook-voice"
         src="assets/voice/01.wav"
         data-start="0"
-        data-duration="6.165"
+        data-duration="5.973"
         data-track-index="10"
         data-volume="1"
       ></audio>
@@ -64,14 +64,14 @@
         class="scene"
         data-composition-id="02-creator-dna"
         data-composition-src="compositions/frames/02-creator-dna.html"
-        data-start="6.165"
+        data-start="5.973"
         data-duration="6.367"
         data-track-index="1"
       ></div>
       <audio
         id="el-02-creator-dna-voice"
         src="assets/voice/02.wav"
-        data-start="6.165"
+        data-start="5.973"
         data-duration="5.867"
         data-track-index="10"
         data-volume="1"
@@ -82,14 +82,14 @@
         class="scene"
         data-composition-id="03-opportunity"
         data-composition-src="compositions/frames/03-opportunity.html"
-        data-start="12.032"
-        data-duration="6.488"
+        data-start="11.84"
+        data-duration="6.388"
         data-track-index="0"
       ></div>
       <audio
         id="el-03-opportunity-voice"
         src="assets/voice/03.wav"
-        data-start="12.032"
+        data-start="11.84"
         data-duration="5.888"
         data-track-index="10"
         data-volume="1"
@@ -100,14 +100,14 @@
         class="scene"
         data-composition-id="04-make"
         data-composition-src="compositions/frames/04-make.html"
-        data-start="17.92"
+        data-start="17.728"
         data-duration="6.111"
         data-track-index="1"
       ></div>
       <audio
         id="el-04-make-voice"
         src="assets/voice/04.wav"
-        data-start="17.92"
+        data-start="17.728"
         data-duration="5.611"
         data-track-index="10"
         data-volume="1"
@@ -118,14 +118,14 @@
         class="scene"
         data-composition-id="05-package"
         data-composition-src="compositions/frames/05-package.html"
-        data-start="23.531000000000002"
-        data-duration="5.016"
+        data-start="23.339000000000002"
+        data-duration="4.916"
         data-track-index="0"
       ></div>
       <audio
         id="el-05-package-voice"
         src="assets/voice/05.wav"
-        data-start="23.531000000000002"
+        data-start="23.339000000000002"
         data-duration="4.416"
         data-track-index="10"
         data-volume="1"
@@ -136,14 +136,14 @@
         class="scene"
         data-composition-id="06-style-fit-gate"
         data-composition-src="compositions/frames/06-style-fit-gate.html"
-        data-start="27.947000000000003"
+        data-start="27.755000000000003"
         data-duration="8.905"
         data-track-index="1"
       ></div>
       <audio
         id="el-06-style-fit-gate-voice"
         src="assets/voice/06.wav"
-        data-start="27.947000000000003"
+        data-start="27.755000000000003"
         data-duration="8.405"
         data-track-index="10"
         data-volume="1"
@@ -154,15 +154,15 @@
         class="scene"
         data-composition-id="07-ship-close"
         data-composition-src="compositions/frames/07-ship-close.html"
-        data-start="36.352000000000004"
-        data-duration="6.613"
+        data-start="36.160000000000004"
+        data-duration="6.251"
         data-track-index="0"
       ></div>
       <audio
         id="el-07-ship-close-voice"
         src="assets/voice/07.wav"
-        data-start="36.352000000000004"
-        data-duration="6.613"
+        data-start="36.160000000000004"
+        data-duration="6.251"
         data-track-index="10"
         data-volume="1"
       ></audio>
@@ -172,9 +172,9 @@
         id="el-bgm"
         src="assets/bgm/track.wav"
         data-start="0"
-        data-duration="42.965"
+        data-duration="42.411"
         data-track-index="11"
-        data-volume="0.12"
+        data-volume="0.18"
       ></audio>
 
     </div>
@@ -184,19 +184,19 @@
       window.__timelines["main"] = gsap.timeline({ paused: true });
       // ── frame transitions (injected by transitions.mjs) ──
       (function () { var tl = window.__timelines["main"];
-        tl.to("#el-01-hook", { opacity: 0, duration: 0.5, ease: "power2.inOut" }, 6.165);
-        tl.fromTo("#el-02-creator-dna", { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power2.inOut" }, 6.165);
-        tl.to("#el-02-creator-dna", { opacity: 0, duration: 0.5, ease: "power2.inOut" }, 12.032);
-        tl.fromTo("#el-03-opportunity", { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power2.inOut" }, 12.032);
-        tl.to("#el-03-opportunity", { filter: "blur(10px)", scale: 1.03, opacity: 0, duration: 0.6, ease: "power2.inOut" }, 17.92);
-        tl.fromTo("#el-04-make", { filter: "blur(10px)", scale: 0.97, opacity: 0 }, { filter: "blur(0px)", scale: 1, opacity: 1, duration: 0.6, ease: "power2.inOut" }, 17.92);
-        tl.to("#el-04-make", { opacity: 0, duration: 0.5, ease: "power2.inOut" }, 23.531);
-        tl.fromTo("#el-05-package", { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power2.inOut" }, 23.531);
-        tl.to("#el-05-package", { filter: "blur(10px)", scale: 1.03, opacity: 0, duration: 0.6, ease: "power2.inOut" }, 27.947);
-        tl.fromTo("#el-06-style-fit-gate", { filter: "blur(10px)", scale: 0.97, opacity: 0 }, { filter: "blur(0px)", scale: 1, opacity: 1, duration: 0.6, ease: "power2.inOut" }, 27.947);
-        tl.to("#el-06-style-fit-gate", { opacity: 0, duration: 0.5, ease: "power2.inOut" }, 36.352);
-        tl.fromTo("#el-07-ship-close", { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power2.inOut" }, 36.352);
-        tl.to({}, { duration: 42.965 }, 0); // full-span anchor — main.duration() == composition total (Studio master duration)
+        tl.to("#el-01-hook", { opacity: 0, duration: 0.5, ease: "power2.inOut" }, 5.973);
+        tl.fromTo("#el-02-creator-dna", { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power2.inOut" }, 5.973);
+        tl.to("#el-02-creator-dna", { opacity: 0, duration: 0.5, ease: "power2.inOut" }, 11.84);
+        tl.fromTo("#el-03-opportunity", { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power2.inOut" }, 11.84);
+        tl.to("#el-03-opportunity", { opacity: 0, duration: 0.5, ease: "power2.inOut" }, 17.728);
+        tl.fromTo("#el-04-make", { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power2.inOut" }, 17.728);
+        tl.to("#el-04-make", { opacity: 0, duration: 0.5, ease: "power2.inOut" }, 23.339);
+        tl.fromTo("#el-05-package", { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power2.inOut" }, 23.339);
+        tl.to("#el-05-package", { opacity: 0, duration: 0.5, ease: "power2.inOut" }, 27.755);
+        tl.fromTo("#el-06-style-fit-gate", { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power2.inOut" }, 27.755);
+        tl.to("#el-06-style-fit-gate", { opacity: 0, duration: 0.5, ease: "power2.inOut" }, 36.16);
+        tl.fromTo("#el-07-ship-close", { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power2.inOut" }, 36.16);
+        tl.to({}, { duration: 42.411 }, 0); // full-span anchor — main.duration() == composition total (Studio master duration)
       })();
     </script>
   </body>

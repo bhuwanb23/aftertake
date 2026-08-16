@@ -3,23 +3,23 @@
   "voice_id": null,
   "bgm": {
     "path": "assets/bgm/track.wav",
-    "volume": 0.12,
-    "mode": "ffmpeg-ambient",
+    "volume": 0.18,
+    "mode": "bed",
     "duration_s": 43
   },
   "bgm_pending": false,
-  "bgm_provider": "ffmpeg",
-  "bgm_pid": 23872,
-  "bgm_log": "D:\\projects\\website\\aftertake\\videos\\creator-twin-demo\\assets\\bgm\\bgm-1786900877809.log",
+  "bgm_provider": "local",
+  "bgm_pid": 27408,
+  "bgm_log": "D:\\projects\\website\\aftertake\\videos\\creator-twin-demo\\assets\\bgm\\bgm-1786902050662.log",
   "bgm_mode": "detached-seed-loop",
-  "bgm_target_duration_s": 42.965,
+  "bgm_target_duration_s": 42.411,
   "bgm_seed_duration_s": 28,
   "bgm_loop_count": 2,
   "voices": [
     {
       "frame": 1,
       "path": "assets/voice/01.wav",
-      "duration_s": 6.165,
+      "duration_s": 5.973,
       "words": []
     },
     {
@@ -55,10 +55,10 @@
     {
       "frame": 7,
       "path": "assets/voice/07.wav",
-      "duration_s": 6.613,
+      "duration_s": 6.251,
       "words": []
     }
   ],
   "sfx": [],
-  "total_duration_s": 42.965
+  "total_duration_s": 42.411
 }
