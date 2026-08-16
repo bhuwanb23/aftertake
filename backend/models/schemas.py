@@ -138,3 +138,42 @@ class ContentOpportunity(BaseModel):
     recommended_duration_seconds: int = 0
     target_hook: str = ""
     status: str = "pending"  # pending | approved | rejected | in_production | published
+
+
+# --- Schema 4: Script -------------------------------------------------------
+class Hook(BaseModel):
+    """The opening 5-15 seconds of the video."""
+    voiceover_text: str
+    visual_description: str
+    duration_seconds: int
+
+
+class Scene(BaseModel):
+    """One scene of the video. scene_type maps directly to HyperFrames template types."""
+    scene_number: int
+    scene_type: str  # talking_head | text_overlay | title_card | comparison_split | list_reveal | b_roll_description
+    voiceover_text: str
+    visual_description: str
+    on_screen_text: str | None = None
+    duration_seconds: int
+
+
+class Outro(BaseModel):
+    """The closing section with the call to action."""
+    voiceover_text: str
+    visual_description: str
+    call_to_action: str
+    duration_seconds: int
+
+
+class Script(BaseModel):
+    """The complete script for one video, written in the creator's learned voice."""
+    id: str
+    opportunity_id: str
+    creator_id: str
+    hook: Hook
+    scenes: list[Scene] = []
+    outro: Outro
+    full_voiceover_text: str = ""  # concatenation of hook + scenes + outro — passed to TTS
+    estimated_duration_seconds: int = 0
+    word_count: int = 0
