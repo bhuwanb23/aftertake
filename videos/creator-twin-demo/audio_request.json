@@ -1,0 +1,41 @@
+{
+  "provider": "kokoro",
+  "speed": 1,
+  "lines": [
+    {
+      "id": "01",
+      "text": "Creator Twin is not another topic-in, video-out machine. It is your editorial brain."
+    },
+    {
+      "id": "02",
+      "text": "It learns your voice, hooks, titles, and thumbnails from your catalog and real performance."
+    },
+    {
+      "id": "03",
+      "text": "Then it decides what to make next — with a fit score tied to your own best-performing traits."
+    },
+    {
+      "id": "04",
+      "text": "Script, video, and captions generate in your established style — powered by HyperFrames."
+    },
+    {
+      "id": "05",
+      "text": "Thumbnails and titles follow your formula — not generic templates."
+    },
+    {
+      "id": "06",
+      "text": "A style-fit gate scores every asset. Below threshold — reject, regenerate, then pass. Judgment, not a fixed script."
+    },
+    {
+      "id": "07",
+      "text": "Preview, publish, and close the loop. Creator Twin — decide what to make, and whether it is actually you."
+    }
+  ],
+  "bgm": {
+    "mode": "retrieve",
+    "query": "confident minimal tech underscore",
+    "blob": "Creator Twin walks your full decision pipeline — so every asset is actually you",
+    "arc": "Demo Loop — Hook → DNA → Opportunity → Make → Package → Gate → Ship"
+  },
+  "voice": "am_michael"
+}
