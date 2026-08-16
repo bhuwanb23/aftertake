@@ -111,3 +111,30 @@ class CreatorDNAProfile(BaseModel):
     thumbnail_style: ThumbnailStyle
     content_patterns: ContentPatterns
     performance_benchmarks: PerformanceBenchmarks
+
+
+# --- Schema 3: Content Opportunity -----------------------------------------
+class Rationale(BaseModel):
+    """Why this opportunity fits the creator. dna_fit_explanation MUST cite
+    specific profile attributes — if it says "fits your style" without saying
+    what style and why, the prompt that produced it is wrong."""
+    dna_fit_explanation: str
+    performance_prediction: str
+    trend_relevance: str
+    risks: str
+
+
+class ContentOpportunity(BaseModel):
+    """One recommendation for what the creator should make next."""
+    id: str
+    creator_id: str
+    created_at: str = ""  # ISO timestamp
+    topic: str
+    working_title: str = ""
+    rationale: Rationale
+    fit_score: float = Field(ge=0.0, le=1.0, description="0.8+ strong, 0.6-0.79 viable, <0.6 regenerate")
+    confidence: str = "medium"  # high | medium | low
+    recommended_format: str = ""
+    recommended_duration_seconds: int = 0
+    target_hook: str = ""
+    status: str = "pending"  # pending | approved | rejected | in_production | published
