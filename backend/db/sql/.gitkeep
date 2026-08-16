@@ -1,0 +1,1 @@
+# One .sql file per schema (Phase 0 Step 9). Applied by db/database.init_db() in sorted order.

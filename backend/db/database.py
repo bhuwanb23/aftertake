@@ -1,7 +1,8 @@
 """SQLite connection + schema management for AfterTake.
 
 Plain SQL only (no ORM) per Phase 0 Step 3c / Step 4.
-The schema lives in db/schema.sql — DDL is never embedded in Python code.
+The schema lives in db/sql/*.sql — one file per table (Phase 0 Step 9),
+applied in sorted filename order. DDL is never embedded in Python code.
 """
 import json
 import os
@@ -16,7 +17,7 @@ except ImportError:
     pass
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent  # repo root
-SCHEMA_PATH = Path(__file__).resolve().parent / "schema.sql"
+SCHEMA_DIR = Path(__file__).resolve().parent / "sql"
 
 
 def database_path() -> Path:
@@ -37,9 +38,11 @@ def get_connection(db_path=None) -> sqlite3.Connection:
 
 
 def init_db(db_path=None) -> sqlite3.Connection:
-    """Apply schema.sql (idempotent — CREATE TABLE IF NOT EXISTS). Returns a connection."""
+    """Apply every *.sql file in db/sql/ (sorted by name). Idempotent —
+    all DDL uses CREATE TABLE IF NOT EXISTS. Returns a connection."""
     conn = get_connection(db_path)
-    conn.executescript(SCHEMA_PATH.read_text(encoding="utf-8"))
+    for sql_file in sorted(SCHEMA_DIR.glob("*.sql")):
+        conn.executescript(sql_file.read_text(encoding="utf-8"))
     conn.commit()
     return conn
 
