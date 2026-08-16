@@ -1,0 +1,72 @@
+[
+  {
+    "topic": "AI writing assistants compared",
+    "why_now": "AI writing tools are the most-searched productivity category; several major releases in the last 30 days give a natural news hook.",
+    "suggested_formats": ["head-to-head-comparison", "30-day-challenge", "listicle"]
+  },
+  {
+    "topic": "Second brain / PKM apps (Obsidian, Notion, Capacities, Tana)",
+    "why_now": "Personal knowledge management keeps growing; new apps and AI search features ship monthly and users are overwhelmed by choice.",
+    "suggested_formats": ["head-to-head-comparison", "tool-review"]
+  },
+  {
+    "topic": "Focus apps and deep-work tools",
+    "why_now": "Distraction and attention management are perennial pain points; app subscriptions and AI assistants keep renewing interest.",
+    "suggested_formats": ["30-day-challenge", "listicle"]
+  },
+  {
+    "topic": "Notion alternatives worth switching to",
+    "why_now": "Notion pricing changes and AI features pushed users to evaluate alternatives this year.",
+    "suggested_formats": ["head-to-head-comparison", "tool-review"]
+  },
+  {
+    "topic": "AI calendar and scheduling tools",
+    "why_now": "AI schedulers (auto-booking, smart time blocking) are the fastest-growing productivity sub-category.",
+    "suggested_formats": ["30-day-challenge", "tool-review"]
+  },
+  {
+    "topic": "Browser extensions that save real time",
+    "why_now": "Browser extension clutter is a constant complaint; measured, honest time-saving claims outperform hype.",
+    "suggested_formats": ["listicle", "30-day-challenge"]
+  },
+  {
+    "topic": "Task managers compared (Todoist, TickTick, Things)",
+    "why_now": "Task manager switching is a recurring decision; pricing and AI features changed the math recently.",
+    "suggested_formats": ["head-to-head-comparison", "tool-review"]
+  },
+  {
+    "topic": "Habit tracking apps that actually stick",
+    "why_now": "New year habit-reset season plus new AI coaching features keep habit apps in the conversation.",
+    "suggested_formats": ["30-day-challenge", "listicle"]
+  },
+  {
+    "topic": "Email productivity and inbox-zero tools",
+    "why_now": "AI triage and auto-drafting tools promise real inbox relief; comparison content is underserved.",
+    "suggested_formats": ["30-day-challenge", "head-to-head-comparison"]
+  },
+  {
+    "topic": "AI meeting notes and transcription tools",
+    "why_now": "Remote and hybrid work normalized AI notetakers; accuracy and privacy claims are being tested publicly.",
+    "suggested_formats": ["head-to-head-comparison", "tool-review"]
+  },
+  {
+    "topic": "Digital minimalism / app declutter challenge",
+    "why_now": "Subscription fatigue is peaking; a structured declutter challenge fits the creator's experiment format.",
+    "suggested_formats": ["30-day-challenge", "listicle"]
+  },
+  {
+    "topic": "Time tracking and Pomodoro tools",
+    "why_now": "The creator's best-performing Pomodoro video shows audience appetite; new tools make a follow-up timely.",
+    "suggested_formats": ["30-day-challenge", "listicle"]
+  },
+  {
+    "topic": "Keyboard-driven productivity (Raycast, Alfred, launchers)",
+    "why_now": "Power-user tools are trending with AI command palettes; strong fit for the creator's specific-hacks audience.",
+    "suggested_formats": ["listicle", "tool-review"]
+  },
+  {
+    "topic": "No-code automation workflows (Zapier, Make, n8n)",
+    "why_now": "AI agents re-ignited interest in automation; a practical end-to-end workflow demo outperforms theory content.",
+    "suggested_formats": ["30-day-challenge", "tool-review"]
+  }
+]
