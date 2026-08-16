@@ -14,6 +14,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from backend.db import database
+from backend.routers import catalog, profile
 
 
 @asynccontextmanager
@@ -31,6 +32,9 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+app.include_router(catalog.router)
+app.include_router(profile.router)
 
 
 @app.get("/health")
