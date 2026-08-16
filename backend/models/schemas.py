@@ -191,3 +191,19 @@ class ThumbnailVariant(BaseModel):
     layout_description: str = ""
     selected: bool = False
     selection_reason: str | None = None
+
+
+# --- Schema 6: Metadata -----------------------------------------------------
+class Metadata(BaseModel):
+    """Publishing metadata for one piece of content — title, description, tags.
+    Title is written following the creator's title_formula; title_formula_match
+    explains how it maps to that formula."""
+    id: str
+    asset_id: str
+    title: str
+    title_formula_match: str = ""
+    description: str = ""
+    tags: list[str] = []  # 10-15 tags for YouTube
+    category: str = ""
+    scheduled_publish_time: str | None = None  # ISO timestamp, null until scheduled
+    platform_targets: list[str] = ["youtube"]
