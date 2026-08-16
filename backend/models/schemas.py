@@ -38,3 +38,76 @@ class SourceVideo(BaseModel):
     thumbnail: Thumbnail = Thumbnail()
     tags: list[str] = []
     category: str = ""
+
+
+# --- Schema 2: Creator DNA Profile -----------------------------------------
+class Voice(BaseModel):
+    """How the creator speaks and structures language."""
+    tone: str
+    pacing: str
+    hook_pattern: str
+    vocabulary_level: str
+    signature_phrases: list[str] = []
+    what_to_avoid: list[str] = []  # what style drift looks like — as important as the positives
+
+
+class TitleFormula(BaseModel):
+    """The pattern the creator's best-performing titles follow."""
+    structure: str
+    avg_word_count: int = 0
+    uses_caps: bool = False
+    uses_numbers: bool = False
+    uses_questions: bool = False
+    emotional_hook_type: str = "curiosity gap"  # curiosity gap | social proof | fomo | personal authority | specific transformation | controversy
+    example_titles: list[str] = []
+
+
+class ThumbnailStyle(BaseModel):
+    """The recurring visual style of the creator's thumbnails."""
+    dominant_colors: list[str] = []
+    layout_pattern: str
+    text_style: str
+    facial_expression: str
+    uses_props: bool = False
+    background_type: str = "solid color"  # solid color | gradient | blurred real location | illustrated/graphic | product or app screenshot
+    uses_graphic_elements: bool = False
+
+
+class DurationRange(BaseModel):
+    """A min/max duration range (seconds)."""
+    min: int = 0
+    max: int = 0
+
+
+class ContentPatterns(BaseModel):
+    """Formats, topics, and cadence that correlate with the creator's performance."""
+    avg_duration_seconds: int = 0
+    optimal_duration_range: DurationRange = DurationRange()
+    format_preferences: list[str] = []
+    posting_frequency: str = ""
+    best_performing_topics: list[str] = []
+    worst_performing_topics: list[str] = []
+
+
+class PerformanceBenchmarks(BaseModel):
+    """Calculated mathematically from the catalog — never LLM-generated."""
+    avg_views: float = 0.0
+    avg_ctr: float = 0.0
+    avg_retention: float = 0.0
+    top_quartile_views: float = 0.0
+    bottom_quartile_views: float = 0.0
+
+
+class CreatorDNAProfile(BaseModel):
+    """The learned style + performance profile of a specific creator.
+    The single most important object in the system — every generation agent
+    conditions on it, every scored asset is evaluated against it."""
+    creator_id: str
+    created_at: str = ""  # ISO timestamp
+    updated_at: str = ""  # ISO timestamp
+    source_video_count: int = 0
+    voice: Voice
+    title_formula: TitleFormula
+    thumbnail_style: ThumbnailStyle
+    content_patterns: ContentPatterns
+    performance_benchmarks: PerformanceBenchmarks
