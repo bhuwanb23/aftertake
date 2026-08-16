@@ -26,7 +26,7 @@
   <!-- Hero band -->
   <rect x="96" y="176" width="1728" height="120" rx="8" fill="url(#hero)"/>
   <text x="128" y="230" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="18" fill="#FF5A36" letter-spacing="3" font-weight="600">THE PITCH</text>
-  <text x="128" y="268" font-family="Georgia, 'Times New Roman', serif" font-size="28" fill="#F7F9FB">Not topic in ’ video out. An editorial brain that learns a creator, decides what to make next, and gates every asset before it ships.</text>
+  <text x="128" y="268" font-family="Georgia, 'Times New Roman', serif" font-size="28" fill="#F7F9FB">Not 'topic in ’ video out.' An editorial brain that learns a creator, decides what to make next, and gates every asset before it ships.</text>
 
   <!-- Four pillars -->
   <g transform="translate(96, 340)">
@@ -54,7 +54,7 @@
         <tspan x="32" dy="0">Cross DNA with niche trends.</tspan>
         <tspan x="32" dy="28">Recommend next ideas with</tspan>
         <tspan x="32" dy="28">fit score + rationale tied to</tspan>
-        <tspan x="32" dy="28">the creators own wins.</tspan>
+        <tspan x="32" dy="28">the creator--s own wins.</tspan>
       </text>
       <circle cx="48" cy="340" r="10" fill="#2E6B9E"/>
       <text x="72" y="346" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="15" fill="#0B1F33">What to make next</text>

@@ -113,7 +113,7 @@
   <!-- Orchestrator bar -->
   <rect x="96" y="640" width="1728" height="140" rx="10" fill="#0B1F33"/>
   <text x="128" y="690" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14" fill="#FF5A36" font-weight="700" letter-spacing="2">ORCHESTRATOR</text>
-  <text x="128" y="730" font-family="Georgia, 'Times New Roman', serif" font-size="28" fill="#FFFFFF">Single agent / state machine  calls each stage as a tool</text>
+  <text x="128" y="730" font-family="Georgia, 'Times New Roman', serif" font-size="28" fill="#FFFFFF">Single agent / state machine * calls each stage as a tool</text>
   <text x="128" y="770" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="16" fill="#A8B0BC">Logs every decision with a short rationale · including reject ’ regenerate cycles · best demo moment</text>
 
   <!-- Input callout -->
@@ -127,7 +127,7 @@
 
   <rect x="1200" y="820" width="624" height="80" rx="8" fill="#FFFFFF" stroke="#00A86B" stroke-width="2"/>
   <text x="1224" y="855" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14" fill="#00A86B">DIFFERENTIATOR</text>
-  <text x="1224" y="880" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="18" fill="#0B1F33" font-weight="600">Style-fit gate  judgment, not a fixed script</text>
+  <text x="1224" y="880" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="18" fill="#0B1F33" font-weight="600">Style-fit gate * judgment, not a fixed script</text>
 
   <text x="96" y="980" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="16" fill="#8A96A3">Architecture poster 02  ·  End-to-end pipeline  ·  aftertake / Creator Twin</text>
 </svg>

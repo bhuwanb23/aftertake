@@ -10,7 +10,7 @@
   <rect width="1920" height="8" fill="#FF5A36"/>
 
   <text x="96" y="88" font-family="Georgia, 'Times New Roman', serif" font-size="48" font-weight="700" fill="#0B1F33">The Decision Layer</text>
-  <text x="96" y="128" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="20" fill="#5A6A7A">Why Creator Twin is not another topic ’ video ’ auto-post tool</text>
+  <text x="96" y="128" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="20" fill="#5A6A7A">Why Creator Twin is not another 'topic ’ video ’ auto-post' tool</text>
 
   <!-- LEFT: Others -->
   <rect x="96" y="180" width="800" height="720" rx="12" fill="#FFFFFF" stroke="#C5D0DB" stroke-width="1.5"/>
@@ -37,7 +37,7 @@
     <rect x="140" y="670" width="700" height="70" rx="8" fill="#F2F5F8"/>
     <text x="490" y="714" text-anchor="middle" font-size="20" fill="#5A6A7A" font-weight="600">Auto-publish · stop</text>
 
-    <text x="490" y="800" text-anchor="middle" font-size="16" fill="#8A96A3">Automates making content  no personalization, no judgment, no loop</text>
+    <text x="490" y="800" text-anchor="middle" font-size="16" fill="#8A96A3">Automates making content * no personalization, no judgment, no loop</text>
   </g>
 
   <!-- RIGHT: Creator Twin -->
@@ -66,7 +66,7 @@
     <rect x="1068" y="670" width="700" height="70" rx="8" fill="#00A86B"/>
     <text x="1418" y="714" text-anchor="middle" font-size="20" fill="#FFFFFF" font-weight="700">Style-fit gate · reject / regenerate</text>
 
-    <text x="1418" y="800" text-anchor="middle" font-size="16" fill="#A8C5B8">Automates deciding what to make  and whether its actually you</text>
+    <text x="1418" y="800" text-anchor="middle" font-size="16" fill="#A8C5B8">Automates deciding what to make * and whether it--s actually you</text>
   </g>
 
   <!-- VS badge -->

@@ -10,7 +10,7 @@
   <rect width="1920" height="8" fill="#FF5A36"/>
 
   <text x="96" y="88" font-family="Georgia, 'Times New Roman', serif" font-size="48" font-weight="700" fill="#0B1F33">Tech Stack Architecture</text>
-  <text x="96" y="128" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="20" fill="#5A6A7A">Suggested layers for hackathon MVP  glue light, agents heavy</text>
+  <text x="96" y="128" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="20" fill="#5A6A7A">Suggested layers for hackathon MVP * glue light, agents heavy</text>
 
   <!-- Layer stack from top to bottom -->
   <g font-family="Segoe UI, Helvetica, Arial, sans-serif">
