@@ -32,7 +32,7 @@
     }
   ],
   "bgm": {
-    "mode": "retrieve",
+    "mode": "generate",
     "query": "confident minimal tech underscore",
     "blob": "Creator Twin walks your full decision pipeline — so every asset is actually you",
     "arc": "Demo Loop — Hook → DNA → Opportunity → Make → Package → Gate → Ship"
