@@ -30,6 +30,10 @@ backend/.venv/Scripts/python -m backend.db.manage inspect
 
 # Print the resolved DB file path (DATABASE_PATH from .env, default ./aftertake.db)
 backend/.venv/Scripts/python -m backend.db.manage path
+
+# Load the 8-video seed catalog (data/seed/catalog.json) for creator_001
+# Mirrors POST /catalog/ingest; idempotent (safe to re-run)
+backend/.venv/Scripts/python -m backend.db.seed
 ```
 
 The schema is one SQL file per table in `backend/db/sql/` — applied in sorted
