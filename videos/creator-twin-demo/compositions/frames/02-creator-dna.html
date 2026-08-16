@@ -6,101 +6,180 @@
       width: 1920px;
       height: 1080px;
       overflow: hidden;
-      font-family: Georgia, "Times New Roman", serif;
-      color: #0b1f33;
-      background: #f2f5f8;
+      background: #0b1220;
+      color: #f3eee6;
+      font-family: Outfit, system-ui, sans-serif;
     }
-    .bg {
+    .grid {
       position: absolute;
       inset: 0;
-      background: #f2f5f8;
+      background-image:
+        linear-gradient(rgba(243, 238, 230, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(243, 238, 230, 0.04) 1px, transparent 1px);
+      background-size: 72px 72px;
+      opacity: 0.7;
+    }
+    .radial {
+      position: absolute;
+      width: 700px;
+      height: 700px;
+      left: 50%;
+      top: 52%;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(46, 196, 182, 0.18) 0%, transparent 70%);
+    }
+    .ghost {
+      position: absolute;
+      right: -40px;
+      bottom: -40px;
+      font-family: Syne, sans-serif;
+      font-weight: 800;
+      font-size: 180px;
+      color: rgba(243, 238, 230, 0.035);
+      letter-spacing: -0.04em;
+    }
+    .grain {
+      position: absolute;
+      inset: 0;
+      opacity: 0.3;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+      mix-blend-mode: soft-light;
+      pointer-events: none;
     }
     .label {
       position: absolute;
       top: 72px;
       left: 96px;
+      font-family: JetBrains Mono, monospace;
       font-size: 18px;
-      font-weight: 700;
-      letter-spacing: 0.16em;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: #C4452A;
+      color: #2ec4b6;
+      font-weight: 500;
     }
     .title {
       position: absolute;
       top: 110px;
       left: 96px;
-      font-size: 56px;
-      font-weight: 700;
-      letter-spacing: -0.02em;
+      font-family: Syne, sans-serif;
+      font-weight: 800;
+      font-size: 64px;
+      letter-spacing: -0.03em;
     }
-    .cards {
+    .hub {
       position: absolute;
-      left: 96px;
-      top: 240px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-      width: 880px;
+      left: 50%;
+      top: 55%;
+      width: 180px;
+      height: 180px;
+      margin: -90px 0 0 -90px;
+      border-radius: 50%;
+      background: #182234;
+      border: 3px solid #ff4d2e;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: Syne, sans-serif;
+      font-weight: 800;
+      font-size: 22px;
+      text-align: center;
+      line-height: 1.15;
+      z-index: 3;
     }
-    .card {
-      background: #ffffff;
-      border: 1.5px solid rgba(11, 31, 51, 0.12);
-      border-radius: 14px;
-      padding: 28px 32px;
-      min-height: 140px;
+    .node {
+      position: absolute;
+      width: 220px;
+      height: 110px;
+      background: #121a2b;
+      border: 2px solid rgba(243, 238, 230, 0.16);
+      border-radius: 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 28px;
+      z-index: 2;
     }
-    .card .k {
-      font-size: 14px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
+    .node .k {
+      font-family: JetBrains Mono, monospace;
+      font-size: 13px;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: #C4452A;
-      margin-bottom: 12px;
+      color: #ff4d2e;
+      margin-bottom: 8px;
     }
-    .card .v {
+    .node .v {
+      font-family: Syne, sans-serif;
+      font-weight: 700;
       font-size: 28px;
-      font-weight: 600;
-      line-height: 1.2;
     }
-    .poster {
+    #n1 { left: 220px; top: 280px; }
+    #n2 { right: 220px; top: 280px; }
+    #n3 { left: 260px; top: 680px; }
+    #n4 { right: 260px; top: 680px; }
+    .links {
       position: absolute;
-      right: 72px;
-      top: 180px;
-      width: 760px;
-      height: 520px;
-      object-fit: cover;
-      border-radius: 14px;
-      border: 1.5px solid rgba(11, 31, 51, 0.12);
-      box-shadow: none;
+      inset: 0;
+      z-index: 1;
+    }
+    .badge {
+      position: absolute;
+      top: 72px;
+      right: 96px;
+      padding: 12px 22px;
+      border-radius: 100px;
+      background: rgba(46, 196, 182, 0.15);
+      border: 2px solid #2ec4b6;
+      color: #2ec4b6;
+      font-family: JetBrains Mono, monospace;
+      font-size: 14px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
     }
   </style>
 
   <div id="root" data-composition-id="02-creator-dna" data-start="0" data-duration="6.367" data-width="1920" data-height="1080">
-    <div class="bg clip" data-start="0" data-duration="6.867" data-track-index="0"></div>
-    <div class="label" id="label">Stage 01 Â· Learn</div>
-    <div class="title" id="title">Creator DNA</div>
-    <img class="poster" id="poster" src="assets/01-system-overview.png" alt="" />
-    <div class="cards">
-      <div class="card" id="c1"><div class="k">Trait</div><div class="v">Voice</div></div>
-      <div class="card" id="c2"><div class="k">Trait</div><div class="v">Hooks</div></div>
-      <div class="card" id="c3"><div class="k">Trait</div><div class="v">Title formula</div></div>
-      <div class="card" id="c4"><div class="k">Trait</div><div class="v">Thumbnail style</div></div>
+    <div class="clip" id="atmosphere" data-start="0" data-duration="6.367" data-track-index="0">
+      <div class="grid"></div>
+      <div class="radial"></div>
+      <div class="ghost">DNA</div>
+      <div class="grain"></div>
     </div>
+    <div class="label" id="label">Stage 01 · Learn</div>
+    <div class="title" id="title">Creator DNA</div>
+    <div class="badge" id="badge">Learn</div>
+    <svg class="links" id="links" viewBox="0 0 1920 1080" width="1920" height="1080">
+      <line id="l1" x1="960" y1="540" x2="330" y2="335" stroke="rgba(255,77,46,0.45)" stroke-width="2" />
+      <line id="l2" x1="960" y1="540" x2="1590" y2="335" stroke="rgba(255,77,46,0.45)" stroke-width="2" />
+      <line id="l3" x1="960" y1="540" x2="370" y2="735" stroke="rgba(46,196,182,0.4)" stroke-width="2" />
+      <line id="l4" x1="960" y1="540" x2="1550" y2="735" stroke="rgba(46,196,182,0.4)" stroke-width="2" />
+    </svg>
+    <div class="hub" id="hub">Aftertake<br/>Core</div>
+    <div class="node" id="n1"><div class="k">Trait</div><div class="v">Voice</div></div>
+    <div class="node" id="n2"><div class="k">Trait</div><div class="v">Hooks</div></div>
+    <div class="node" id="n3"><div class="k">Trait</div><div class="v">Title formula</div></div>
+    <div class="node" id="n4"><div class="k">Trait</div><div class="v">Thumbnails</div></div>
   </div>
 
   <script>
     window.__timelines = window.__timelines || {};
     const tl = gsap.timeline({ paused: true });
-    gsap.set(["#label", "#title"], { opacity: 0, y: 18 });
-    gsap.set("#poster", { opacity: 0, x: 40 });
-    gsap.set(["#c1", "#c2", "#c3", "#c4"], { opacity: 0, y: 36, scale: 0.94 });
+    gsap.set(["#label", "#title", "#badge"], { opacity: 0, y: 16 });
+    gsap.set("#hub", { opacity: 0, scale: 0.7 });
+    gsap.set(["#n1", "#n2", "#n3", "#n4"], { opacity: 0, scale: 0.85 });
+    gsap.set(["#l1", "#l2", "#l3", "#l4"], { opacity: 0 });
     tl.to("#label", { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, 0.05);
     tl.to("#title", { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, 0.2);
-    tl.to("#poster", { opacity: 1, x: 0, duration: 0.6, ease: "power3.out" }, 0.35);
-    tl.to("#c1", { opacity: 1, y: 0, scale: 1, duration: 0.45, ease: "power3.out" }, 1.2);
-    tl.to("#c2", { opacity: 1, y: 0, scale: 1, duration: 0.45, ease: "power3.out" }, 1.45);
-    tl.to("#c3", { opacity: 1, y: 0, scale: 1, duration: 0.45, ease: "power3.out" }, 1.7);
-    tl.to("#c4", { opacity: 1, y: 0, scale: 1, duration: 0.45, ease: "power3.out" }, 1.95);
+    tl.to("#hub", { opacity: 1, scale: 1, duration: 0.55, ease: "back.out(1.4)" }, 0.55);
+    tl.to("#n1", { opacity: 1, scale: 1, duration: 0.4, ease: "power3.out" }, 1.5);
+    tl.to("#l1", { opacity: 1, duration: 0.35 }, 1.55);
+    tl.to("#n2", { opacity: 1, scale: 1, duration: 0.4, ease: "power3.out" }, 1.85);
+    tl.to("#l2", { opacity: 1, duration: 0.35 }, 1.9);
+    tl.to("#n3", { opacity: 1, scale: 1, duration: 0.4, ease: "power3.out" }, 2.2);
+    tl.to("#l3", { opacity: 1, duration: 0.35 }, 2.25);
+    tl.to("#n4", { opacity: 1, scale: 1, duration: 0.4, ease: "power3.out" }, 2.55);
+    tl.to("#l4", { opacity: 1, duration: 0.35 }, 2.6);
+    tl.to("#badge", { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, 5.0);
     window.__timelines["02-creator-dna"] = tl;
   </script>
 </template>

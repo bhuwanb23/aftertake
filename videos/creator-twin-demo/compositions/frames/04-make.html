@@ -6,33 +6,68 @@
       width: 1920px;
       height: 1080px;
       overflow: hidden;
-      font-family: Georgia, "Times New Roman", serif;
-      color: #0b1f33;
-      background: #f2f5f8;
+      background: #0b1220;
+      color: #f3eee6;
+      font-family: Outfit, system-ui, sans-serif;
     }
-    .bg { position: absolute; inset: 0; background: #f2f5f8; }
+    .grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(243, 238, 230, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(243, 238, 230, 0.035) 1px, transparent 1px);
+      background-size: 72px 72px;
+    }
+    .radial {
+      position: absolute;
+      width: 800px;
+      height: 800px;
+      right: -100px;
+      top: 120px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 77, 46, 0.18) 0%, transparent 70%);
+    }
+    .ghost {
+      position: absolute;
+      left: 60px;
+      bottom: 40px;
+      font-family: Syne, sans-serif;
+      font-weight: 800;
+      font-size: 140px;
+      color: rgba(243, 238, 230, 0.035);
+    }
+    .grain {
+      position: absolute;
+      inset: 0;
+      opacity: 0.3;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+      mix-blend-mode: soft-light;
+      pointer-events: none;
+    }
     .label {
       position: absolute;
       top: 72px;
       left: 96px;
+      font-family: JetBrains Mono, monospace;
       font-size: 18px;
-      font-weight: 700;
-      letter-spacing: 0.16em;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: #2e6b9e;
+      color: #ff4d2e;
     }
     .title {
       position: absolute;
       top: 110px;
       left: 96px;
-      font-size: 52px;
-      font-weight: 700;
+      font-family: Syne, sans-serif;
+      font-weight: 800;
+      font-size: 58px;
+      letter-spacing: -0.03em;
     }
     .list {
       position: absolute;
       left: 96px;
       top: 240px;
-      width: 900px;
+      width: 920px;
       display: flex;
       flex-direction: column;
       gap: 22px;
@@ -40,101 +75,134 @@
     .row {
       display: flex;
       align-items: center;
-      gap: 22px;
-      background: #fff;
-      border: 1.5px solid rgba(11, 31, 51, 0.12);
-      border-radius: 14px;
-      padding: 26px 30px;
+      gap: 24px;
+      background: #121a2b;
+      border: 2px solid rgba(243, 238, 230, 0.14);
+      border-radius: 18px;
+      padding: 28px 32px;
     }
     .check {
-      width: 42px;
-      height: 42px;
+      width: 48px;
+      height: 48px;
       border-radius: 50%;
-      border: 2px solid rgba(11, 31, 51, 0.2);
-      background: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 22px;
-      color: #fff;
-      flex-shrink: 0;
+      border: 2px solid rgba(243, 238, 230, 0.25);
       position: relative;
       overflow: hidden;
+      flex-shrink: 0;
     }
     .check .fill {
       position: absolute;
       inset: 0;
-      background: #00a86b;
+      background: #2ec4b6;
       opacity: 0;
     }
     .check .mark {
       position: relative;
       z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      font-size: 24px;
+      color: #0b1220;
+      font-weight: 700;
       opacity: 0;
     }
     .row .t {
-      font-size: 28px;
-      font-weight: 600;
+      font-family: Syne, sans-serif;
+      font-weight: 700;
+      font-size: 30px;
     }
-    .badge {
+    .panel {
       position: absolute;
-      right: 120px;
-      top: 320px;
-      width: 640px;
-      height: 360px;
-      background: #0b1f33;
-      border-radius: 14px;
-      color: #fff;
+      right: 100px;
+      top: 260px;
+      width: 680px;
+      height: 420px;
+      background: #182234;
+      border: 2px solid rgba(255, 77, 46, 0.45);
+      border-radius: 22px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 16px;
+      gap: 18px;
     }
-    .badge .k {
+    .panel .k {
+      font-family: JetBrains Mono, monospace;
       font-size: 16px;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: #FF5A36;
-      font-weight: 700;
+      color: #ff4d2e;
     }
-    .badge .v {
-      font-size: 42px;
-      font-weight: 700;
+    .panel .v {
+      font-family: Syne, sans-serif;
+      font-weight: 800;
+      font-size: 52px;
+    }
+    .bars {
+      display: flex;
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .bar {
+      width: 18px;
+      height: 80px;
+      background: rgba(46, 196, 182, 0.25);
+      border-radius: 6px;
+      transform-origin: bottom center;
     }
   </style>
 
   <div id="root" data-composition-id="04-make" data-start="0" data-duration="6.111" data-width="1920" data-height="1080">
-    <div class="bg clip" data-start="0" data-duration="6.611" data-track-index="0"></div>
-    <div class="label" id="label">Stages 03â€“05 Â· Create</div>
+    <div class="clip" id="atmosphere" data-start="0" data-duration="6.111" data-track-index="0">
+      <div class="grid"></div>
+      <div class="radial"></div>
+      <div class="ghost">MAKE</div>
+      <div class="grain"></div>
+    </div>
+    <div class="label" id="label">Stages 03–05 · Create</div>
     <div class="title" id="title">Make in your voice</div>
     <div class="list">
-      <div class="row" id="r1"><div class="check" id="k1"><div class="fill" id="f1"></div><div class="mark" id="m1">âœ“</div></div><div class="t">Script Agent â€” hook, scenes, VO</div></div>
-      <div class="row" id="r2"><div class="check" id="k2"><div class="fill" id="f2"></div><div class="mark" id="m2">âœ“</div></div><div class="t">HyperFrames render â€” deterministic MP4</div></div>
-      <div class="row" id="r3"><div class="check" id="k3"><div class="fill" id="f3"></div><div class="mark" id="m3">âœ“</div></div><div class="t">Captions burn-in â€” Whisper sync</div></div>
+      <div class="row" id="r1"><div class="check"><div class="fill" id="f1"></div><div class="mark" id="m1">✓</div></div><div class="t">Script Agent — hook, scenes, VO</div></div>
+      <div class="row" id="r2"><div class="check"><div class="fill" id="f2"></div><div class="mark" id="m2">✓</div></div><div class="t">HyperFrames render — deterministic MP4</div></div>
+      <div class="row" id="r3"><div class="check"><div class="fill" id="f3"></div><div class="mark" id="m3">✓</div></div><div class="t">Captions burn-in — Whisper sync</div></div>
     </div>
-    <div class="badge" id="badge">
+    <div class="panel" id="panel">
       <div class="k">Powered by</div>
       <div class="v">HyperFrames</div>
+      <div class="bars">
+        <div class="bar" id="b1"></div>
+        <div class="bar" id="b2"></div>
+        <div class="bar" id="b3"></div>
+        <div class="bar" id="b4"></div>
+        <div class="bar" id="b5"></div>
+      </div>
     </div>
   </div>
 
   <script>
     window.__timelines = window.__timelines || {};
     const tl = gsap.timeline({ paused: true });
-    gsap.set(["#label", "#title"], { opacity: 0, y: 16 });
-    gsap.set(["#r1", "#r2", "#r3"], { opacity: 0, x: -28 });
+    gsap.set(["#label", "#title"], { opacity: 0, y: 14 });
+    gsap.set(["#r1", "#r2", "#r3"], { opacity: 0, x: -30 });
     gsap.set(["#f1", "#f2", "#f3", "#m1", "#m2", "#m3"], { opacity: 0 });
-    gsap.set("#badge", { opacity: 0, scale: 0.92 });
+    gsap.set("#panel", { opacity: 0, scale: 0.92 });
+    gsap.set(["#b1", "#b2", "#b3", "#b4", "#b5"], { scaleY: 0.2 });
     tl.to("#label", { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, 0.05);
-    tl.to("#title", { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, 0.15);
-    tl.to("#r1", { opacity: 1, x: 0, duration: 0.4, ease: "power3.out" }, 0.5);
-    tl.to(["#f1", "#m1"], { opacity: 1, duration: 0.25, ease: "power2.out" }, 1.1);
-    tl.to("#r2", { opacity: 1, x: 0, duration: 0.4, ease: "power3.out" }, 1.5);
-    tl.to(["#f2", "#m2"], { opacity: 1, duration: 0.25, ease: "power2.out" }, 2.2);
-    tl.to("#badge", { opacity: 1, scale: 1, duration: 0.5, ease: "power3.out" }, 2.3);
-    tl.to("#r3", { opacity: 1, x: 0, duration: 0.4, ease: "power3.out" }, 3.4);
-    tl.to(["#f3", "#m3"], { opacity: 1, duration: 0.25, ease: "power2.out" }, 4.0);
+    tl.to("#title", { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, 0.18);
+    tl.to("#r1", { opacity: 1, x: 0, duration: 0.4, ease: "power3.out" }, 0.55);
+    tl.to(["#f1", "#m1"], { opacity: 1, duration: 0.25 }, 1.2);
+    tl.to("#r2", { opacity: 1, x: 0, duration: 0.4, ease: "power3.out" }, 2.0);
+    tl.to(["#f2", "#m2"], { opacity: 1, duration: 0.25 }, 2.7);
+    tl.to("#panel", { opacity: 1, scale: 1, duration: 0.5, ease: "power3.out" }, 2.8);
+    tl.to("#b1", { scaleY: 0.55, duration: 0.35, ease: "power2.out" }, 3.0);
+    tl.to("#b2", { scaleY: 0.85, duration: 0.35, ease: "power2.out" }, 3.1);
+    tl.to("#b3", { scaleY: 0.45, duration: 0.35, ease: "power2.out" }, 3.2);
+    tl.to("#b4", { scaleY: 1, duration: 0.35, ease: "power2.out" }, 3.3);
+    tl.to("#b5", { scaleY: 0.7, duration: 0.35, ease: "power2.out" }, 3.4);
+    tl.to("#r3", { opacity: 1, x: 0, duration: 0.4, ease: "power3.out" }, 4.5);
+    tl.to(["#f3", "#m3"], { opacity: 1, duration: 0.25 }, 5.2);
     window.__timelines["04-make"] = tl;
   </script>
 </template>

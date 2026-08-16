@@ -6,27 +6,65 @@
       width: 1920px;
       height: 1080px;
       overflow: hidden;
-      font-family: Georgia, "Times New Roman", serif;
-      color: #0b1f33;
-      background: #f2f5f8;
+      background: #0b1220;
+      color: #f3eee6;
+      font-family: Outfit, system-ui, sans-serif;
     }
-    .bg { position: absolute; inset: 0; background: #f2f5f8; }
+    .grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(243, 238, 230, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(243, 238, 230, 0.04) 1px, transparent 1px);
+      background-size: 80px 80px;
+      mask-image: radial-gradient(ellipse at center, #000 35%, transparent 80%);
+    }
+    .radial {
+      position: absolute;
+      width: 900px;
+      height: 500px;
+      left: 50%;
+      top: 40%;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(ellipse, rgba(255, 77, 46, 0.2) 0%, transparent 70%);
+    }
+    .ghost {
+      position: absolute;
+      left: 50%;
+      bottom: 20px;
+      transform: translateX(-50%);
+      font-family: Syne, sans-serif;
+      font-weight: 800;
+      font-size: 120px;
+      color: rgba(243, 238, 230, 0.035);
+      letter-spacing: 0.08em;
+    }
+    .grain {
+      position: absolute;
+      inset: 0;
+      opacity: 0.3;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+      mix-blend-mode: soft-light;
+      pointer-events: none;
+    }
     .label {
       position: absolute;
       top: 72px;
       left: 96px;
+      font-family: JetBrains Mono, monospace;
       font-size: 18px;
-      font-weight: 700;
-      letter-spacing: 0.16em;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: #C4452A;
+      color: #ff4d2e;
     }
     .title {
       position: absolute;
       top: 110px;
       left: 96px;
-      font-size: 52px;
-      font-weight: 700;
+      font-family: Syne, sans-serif;
+      font-weight: 800;
+      font-size: 56px;
+      letter-spacing: -0.03em;
     }
     .thumbs {
       position: absolute;
@@ -36,85 +74,92 @@
       gap: 28px;
     }
     .thumb {
-      width: 360px;
-      height: 220px;
-      border-radius: 14px;
-      background: #fff;
-      border: 2px solid rgba(11, 31, 51, 0.12);
+      width: 400px;
+      height: 280px;
+      border-radius: 20px;
+      background: #121a2b;
+      border: 2px solid rgba(243, 238, 230, 0.14);
+      position: relative;
+      overflow: hidden;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
     }
-    .thumb .swatch {
-      width: 280px;
-      height: 120px;
-      border-radius: 10px;
-      background: linear-gradient(135deg, #0b1f33, #2e6b9e);
+    .thumb .art {
+      flex: 1;
+      margin: 18px;
+      border-radius: 14px;
     }
     .thumb .name {
-      font-size: 20px;
-      font-weight: 600;
+      padding: 0 24px 22px;
+      font-family: Syne, sans-serif;
+      font-weight: 700;
+      font-size: 24px;
     }
-    .thumb.chosen {
-      border-color: #C4452A;
-      border-width: 3px;
-    }
+    #t1 .art { background: linear-gradient(145deg, #182234, #2ec4b6); }
+    #t2 .art { background: linear-gradient(145deg, #ff4d2e, #0b1220 70%); }
+    #t3 .art { background: linear-gradient(145deg, #2ec4b6, #182234); }
     .chosen-tag {
       position: absolute;
-      top: 12px;
-      right: 16px;
+      top: 18px;
+      right: 18px;
+      padding: 8px 14px;
+      border-radius: 100px;
+      background: #ff4d2e;
+      color: #0b1220;
+      font-family: JetBrains Mono, monospace;
       font-size: 12px;
       font-weight: 700;
       letter-spacing: 0.12em;
-      color: #C4452A;
       text-transform: uppercase;
     }
     .formula {
       position: absolute;
       left: 96px;
-      bottom: 160px;
-      font-size: 28px;
-      color: #5a6a7a;
-      max-width: 1400px;
+      bottom: 120px;
+      font-family: JetBrains Mono, monospace;
+      font-size: 24px;
+      color: #a8a296;
+      max-width: 1600px;
     }
     .formula strong {
-      color: #0b1f33;
+      color: #f3eee6;
+      font-family: Outfit, sans-serif;
+      font-weight: 600;
     }
   </style>
 
-  <div id="root" data-composition-id="05-package" data-start="0" data-duration="5.016" data-width="1920" data-height="1080">
-    <div class="bg clip" data-start="0" data-duration="5.616" data-track-index="0"></div>
-    <div class="label" id="label">Stages 06â€“07 Â· Package</div>
+  <div id="root" data-composition-id="05-package" data-start="0" data-duration="4.916" data-width="1920" data-height="1080">
+    <div class="clip" id="atmosphere" data-start="0" data-duration="4.916" data-track-index="0">
+      <div class="grid"></div>
+      <div class="radial"></div>
+      <div class="ghost">PACKAGE</div>
+      <div class="grain"></div>
+    </div>
+    <div class="label" id="label">Stages 06–07 · Package</div>
     <div class="title" id="title">Thumbnails + title formula</div>
     <div class="thumbs">
-      <div class="thumb" id="t1"><div class="swatch"></div><div class="name">Variant A</div></div>
-      <div class="thumb" id="t2" style="position:relative">
-        <div class="chosen-tag" id="tag" style="opacity:0">Chosen</div>
-        <div class="swatch" style="background:linear-gradient(135deg,#C4452A,#0b1f33)"></div>
-        <div class="name">Variant B</div>
-      </div>
-      <div class="thumb" id="t3"><div class="swatch" style="background:linear-gradient(135deg,#00a86b,#0b1f33)"></div><div class="name">Variant C</div></div>
+      <div class="thumb" id="t1"><div class="art"></div><div class="name">Variant A</div></div>
+      <div class="thumb" id="t2"><div class="chosen-tag" id="tag">Chosen</div><div class="art"></div><div class="name">Variant B</div></div>
+      <div class="thumb" id="t3"><div class="art"></div><div class="name">Variant C</div></div>
     </div>
-    <div class="formula" id="formula"><strong>Title formula:</strong> [Hook pattern] + [Niche promise] â€” learned from your catalog</div>
+    <div class="formula" id="formula"><strong>Title formula:</strong> [Hook pattern] + [Niche promise] — learned from your catalog</div>
   </div>
 
   <script>
     window.__timelines = window.__timelines || {};
     const tl = gsap.timeline({ paused: true });
-    gsap.set(["#label", "#title"], { opacity: 0, y: 14 });
-    gsap.set(["#t1", "#t2", "#t3"], { opacity: 0, y: 30, scale: 0.94 });
-    gsap.set("#formula", { opacity: 0, y: 12 });
-    gsap.set("#tag", { opacity: 0 });
+    gsap.set(["#label", "#title"], { opacity: 0, y: 12 });
+    gsap.set(["#t1", "#t2", "#t3"], { opacity: 0, y: 36, scale: 0.92 });
+    gsap.set("#tag", { opacity: 0, scale: 0.8 });
+    gsap.set("#formula", { opacity: 0, y: 14 });
     tl.to("#label", { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, 0.05);
     tl.to("#title", { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, 0.15);
     tl.to("#t1", { opacity: 1, y: 0, scale: 1, duration: 0.4, ease: "power3.out" }, 0.55);
     tl.to("#t2", { opacity: 1, y: 0, scale: 1, duration: 0.4, ease: "power3.out" }, 0.75);
     tl.to("#t3", { opacity: 1, y: 0, scale: 1, duration: 0.4, ease: "power3.out" }, 0.95);
-    tl.to("#t2", { borderColor: "#C4452A", borderWidth: 3, duration: 0.25, ease: "power2.out" }, 1.5);
-    tl.to("#tag", { opacity: 1, duration: 0.3, ease: "power3.out" }, 1.55);
-    tl.to("#formula", { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, 2.8);
+    tl.to("#t2", { borderColor: "#ff4d2e", borderWidth: 3, duration: 0.3, ease: "power2.out" }, 1.7);
+    tl.to("#tag", { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(1.5)" }, 1.75);
+    tl.to("#formula", { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, 3.4);
     window.__timelines["05-package"] = tl;
   </script>
 </template>

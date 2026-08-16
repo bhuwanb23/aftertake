@@ -6,88 +6,125 @@
       width: 1920px;
       height: 1080px;
       overflow: hidden;
-      font-family: Georgia, "Times New Roman", serif;
-      color: #0b1f33;
-      background: #f2f5f8;
+      background: #0b1220;
+      color: #f3eee6;
+      font-family: Outfit, system-ui, sans-serif;
     }
-    .bg { position: absolute; inset: 0; background: #f2f5f8; }
+    .grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(243, 238, 230, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(243, 238, 230, 0.04) 1px, transparent 1px);
+      background-size: 80px 80px;
+      mask-image: radial-gradient(ellipse at center, #000 40%, transparent 85%);
+    }
+    .radial {
+      position: absolute;
+      width: 900px;
+      height: 900px;
+      left: 50%;
+      top: 58%;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 77, 46, 0.26) 0%, transparent 68%);
+    }
+    .ghost {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      font-family: Syne, sans-serif;
+      font-weight: 800;
+      font-size: 200px;
+      color: rgba(243, 238, 230, 0.035);
+      letter-spacing: -0.04em;
+      white-space: nowrap;
+    }
+    .grain {
+      position: absolute;
+      inset: 0;
+      opacity: 0.32;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+      mix-blend-mode: soft-light;
+      pointer-events: none;
+    }
     .tiles {
       position: absolute;
       left: 160px;
-      top: 140px;
+      top: 120px;
       display: flex;
       gap: 24px;
     }
     .tile {
-      width: 360px;
+      width: 380px;
       height: 200px;
-      background: #fff;
-      border: 1.5px solid rgba(11, 31, 51, 0.12);
-      border-radius: 14px;
-      padding: 28px;
+      background: #121a2b;
+      border: 2px solid rgba(243, 238, 230, 0.14);
+      border-radius: 20px;
+      padding: 32px;
     }
     .tile .k {
+      font-family: JetBrains Mono, monospace;
       font-size: 14px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: #5a6a7a;
-      margin-bottom: 14px;
+      color: #a8a296;
+      margin-bottom: 16px;
     }
     .tile .v {
-      font-size: 30px;
-      font-weight: 600;
+      font-family: Syne, sans-serif;
+      font-weight: 700;
+      font-size: 32px;
     }
     .publish {
       position: absolute;
       left: 50%;
       top: 400px;
       transform: translateX(-50%);
-      background: #FF5A36;
-      color: #fff;
+      background: #ff4d2e;
+      color: #0b1220;
+      font-family: Syne, sans-serif;
+      font-weight: 800;
       font-size: 28px;
-      font-weight: 700;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      padding: 22px 64px;
+      padding: 22px 72px;
       border-radius: 100px;
     }
     .lockup {
       position: absolute;
       left: 50%;
-      top: 560px;
+      top: 540px;
       transform: translateX(-50%);
       text-align: center;
-      width: 1400px;
+      width: 1500px;
     }
     .brand {
-      font-size: 72px;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      margin-bottom: 18px;
+      font-family: Syne, sans-serif;
+      font-weight: 800;
+      font-size: 96px;
+      letter-spacing: -0.04em;
+      margin-bottom: 20px;
     }
     .tag {
-      font-size: 28px;
-      color: #5a6a7a;
+      font-size: 30px;
+      color: #a8a296;
       line-height: 1.35;
     }
-    .tag .accent { color: #C4452A; font-weight: 600; }
-    .glow {
-      position: absolute;
-      width: 640px;
-      height: 640px;
-      left: 50%;
-      top: 520px;
-      transform: translate(-50%, -40%);
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(255,90,54,0.18) 0%, transparent 70%);
-      pointer-events: none;
+    .tag .accent {
+      color: #ff4d2e;
+      font-weight: 600;
     }
   </style>
 
-  <div id="root" data-composition-id="07-ship-close" data-start="0" data-duration="6.613" data-width="1920" data-height="1080">
-    <div class="bg clip" data-start="0" data-duration="6.613" data-track-index="0"></div>
-    <div class="glow" id="glow"></div>
+  <div id="root" data-composition-id="07-ship-close" data-start="0" data-duration="6.251" data-width="1920" data-height="1080">
+    <div class="clip" id="atmosphere" data-start="0" data-duration="6.251" data-track-index="0">
+      <div class="grid"></div>
+      <div class="radial" id="radial"></div>
+      <div class="ghost">AFTERTAKE</div>
+      <div class="grain"></div>
+    </div>
     <div class="tiles">
       <div class="tile" id="d1"><div class="k">Dashboard</div><div class="v">Preview ready</div></div>
       <div class="tile" id="d2"><div class="k">Schedule</div><div class="v">Queued to publish</div></div>
@@ -95,8 +132,8 @@
     </div>
     <div class="publish" id="pub">Publish</div>
     <div class="lockup" id="lockup">
-      <div class="brand">Creator Twin</div>
-      <div class="tag">Decide what to make â€” and whether it is <span class="accent">actually you</span>.</div>
+      <div class="brand">Aftertake</div>
+      <div class="tag">Decide what to make — and whether it is <span class="accent">actually you</span>.</div>
     </div>
   </div>
 
@@ -105,16 +142,16 @@
     const tl = gsap.timeline({ paused: true });
     gsap.set(["#d1", "#d2", "#d3"], { opacity: 0, y: 24 });
     gsap.set("#pub", { opacity: 0, scale: 0.9 });
-    gsap.set("#lockup", { opacity: 0, y: 20 });
-    gsap.set("#glow", { opacity: 0, scale: 0.75 });
+    gsap.set("#lockup", { opacity: 0, y: 22 });
+    gsap.set("#radial", { opacity: 0.5, scale: 0.9 });
     tl.to("#d1", { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, 0.15);
     tl.to("#d2", { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, 0.35);
     tl.to("#d3", { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, 0.55);
-    tl.to("#pub", { opacity: 1, scale: 1, duration: 0.45, ease: "back.out(1.5)" }, 2.0);
-    tl.to("#pub", { scale: 0.96, duration: 0.12, yoyo: true, repeat: 1, ease: "power2.inOut" }, 2.6);
-    tl.to(["#d1", "#d2", "#d3", "#pub"], { opacity: 0.15, duration: 0.4, ease: "power2.out" }, 4.0);
+    tl.to("#pub", { opacity: 1, scale: 1, duration: 0.45, ease: "back.out(1.4)" }, 2.1);
+    tl.to("#pub", { scale: 0.96, duration: 0.12, yoyo: true, repeat: 1, ease: "power2.inOut" }, 2.7);
+    tl.to(["#d1", "#d2", "#d3", "#pub"], { opacity: 0.12, duration: 0.45, ease: "power2.out" }, 4.0);
     tl.to("#lockup", { opacity: 1, y: 0, duration: 0.55, ease: "power3.out" }, 4.2);
-    tl.to("#glow", { opacity: 1, scale: 1, duration: 0.7, ease: "power2.out" }, 4.4);
+    tl.to("#radial", { opacity: 1, scale: 1.08, duration: 0.9, ease: "power2.out" }, 4.3);
     window.__timelines["07-ship-close"] = tl;
   </script>
 </template>
