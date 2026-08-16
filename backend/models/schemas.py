@@ -177,3 +177,17 @@ class Script(BaseModel):
     full_voiceover_text: str = ""  # concatenation of hook + scenes + outro — passed to TTS
     estimated_duration_seconds: int = 0
     word_count: int = 0
+
+
+# --- Schema 5: Thumbnail Variant -------------------------------------------
+class ThumbnailVariant(BaseModel):
+    """One generated thumbnail option. Multiple variants are generated, then the
+    scorer picks one (selected=True, with selection_reason)."""
+    id: str
+    asset_id: str
+    variant_number: int  # 1, 2, or 3
+    svg_source: str = ""  # raw SVG markup — cairosvg converts this to PNG
+    png_path: str = ""  # e.g. ./output/thumbnails/thumb_001_v1.png
+    layout_description: str = ""
+    selected: bool = False
+    selection_reason: str | None = None
