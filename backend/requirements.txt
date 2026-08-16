@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+anthropic
+pydantic
+python-dotenv
+cairosvg
+pillow
+faster-whisper
+edge-tts
+aiofiles
+httpx
