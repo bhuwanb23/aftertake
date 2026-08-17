@@ -36,10 +36,12 @@ thumbnail_style, field by field:
 - facial_expression: high-energy (surprised, excited, intense) — a neutral
   or absent expression is a violation.
 - uses_props and uses_graphic_elements: props/graphics that fit are a bonus;
-  their absence is not a violation.
-Each mismatch reduces the score proportionally. A thumbnail that matches
-every field scores 0.9+; one clear violation ~0.6-0.7; a major violation
-(blurred background, no face, wrong text style) 0.3-0.5.
+  their absence is not a violation.Each mismatch reduces the score proportionally. A thumbnail that matches
+  every field scores 0.9+; one clear violation ~0.6-0.7; a major violation
+  (blurred background, no face, wrong text style) 0.3-0.5.
+  HARD VIOLATIONS — any of these caps the score at 0.6: background not
+  solid color (blurred/gradient/abstract/photo), no face placeholder as a
+  prominent focal point, or text in mixed case / more than ~4 words.
 
 TITLE FIT — check the title and the title_formula_match explanation against
 title_formula, field by field:
@@ -56,16 +58,20 @@ title_formula, field by field:
   accurately and specifically explain how the title follows the formula?
   A vague, generic, or contradictory explanation lowers the title score even
   when the title itself looks right — it signals the mapping is not real.
+  HARD VIOLATIONS — any of these caps the score at 0.6: a question mark
+  when uses_questions is false; no number when uses_numbers is true; no
+  all-caps word when uses_caps is true; no first-person framing.
 
 VOICE FIT — check the full voiceover text against voice, field by field:
 - hook_pattern: the opening must follow the profile's hook pattern (bold
   first-person claim or time-bound challenge, no greeting).
 - vocabulary_level: accessible, precise, specific numbers — no jargon, no
   flowery language.
-- signature_phrases: used naturally where they fit.
-- what_to_avoid: ANY prohibited pattern present (generic advice, hedging,
+- signature_phrases: used naturally where they fit.- what_to_avoid: ANY prohibited pattern present (generic advice, hedging,
   flowery/poetic language, rambling intros) is a clear violation.
-Each violation reduces the score proportionally.
+  Each violation reduces the score proportionally.
+  HARD VIOLATIONS — any of these caps the score at 0.6: a hook that opens
+  with a greeting, or any what_to_avoid pattern present anywhere.
 
 SCORES AND THE PASS BAR
 
@@ -82,10 +88,12 @@ SCORES AND THE PASS BAR
 
 REJECTION REASON — SPECIFICITY IS THE PRODUCT
 
-When any dimension is clearly below 0.75, or the combined assessment is
-below the bar, write a rejection reason that names the profile field
-violated and describes the SPECIFIC mismatch in the generated content.
-Generic reasons are unacceptable. The acceptable form cites the field path
+The asset FAILS — and you MUST write a rejection reason — when the
+weighted composite is below 0.75, OR when any single dimension scores
+below 0.6 (a weak link fails the asset even if the composite clears).
+Write a rejection reason that names the profile field violated and
+describes the SPECIFIC mismatch in the generated content. Generic reasons
+are unacceptable. The acceptable form cites the field path
 and the offending content:
 
 "The thumbnail's layout description says the background is 'blurred desk
