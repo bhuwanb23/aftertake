@@ -2,13 +2,17 @@
 
 GET  /profile/{creator_id} — retrieve the stored CreatorDNAProfile, or 404.
 POST /profile/build       — trigger the DNA agent to build a profile from the
-                            stored catalog. The agent lands in Phase 2; this
-                            endpoint is wired to it and returns 501 until then.
+                            stored catalog.
+
+Phase 1: build returns a realistic STUB profile (routers/stubs.py) so the
+frontend can build against it. Phase 2 replaces the stub with the real DNA
+agent; the storage path is the same either way.
 """
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
 
 from backend.db import database as db
+from backend.routers import stubs
 
 router = APIRouter(prefix="/profile", tags=["profile"])
 
@@ -19,12 +23,27 @@ class BuildRequest(BaseModel):
 
 @router.post("/build")
 def build_profile(body: BuildRequest):
-    # Phase 2: read the catalog for body.creator_id, call the DNA agent,
-    # store the resulting CreatorDNAProfile, return it.
-    raise HTTPException(
-        status_code=501,
-        detail="DNA agent not implemented yet (Phase 2).",
-    )
+    # Phase 1 STUB: return a realistic profile and store it so GET /profile/{id}
+    # works. Phase 2: read the catalog, call the DNA agent, same store path.
+    profile = stubs.dna_profile(body.creator_id)
+    conn = db.get_connection()
+    try:
+        conn.execute(
+            """INSERT OR REPLACE INTO creator_profiles
+               (creator_id, created_at, updated_at, source_video_count, profile_json)
+               VALUES (?,?,?,?,?)""",
+            (
+                profile.creator_id,
+                profile.created_at,
+                profile.updated_at,
+                profile.source_video_count,
+                db.dumps(profile.model_dump()),
+            ),
+        )
+        conn.commit()
+    finally:
+        conn.close()
+    return profile.model_dump()
 
 
 @router.get("/{creator_id}")

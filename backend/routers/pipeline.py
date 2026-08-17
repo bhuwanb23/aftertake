@@ -1,29 +1,27 @@
 """Pipeline endpoints (Phase 0 Step 10 API contract).
 
 POST /pipeline/run         — the single end-to-end endpoint; runs all stages
-                             synchronously (the live demo call). The orchestrator
-                             lands in Phase 2 — stub returns 501 until then.
+                             synchronously (the live demo call).
 GET  /pipeline/{run_id}/status — run status for the PipelineProgress UI (polls
                              every 2s); progress % computed from stages done.
 GET  /pipeline/{run_id}/log — the full decision log for one run, oldest first.
+
+Phase 1: /run returns a realistic STUB run (routers/stubs.py) AND persists the
+run + decision-log rows so the real GET /status and GET /log endpoints serve
+it. Phase 2: the orchestrator replaces the stub with real stage execution;
+the persistence path is the same.
 """
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
 
 from backend.db import database as db
+from backend.routers import stubs
 
 router = APIRouter(prefix="/pipeline", tags=["pipeline"])
 
 # The generation stages in pipeline order. Used to compute progress_percentage.
 # regenerate/publish are lifecycle events, not run stages, so they're excluded.
-STAGES = [
-    "dna_agent",
-    "opportunity_agent",
-    "script_agent",
-    "thumbnail_agent",
-    "metadata_agent",
-    "scorer",
-]
+STAGES = stubs.RUN_STAGES
 
 
 class RunRequest(BaseModel):
@@ -33,12 +31,50 @@ class RunRequest(BaseModel):
 
 @router.post("/run")
 def run_pipeline(body: RunRequest):
-    # Phase 2: the orchestrator runs every stage in order and returns the full
-    # PipelineRun with embedded opportunity, GeneratedAsset, and decision log.
-    raise HTTPException(
-        status_code=501,
-        detail="Orchestrator not implemented yet (Phase 2).",
-    )
+    # Phase 1 STUB: return the full fake run and persist it so the status/log
+    # endpoints work for the frontend. Phase 2: orchestrator runs real stages.
+    payload = stubs.run_payload(body.creator_id)
+    entries = payload["decision_log"]
+    conn = db.get_connection()
+    try:
+        conn.execute(
+            """INSERT OR REPLACE INTO pipeline_runs
+               (id, creator_id, started_at, completed_at, status, current_stage,
+                opportunity_id, asset_id, stages_completed_json, stages_failed_json,
+                total_duration_seconds, total_llm_calls, regeneration_count)
+               VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)""",
+            (
+                payload["id"],
+                payload["creator_id"],
+                payload["started_at"],
+                payload["completed_at"],
+                payload["status"],
+                payload["current_stage"],
+                payload["opportunity_id"],
+                payload["asset_id"],
+                db.dumps(payload["stages_completed"]),
+                db.dumps(payload["stages_failed"]),
+                payload["total_duration_seconds"],
+                payload["total_llm_calls"],
+                payload["regeneration_count"],
+            ),
+        )
+        for e in entries:
+            conn.execute(
+                """INSERT OR REPLACE INTO decision_log
+                   (id, pipeline_run_id, creator_id, timestamp, stage, decision,
+                    rationale, input_summary, output_summary, score, status)
+                   VALUES (?,?,?,?,?,?,?,?,?,?,?)""",
+                (
+                    e["id"], e["pipeline_run_id"], e["creator_id"], e["timestamp"],
+                    e["stage"], e["decision"], e["rationale"], e["input_summary"],
+                    e["output_summary"], e["score"], e["status"],
+                ),
+            )
+        conn.commit()
+    finally:
+        conn.close()
+    return payload
 
 
 @router.get("/{run_id}/status")
