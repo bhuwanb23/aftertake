@@ -143,6 +143,23 @@ def main() -> int:
             print("  -> no variant passed; manual fix needed (see reason above)")
             final_score = score
 
+    # --- Persist the chain's artifacts (Phase 4 will consume these shapes) -----
+    chain_outputs = {
+        "creator_id": creator,
+        "profile": profile.model_dump(),
+        "selected_opportunity": top.model_dump(),
+        "thumbnail_variants": [v.model_dump() for v in variants],
+        "script": script.model_dump(),
+        "metadata": meta.model_dump(),
+        "quality_score": score.model_dump(),
+        "final_quality_score": final_score.model_dump(),
+        "stage_times": {name: round(dt, 2) for name, dt in times},
+        "total_seconds": round(sum(dt for _, dt in times), 2),
+    }
+    out = ROOT / "output" / "chain_outputs.json"
+    out.write_text(json.dumps(chain_outputs, indent=2), encoding="utf-8")
+    print(f"\n(chain artifacts saved to {out} — verify caches untouched)")
+
     # --- Summary --------------------------------------------------------------
     total = sum(dt for _, dt in times)
     slowest = max(times, key=lambda t: t[1])
