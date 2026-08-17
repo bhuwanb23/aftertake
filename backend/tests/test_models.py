@@ -18,11 +18,15 @@ from pydantic import ValidationError  # noqa: E402
 from backend.models.schemas import (  # noqa: E402
     ContentOpportunity,
     CreatorDNAProfile,
+    DecisionLogEntry,
+    GeneratedAsset,
     Metadata,
+    PipelineRun,
     QualityScore,
     Script,
     SourceVideo,
     ThumbnailVariant,
+    VideoInfo,
 )
 
 ok = fail = 0
@@ -122,6 +126,45 @@ def valid_qs(**over):
             "title_fit_score": 0.84, "voice_fit_score": 0.79}
     base.update(over)
     return base
+
+
+VALID_LOG = {
+    "id": "log_001", "pipeline_run_id": "run_001", "creator_id": "creator_001",
+    "timestamp": "2026-08-17T10:00:00+00:00", "stage": "opportunity_agent",
+    "decision": "Selected opp_001 with fit score 0.87.",
+    "rationale": "Fit score exceeds the 0.8 strong-fit threshold.",
+    "input_summary": "CreatorDNAProfile + 14 trends", "output_summary": "opp_001 passed on",
+    "score": 0.87, "status": "success",
+}
+
+VALID_ASSET_EMPTY = {
+    "id": "a1", "opportunity_id": "opp_001", "creator_id": "creator_001",
+    "created_at": "", "script": None, "video": {"render_status": "pending", "file_path": None},
+    "thumbnails": [], "metadata": None, "quality_score": None, "pipeline_run_id": "run_001",
+}
+
+VALID_ASSET_FULL = {
+    "id": "a1", "opportunity_id": "opp_001", "creator_id": "creator_001", "created_at": "",
+    "script": VALID_SCRIPT, "video": {"render_status": "complete", "file_path": "./output/videos/v1.mp4",
+                                       "duration_seconds": 360}, "thumbnails": [VALID_THUMB],
+    "metadata": VALID_META, "quality_score": valid_qs(), "pipeline_run_id": "run_001",
+}
+
+VALID_RUN_RUNNING = {
+    "id": "run_001", "creator_id": "creator_001", "started_at": "2026-08-17T10:00:00+00:00",
+    "completed_at": None, "status": "running", "current_stage": "script_agent",
+    "opportunity_id": None, "asset_id": None, "stages_completed": ["dna_agent", "opportunity_agent"],
+    "stages_failed": [], "total_duration_seconds": None, "total_llm_calls": 3, "regeneration_count": 0,
+}
+
+VALID_RUN_COMPLETE = {
+    "id": "run_001", "creator_id": "creator_001", "started_at": "2026-08-17T10:00:00+00:00",
+    "completed_at": "2026-08-17T10:03:34+00:00", "status": "complete", "current_stage": "",
+    "opportunity_id": "opp_001", "asset_id": "a1",
+    "stages_completed": ["dna_agent", "opportunity_agent", "script_agent", "thumbnail_agent",
+                          "metadata_agent", "scorer"],
+    "stages_failed": [], "total_duration_seconds": 214.5, "total_llm_calls": 9, "regeneration_count": 1,
+}
 
 
 # --- Source Video ------------------------------------------------------------
@@ -259,6 +302,52 @@ for mut, label in [
      "QS whitespace rejection reason rejected"),
 ]:
     rejects(mut, label, QualityScore, valid_qs())
+
+# --- Decision Log Entry ------------------------------------------------------
+check("LOG valid constructs", DecisionLogEntry(**VALID_LOG).stage == "opportunity_agent")
+check("LOG null score allowed", DecisionLogEntry(**{**VALID_LOG, "score": None}).score is None)
+for mut, label in [
+    (lambda v: v.__setitem__("stage", "orchestrator"), "LOG unknown stage rejected"),
+    (lambda v: v.__setitem__("stage", "dna"), "LOG 'dna' (not dna_agent) rejected"),
+    (lambda v: v.__setitem__("status", "pending"), "LOG unknown status rejected"),
+    (lambda v: v.__setitem__("decision", ""), "LOG empty decision rejected"),
+    (lambda v: v.__setitem__("decision", "   "), "LOG whitespace decision rejected"),
+    (lambda v: v.__setitem__("rationale", ""), "LOG empty rationale rejected"),
+    (lambda v: v.__setitem__("score", "not-a-number"), "LOG non-numeric score rejected"),
+]:
+    rejects(mut, label, DecisionLogEntry, VALID_LOG)
+
+# --- Generated Asset ---------------------------------------------------------
+check("ASSET empty state constructs (all null/empty)", GeneratedAsset(**VALID_ASSET_EMPTY).script is None)
+check("ASSET starts with video pending", GeneratedAsset(**VALID_ASSET_EMPTY).video.render_status == "pending")
+check("ASSET starts with empty thumbnails", GeneratedAsset(**VALID_ASSET_EMPTY).thumbnails == [])
+check("ASSET starts with metadata null", GeneratedAsset(**VALID_ASSET_EMPTY).metadata is None)
+check("ASSET starts with quality_score null", GeneratedAsset(**VALID_ASSET_EMPTY).quality_score is None)
+check("ASSET fully populated constructs", GeneratedAsset(**VALID_ASSET_FULL).script.id == "sc_001")
+for mut, label in [
+    (lambda v: (v["video"].__setitem__("render_status", "complete"),
+                v["video"].__setitem__("file_path", None)),
+     "ASSET complete video without file_path rejected"),
+    (lambda v: v["video"].__setitem__("duration_seconds", -5),
+     "ASSET negative video duration rejected"),
+    (lambda v: v.__setitem__("video", {"render_status": "bogus"}), "ASSET unknown render_status rejected"),
+]:
+    rejects(mut, label, GeneratedAsset, VALID_ASSET_FULL)
+
+# --- Pipeline Run ------------------------------------------------------------
+check("RUN running state constructs", PipelineRun(**VALID_RUN_RUNNING).status == "running")
+check("RUN complete state constructs", PipelineRun(**VALID_RUN_COMPLETE).total_duration_seconds == 214.5)
+for mut, label in [
+    (lambda v: v.__setitem__("status", "paused"), "RUN unknown status rejected"),
+    (lambda v: (v.__setitem__("completed_at", "2026-08-17T10:03:34+00:00"),
+                v.__setitem__("total_duration_seconds", None)),
+     "RUN completed without duration rejected"),
+    (lambda v: (v.__setitem__("completed_at", None), v.__setitem__("total_duration_seconds", 214.5)),
+     "RUN active with duration rejected"),
+    (lambda v: v.__setitem__("total_llm_calls", "9"), "RUN string llm calls rejected"),
+    (lambda v: v.__setitem__("regeneration_count", -1), "RUN negative regen count rejected"),
+]:
+    rejects(mut, label, PipelineRun, VALID_RUN_RUNNING)
 
 print(f"\n{ok} passed, {fail} failed")
 sys.exit(1 if fail else 0)

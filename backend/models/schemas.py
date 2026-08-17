@@ -319,11 +319,11 @@ class DecisionLogEntry(BaseModel):
     creator_id: str
     timestamp: str  # ISO timestamp
     stage: Stage
-    decision: str = Field(min_length=1, description="Plain language, 1-2 sentences — the UI headline")
-    rationale: str = Field(min_length=1)
+    decision: NonBlankStr  # the UI headline — plain language, 1-2 sentences
+    rationale: NonBlankStr  # the explanation of why — must reference the DNA profile where relevant
     input_summary: str = ""
     output_summary: str = ""
-    score: float | None = None  # null for stages that don't produce a score
+    score: float | None = None  # null for stages that don't produce a numeric score
     status: LogStatus = "success"
 
 
@@ -332,10 +332,16 @@ class VideoInfo(BaseModel):
     """Render state of the asset's video. file_path/duration_seconds are null
     until rendering is complete."""
     file_path: str | None = None
-    duration_seconds: int | None = None
+    duration_seconds: int | None = Field(default=None, ge=0)
     resolution: str = "1920x1080"
     has_captions: bool = False
     render_status: RenderStatus = "pending"
+
+    @model_validator(mode="after")
+    def _complete_requires_file(self):
+        if self.render_status == "complete" and not (self.file_path or "").strip():
+            raise ValueError("a video with render_status 'complete' must have a file_path")
+        return self
 
 
 class GeneratedAsset(BaseModel):
@@ -367,8 +373,16 @@ class PipelineRun(BaseModel):
     current_stage: str = ""  # updated in real time; drives the PipelineProgress UI
     opportunity_id: str | None = None  # null until the opportunity agent selects one
     asset_id: str | None = None  # null until generation completes
-    stages_completed: list[str] = []  # ordered, append-only
+    stages_completed: list[str] = []  # ordered, append-only — the orchestrator never removes items
     stages_failed: list[str] = []
-    total_duration_seconds: float | None = None  # null until the run completes
-    total_llm_calls: int = 0
-    regeneration_count: int = 0
+    total_duration_seconds: float | None = None  # null while active; float once completed_at is set
+    total_llm_calls: NonNegInt = 0
+    regeneration_count: NonNegInt = 0
+
+    @model_validator(mode="after")
+    def _duration_matches_completion(self):
+        if self.completed_at is not None and self.total_duration_seconds is None:
+            raise ValueError("a completed run must record total_duration_seconds")
+        if self.completed_at is None and self.total_duration_seconds is not None:
+            raise ValueError("total_duration_seconds must be null while the run is active")
+        return self
