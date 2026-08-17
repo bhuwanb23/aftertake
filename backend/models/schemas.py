@@ -1,9 +1,43 @@
-"""All AfterTake data shapes, defined in one place (Phase 0 Step 9).
+"""All AfterTake data shapes, defined in one place (Phase 0 Step 9 / Phase 1 Step 1).
 
 Both the API layer and the agent layer import from here.
 Never define a data shape anywhere else.
+
+Phase 1 Step 1 hardening: every field has a type, optional fields are explicit,
+and invalid data is rejected with a readable error — a fit_score of 1.5, a null
+transcript, or an unrecognized stage name must fail validation.
 """
-from pydantic import BaseModel, Field
+from datetime import date
+from typing import Literal
+
+from pydantic import BaseModel, Field, field_validator, model_validator
+
+# --- Allowed-value sets (Phase 0 Step 9) ------------------------------------
+Platform = Literal["youtube", "tiktok", "instagram", "linkedin"]
+EmotionalHook = Literal[
+    "curiosity gap", "social proof", "fear of missing out",
+    "personal authority", "specific transformation", "controversy",
+]
+BackgroundType = Literal[
+    "solid color", "gradient", "blurred real location",
+    "illustrated/graphic", "product or app screenshot",
+]
+Confidence = Literal["high", "medium", "low"]
+OpportunityStatus = Literal["pending", "approved", "rejected", "in_production", "published"]
+SceneType = Literal[
+    "talking_head", "text_overlay", "title_card",
+    "comparison_split", "list_reveal", "b_roll_description",
+]
+RenderStatus = Literal["pending", "rendering", "complete", "failed"]
+Stage = Literal[
+    "dna_agent", "opportunity_agent", "script_agent", "thumbnail_agent",
+    "metadata_agent", "scorer", "regenerate", "publish",
+]
+LogStatus = Literal["success", "rejected", "regenerated", "failed"]
+RunStatus = Literal["running", "complete", "failed", "partial"]
+
+QUALITY_THRESHOLD_DEFAULT = 0.75
+RETRY_CAP = 2
 
 
 # --- Schema 1: Source Video ------------------------------------------------
@@ -20,24 +54,33 @@ class Performance(BaseModel):
 
 class Thumbnail(BaseModel):
     """Thumbnail reference for one catalog video. description is how the DNA
-    agent learns visual style without doing image analysis."""
-    url: str = ""
-    description: str = ""
+    agent learns visual style without doing image analysis — so it must never
+    be empty."""
+    url: str = ""  # can be empty for seed data
+    description: str = Field(min_length=1, description="Plain-English description of the thumbnail")
 
 
 class SourceVideo(BaseModel):
     """One past video from the creator's catalog. Raw input to the DNA agent."""
     id: str
-    title: str
+    title: str  # always present — the DNA agent cannot function without it
     description: str = ""
-    transcript: str = ""
-    duration_seconds: int
-    published_at: str  # ISO date (YYYY-MM-DD)
-    platform: str = "youtube"  # youtube | tiktok | instagram | linkedin
+    transcript: str  # always present — tone/phrasing source for the DNA agent
+    duration_seconds: int  # whole seconds, never a float
+    published_at: str  # ISO date (YYYY-MM-DD) — validated below so the DNA agent can compute posting frequency
+    platform: Platform = "youtube"
     performance: Performance
-    thumbnail: Thumbnail = Thumbnail()
-    tags: list[str] = []
+    thumbnail: Thumbnail  # required — description teaches visual style
+    tags: list[str] = []  # can be empty, never null
     category: str = ""
+
+    @field_validator("published_at")
+    @classmethod
+    def _valid_iso_date(cls, v: str) -> str:
+        try:
+            return date.fromisoformat(v).isoformat()
+        except ValueError:
+            raise ValueError("published_at must be an ISO date (YYYY-MM-DD)")
 
 
 # --- Schema 2: Creator DNA Profile -----------------------------------------
@@ -58,18 +101,18 @@ class TitleFormula(BaseModel):
     uses_caps: bool = False
     uses_numbers: bool = False
     uses_questions: bool = False
-    emotional_hook_type: str = "curiosity gap"  # curiosity gap | social proof | fomo | personal authority | specific transformation | controversy
-    example_titles: list[str] = []
+    emotional_hook_type: EmotionalHook = "curiosity gap"
+    example_titles: list[str] = Field(min_length=1, description="3-5 real titles used as references")
 
 
 class ThumbnailStyle(BaseModel):
     """The recurring visual style of the creator's thumbnails."""
-    dominant_colors: list[str] = []
+    dominant_colors: list[str] = Field(min_length=1)
     layout_pattern: str
     text_style: str
     facial_expression: str
     uses_props: bool = False
-    background_type: str = "solid color"  # solid color | gradient | blurred real location | illustrated/graphic | product or app screenshot
+    background_type: BackgroundType = "solid color"
     uses_graphic_elements: bool = False
 
 
@@ -78,12 +121,18 @@ class DurationRange(BaseModel):
     min: int = 0
     max: int = 0
 
+    @model_validator(mode="after")
+    def _max_not_below_min(self):
+        if self.max < self.min:
+            raise ValueError("optimal_duration_range.max cannot be below min")
+        return self
+
 
 class ContentPatterns(BaseModel):
     """Formats, topics, and cadence that correlate with the creator's performance."""
     avg_duration_seconds: int = 0
     optimal_duration_range: DurationRange = DurationRange()
-    format_preferences: list[str] = []
+    format_preferences: list[str] = Field(min_length=1)
     posting_frequency: str = ""
     best_performing_topics: list[str] = []
     worst_performing_topics: list[str] = []
@@ -118,7 +167,7 @@ class Rationale(BaseModel):
     """Why this opportunity fits the creator. dna_fit_explanation MUST cite
     specific profile attributes — if it says "fits your style" without saying
     what style and why, the prompt that produced it is wrong."""
-    dna_fit_explanation: str
+    dna_fit_explanation: str = Field(min_length=1)
     performance_prediction: str
     trend_relevance: str
     risks: str
@@ -133,11 +182,11 @@ class ContentOpportunity(BaseModel):
     working_title: str = ""
     rationale: Rationale
     fit_score: float = Field(ge=0.0, le=1.0, description="0.8+ strong, 0.6-0.79 viable, <0.6 regenerate")
-    confidence: str = "medium"  # high | medium | low
+    confidence: Confidence = "medium"
     recommended_format: str = ""
     recommended_duration_seconds: int = 0
     target_hook: str = ""
-    status: str = "pending"  # pending | approved | rejected | in_production | published
+    status: OpportunityStatus = "pending"
 
 
 # --- Schema 4: Script -------------------------------------------------------
@@ -151,7 +200,7 @@ class Hook(BaseModel):
 class Scene(BaseModel):
     """One scene of the video. scene_type maps directly to HyperFrames template types."""
     scene_number: int
-    scene_type: str  # talking_head | text_overlay | title_card | comparison_split | list_reveal | b_roll_description
+    scene_type: SceneType
     voiceover_text: str
     visual_description: str
     on_screen_text: str | None = None
@@ -167,14 +216,15 @@ class Outro(BaseModel):
 
 
 class Script(BaseModel):
-    """The complete script for one video, written in the creator's learned voice."""
+    """The complete script for one video, written in the creator's learned voice.
+    hook and outro are required — a script missing either is incomplete."""
     id: str
     opportunity_id: str
     creator_id: str
     hook: Hook
     scenes: list[Scene] = []
     outro: Outro
-    full_voiceover_text: str = ""  # concatenation of hook + scenes + outro — passed to TTS
+    full_voiceover_text: str = Field(min_length=1, description="Concatenation of hook + scenes + outro — passed to TTS")
     estimated_duration_seconds: int = 0
     word_count: int = 0
 
@@ -185,12 +235,20 @@ class ThumbnailVariant(BaseModel):
     scorer picks one (selected=True, with selection_reason)."""
     id: str
     asset_id: str
-    variant_number: int  # 1, 2, or 3
-    svg_source: str = ""  # raw SVG markup — cairosvg converts this to PNG
-    png_path: str = ""  # e.g. ./output/thumbnails/thumb_001_v1.png
+    variant_number: int = Field(ge=1, le=3)
+    svg_source: str  # raw SVG markup — cairosvg converts this to PNG
+    png_path: str = ""  # null/empty until the renderer produces the PNG
     layout_description: str = ""
     selected: bool = False
     selection_reason: str | None = None
+
+    @model_validator(mode="after")
+    def _selection_consistency(self):
+        if self.selected and not (self.selection_reason or "").strip():
+            raise ValueError("selected thumbnails must carry a non-empty selection_reason")
+        if not self.selected:
+            self.selection_reason = None  # only the chosen variant explains itself
+        return self
 
 
 # --- Schema 6: Metadata -----------------------------------------------------
@@ -200,10 +258,10 @@ class Metadata(BaseModel):
     explains how it maps to that formula."""
     id: str
     asset_id: str
-    title: str
-    title_formula_match: str = ""
-    description: str = ""
-    tags: list[str] = []  # 10-15 tags for YouTube
+    title: str = Field(min_length=1)
+    title_formula_match: str = Field(min_length=1)
+    description: str = Field(min_length=1)
+    tags: list[str] = Field(min_length=5, max_length=20, description="10-15 tags for YouTube")
     category: str = ""
     scheduled_publish_time: str | None = None  # ISO timestamp, null until scheduled
     platform_targets: list[str] = ["youtube"]
@@ -212,16 +270,26 @@ class Metadata(BaseModel):
 # --- Schema 7: Quality Score ------------------------------------------------
 class QualityScore(BaseModel):
     """The scorer agent's evaluation of a generated asset against the creator's
-    DNA profile. Rule: passed == (overall_score >= threshold_used)."""
+    DNA profile. passed is COMPUTED from overall_score vs threshold_used — the
+    agent never sets it arbitrarily."""
     asset_id: str
     overall_score: float = Field(ge=0.0, le=1.0, description="Weighted composite of the dimension scores")
     thumbnail_fit_score: float = Field(ge=0.0, le=1.0)
     title_fit_score: float = Field(ge=0.0, le=1.0)
     voice_fit_score: float = Field(ge=0.0, le=1.0)
-    passed: bool = False
-    threshold_used: float = Field(default=0.75, ge=0.0, le=1.0)
+    passed: bool = False  # computed: overall_score >= threshold_used
+    threshold_used: float = Field(default=QUALITY_THRESHOLD_DEFAULT, ge=0.0, le=1.0)
     rejection_reason: str | None = None  # set only when passed is False
-    regeneration_count: int = Field(default=0, ge=0, le=2, description="Max 2 — the retry cap")
+    regeneration_count: int = Field(default=0, ge=0, le=RETRY_CAP, description=f"Max {RETRY_CAP} — the retry cap")
+
+    @model_validator(mode="after")
+    def _compute_pass_and_reason(self):
+        self.passed = self.overall_score >= self.threshold_used
+        if self.passed:
+            self.rejection_reason = None
+        elif not (self.rejection_reason or "").strip():
+            raise ValueError("a failing score must carry a non-empty rejection_reason")
+        return self
 
 
 # --- Schema 8: Decision Log Entry -------------------------------------------
@@ -234,13 +302,13 @@ class DecisionLogEntry(BaseModel):
     pipeline_run_id: str
     creator_id: str
     timestamp: str  # ISO timestamp
-    stage: str  # dna_agent | opportunity_agent | script_agent | thumbnail_agent | metadata_agent | scorer | regenerate | publish
-    decision: str  # plain language, 1-2 sentences
-    rationale: str = ""
+    stage: Stage
+    decision: str = Field(min_length=1, description="Plain language, 1-2 sentences — the UI headline")
+    rationale: str = Field(min_length=1)
     input_summary: str = ""
     output_summary: str = ""
     score: float | None = None  # null for stages that don't produce a score
-    status: str = "success"  # success | rejected | regenerated | failed
+    status: LogStatus = "success"
 
 
 # --- Schema 9: Generated Asset ---------------------------------------------
@@ -251,7 +319,7 @@ class VideoInfo(BaseModel):
     duration_seconds: int | None = None
     resolution: str = "1920x1080"
     has_captions: bool = False
-    render_status: str = "pending"  # pending | rendering | complete | failed
+    render_status: RenderStatus = "pending"
 
 
 class GeneratedAsset(BaseModel):
@@ -279,11 +347,11 @@ class PipelineRun(BaseModel):
     creator_id: str
     started_at: str  # ISO timestamp
     completed_at: str | None = None  # null while the run is in progress
-    status: str = "running"  # running | complete | failed | partial
+    status: RunStatus = "running"
     current_stage: str = ""  # updated in real time; drives the PipelineProgress UI
     opportunity_id: str | None = None  # null until the opportunity agent selects one
     asset_id: str | None = None  # null until generation completes
-    stages_completed: list[str] = []  # ordered
+    stages_completed: list[str] = []  # ordered, append-only
     stages_failed: list[str] = []
     total_duration_seconds: float | None = None  # null until the run completes
     total_llm_calls: int = 0
