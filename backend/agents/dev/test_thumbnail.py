@@ -19,6 +19,10 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent.parent))
 
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8")
+    sys.stderr.reconfigure(encoding="utf-8")
+
 from backend.agents.dev.svgutil import png_dimensions, render_svg  # noqa: E402
 from backend.agents.dev.test_opportunity import get_dna_profile  # noqa: E402
 from backend.agents.core import run_stability  # noqa: E402
