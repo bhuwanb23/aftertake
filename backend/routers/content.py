@@ -81,6 +81,11 @@ def score(body: ScoreRequest):
             voice_fit_score=0.76,
             threshold_used=0.75,
             regeneration_count=1,
+            rejection_reason=(
+                "Thumbnail uses a blurred background, but this creator's profile specifies "
+                "solid color backgrounds with a prominent creator face. Title and voice fit "
+                "cleared the gate, but the visual check failed."
+            ),
         )
         entries = [
             DecisionLogEntry(

@@ -92,3 +92,11 @@ async def unhandled_error_handler(_request: Request, exc: Exception):
 @app.get("/health")
 def health():
     return {"status": "ok"}
+
+
+# Catch-all — registered LAST so it never shadows a real route. Unknown paths
+# return the consistent {status, message} shape instead of Starlette's plain
+# "Not Found" text.
+@app.api_route("/{full_path:path}", methods=["GET", "POST", "PUT", "PATCH", "DELETE", "HEAD"])
+async def not_found(full_path: str):
+    raise HTTPException(status_code=404, detail=f"Not found: /{full_path}")
