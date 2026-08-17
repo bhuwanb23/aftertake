@@ -7,8 +7,8 @@ Usage (from the repo root, using the backend venv's python):
     python -m backend.db.manage inspect   # list tables + row counts
     python -m backend.db.manage path      # print the resolved DB file path
 
-The schema itself lives in backend/db/schema.sql — edit it there, then run
-`init` (existing tables are untouched) or `reset` (fresh start).
+The schema lives in backend/db/sql/*.sql (one file per table) — edit it there,
+then run `init` (existing tables are untouched) or `reset` (fresh start).
 """
 import argparse
 import sys
@@ -18,19 +18,12 @@ try:
 except ImportError:  # allow `python backend/db/manage.py` as a fallback
     from backend.db import database
 
-# Tables created by schema.sql. Used by reset/inspect.
-TABLES = [
-    "source_videos",
-    "creator_profiles",
-    "opportunities",
-    "scripts",
-    "thumbnails",
-    "metadata",
-    "quality_scores",
-    "decision_log",
-    "generated_assets",
-    "pipeline_runs",
-]
+
+def _table_names(conn) -> list[str]:
+    """All user tables in the DB (excludes SQLite's internal sqlite_* tables)."""
+    return [r["name"] for r in conn.execute(
+        "SELECT name FROM sqlite_master WHERE type='table' AND name NOT LIKE 'sqlite_%'"
+    )]
 
 
 def cmd_init(_args):
@@ -43,8 +36,8 @@ def cmd_init(_args):
 def cmd_reset(_args):
     conn = database.get_connection()
     print(f"Dropping all tables in {database.database_path()} ...")
-    for t in TABLES:
-        conn.execute(f"DROP TABLE IF EXISTS {t}")
+    for t in _table_names(conn):
+        conn.execute(f'DROP TABLE IF EXISTS "{t}"')
     conn.commit()
     conn.close()
     cmd_init(_args)

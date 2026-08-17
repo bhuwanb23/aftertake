@@ -15,3 +15,6 @@ CREATE TABLE IF NOT EXISTS source_videos (
   tags_json        TEXT NOT NULL DEFAULT '[]',   -- list of strings
   category         TEXT
 );
+
+-- The DNA agent loads ALL videos for one creator — this is that query.
+CREATE INDEX IF NOT EXISTS idx_source_videos_creator ON source_videos(creator_id);

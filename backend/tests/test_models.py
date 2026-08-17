@@ -3,9 +3,8 @@
     backend/.venv/Scripts/python backend/tests/test_models.py
 
 For every model: a valid instance must construct, and each invalid mutation
-must be rejected with a ValidationError. Covers Source Video, Creator DNA
-Profile, Content Opportunity, Script, Thumbnail Variant, Metadata, and
-Quality Score (remaining models added with the rest of Step 1).
+must be rejected with a ValidationError. Covers all 10 schemas from Phase 0
+Step 9 / Phase 1 Step 1.
 """
 import sys
 from copy import deepcopy

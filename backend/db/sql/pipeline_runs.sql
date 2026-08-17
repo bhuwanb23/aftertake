@@ -17,3 +17,5 @@ CREATE TABLE IF NOT EXISTS pipeline_runs (
   total_llm_calls        INTEGER NOT NULL DEFAULT 0,   -- Claude API calls (cost per run)
   regeneration_count     INTEGER NOT NULL DEFAULT 0    -- total reject->regenerate cycles across stages
 );
+
+CREATE INDEX IF NOT EXISTS idx_runs_creator ON pipeline_runs(creator_id);

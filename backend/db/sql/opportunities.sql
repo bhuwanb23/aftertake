@@ -1,20 +1,17 @@
--- AfterTake — Schema 3: Content Opportunity
--- One recommendation for what the creator should make next (opportunity agent output).
--- The nested rationale object (dna_fit_explanation, performance_prediction,
--- trend_relevance, risks) is stored as JSON in rationale_json.
+-- AfterTake — Schema 3: Content Opportunity (Phase 1 Step 2 storage design)
+-- One row per recommended opportunity. The opportunity agent generates several
+-- per run (e.g. three) and the orchestrator selects one via the status column.
+-- The FULL ContentOpportunity object is stored as JSON in opp_json; status is
+-- ALSO a separate column because it is queried (pending/approved/rejected/...)
+-- and querying inside JSON text is painful.
 CREATE TABLE IF NOT EXISTS opportunities (
-  id                            TEXT PRIMARY KEY,
-  creator_id                    TEXT NOT NULL,
-  created_at                    TEXT NOT NULL,
-  topic                         TEXT NOT NULL,
-  working_title                 TEXT NOT NULL DEFAULT '',
-  rationale_json                TEXT NOT NULL DEFAULT '{}',
-  fit_score                     REAL,             -- 0.0-1.0; >=0.8 strong, 0.6-0.79 viable, <0.6 regenerate
-  confidence                    TEXT,             -- high | medium | low
-  recommended_format            TEXT,             -- e.g. 30-day-challenge
-  recommended_duration_seconds  INTEGER,
-  target_hook                   TEXT,
-  status                        TEXT NOT NULL DEFAULT 'pending'  -- pending | approved | rejected | in_production | published
+  id              TEXT PRIMARY KEY,
+  creator_id      TEXT NOT NULL,
+  pipeline_run_id TEXT,               -- the run that generated this opportunity
+  status          TEXT NOT NULL DEFAULT 'pending',  -- pending | approved | rejected | in_production | published
+  opp_json        TEXT NOT NULL DEFAULT '{}'        -- the full ContentOpportunity object
 );
 
 CREATE INDEX IF NOT EXISTS idx_opportunities_creator ON opportunities(creator_id);
+CREATE INDEX IF NOT EXISTS idx_opportunities_run     ON opportunities(pipeline_run_id);
+CREATE INDEX IF NOT EXISTS idx_opportunities_status  ON opportunities(status);

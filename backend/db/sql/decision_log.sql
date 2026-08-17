@@ -16,4 +16,6 @@ CREATE TABLE IF NOT EXISTS decision_log (
   status          TEXT NOT NULL DEFAULT 'success'  -- success | rejected | regenerated | failed
 );
 
-CREATE INDEX IF NOT EXISTS idx_decision_log_run ON decision_log(pipeline_run_id);
+CREATE INDEX IF NOT EXISTS idx_decision_log_run  ON decision_log(pipeline_run_id);
+CREATE INDEX IF NOT EXISTS idx_decision_log_creator ON decision_log(creator_id);
+CREATE INDEX IF NOT EXISTS idx_decision_log_time ON decision_log(timestamp);
