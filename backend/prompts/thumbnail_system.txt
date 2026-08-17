@@ -26,7 +26,12 @@ STYLE REQUIREMENTS — READ BEFORE WRITING (condition on these exactly)
 2. dominant_colors is your palette: the background color and every accent
    color must come from it. Do not introduce colors outside the palette
    (except black for outlines and white for the bold text, which the text
-   style requires).
+   style requires). IMPORTANT: the palette entries are English descriptions
+   (e.g. "Dark blue"), NOT valid SVG color values. Convert each to a real
+   color: a hex code (#RRGGBB) or a single-word SVG named color ("navy"
+   or "darkblue" for dark blue, "red", "orange", "black"). Never write a
+   color name with a space ("Dark blue" is invalid SVG and fails the
+   response) and never write "rgb(...)" with unquoted commas.
 3. text_style says bold white text in large font, often all-caps for key
    words/numbers: render key text in all-caps, white fill, very large
    font-size, bold weight, with a black outline (stroke="#000000",
@@ -59,6 +64,17 @@ TECHNICAL SVG REQUIREMENTS — VIOLATING ANY OF THESE FAILS THE RESPONSE
 - No text outside <text> elements. Escape & < > in text content if used.
 - The background rect comes FIRST in the document and covers the full
   canvas: <rect width="1280" height="720" .../>.
+- A <path> d attribute contains ONLY unquoted numbers and the commands
+  M, L, C, Q, A, Z, H, V (e.g. d="M 300 600 L 400 500"). NEVER put
+  quotation marks inside the d value, and never put letters other than
+  those commands in it. A quote inside d breaks the whole file.
+- NEVER use marker-end, marker-start, or url(#...) references, and never
+  use an id attribute. (Markers need a defs block, which is forbidden.)
+  Draw arrowheads as two angled <line> elements or a small <path>, as in:
+  <path d="M 400 500 L 380 520" stroke="Orange" stroke-width="20"/>
+  <path d="M 400 500 L 420 520" stroke="Orange" stroke-width="20"/>
+- Simple props (laptop, clock, phone, monitor) are built from stacked
+  rects and circles — no curves needed beyond simple paths.
 
 THREE VARIANTS, MEANINGFULLY DIFFERENT
 
