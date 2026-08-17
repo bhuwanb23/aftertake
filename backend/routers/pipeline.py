@@ -77,17 +77,40 @@ def run_pipeline(body: RunRequest):
     return payload
 
 
+# Phase 1 STUB: a hardcoded demo run that always reports an in-progress state,
+# so the frontend PipelineProgress component can be built against the
+# "running" state (the real stub run completes instantly).
+DEMO_RUN_ID = "run_demo"
+
+
 @router.get("/{run_id}/status")
 def get_status(run_id: str):
+    if run_id == DEMO_RUN_ID:
+        return {
+            "run_id": run_id,
+            "status": "running",
+            "current_stage": "script_agent",
+            "stages_completed": ["dna_agent", "opportunity_agent"],
+            "stages_failed": [],
+            "progress_percentage": 40,
+        }
     conn = db.get_connection()
     row = conn.execute(
         "SELECT * FROM pipeline_runs WHERE id = ?", (run_id,)
     ).fetchone()
     conn.close()
     if row is None:
-        raise HTTPException(
-            status_code=404, detail=f"No pipeline run found with id {run_id}."
-        )
+        # Phase 1 STUB fallback (per plan): any unknown run ID reports complete
+        # at 100% so a poll never shows a broken state. Phase 4: 404 for
+        # genuinely unknown runs.
+        return {
+            "run_id": run_id,
+            "status": "complete",
+            "current_stage": "",
+            "stages_completed": list(STAGES),
+            "stages_failed": [],
+            "progress_percentage": 100,
+        }
     completed = db.loads(row["stages_completed_json"])
     failed = db.loads(row["stages_failed_json"])
     progress = round(len(completed) / len(STAGES) * 100) if STAGES else 0
