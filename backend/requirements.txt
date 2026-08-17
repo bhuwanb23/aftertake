@@ -1,9 +1,16 @@
+# AfterTake backend dependencies (Phase 0 Step 6).
+# Install: backend/.venv/Scripts/python -m pip install -r backend/requirements.txt
 fastapi
 uvicorn
 anthropic
 pydantic
 python-dotenv
+# Thumbnail SVG->PNG: cairosvg is the plan's primary, but it needs the native
+# cairo DLL at runtime (missing on this Windows box). resvg-py is the plan's
+# named fallback and is VERIFIED working here (resvg_py.svg_to_bytes). Phase 3
+# rendering should use resvg-py first.
 cairosvg
+resvg-py
 pillow
 faster-whisper
 edge-tts

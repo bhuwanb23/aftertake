@@ -117,3 +117,8 @@ all routing, CORS, error handling, seed catalog, benchmark math. **Mocked:** all
 agent output (DNA profile, opportunities, script, thumbnails, metadata,
 scoring, publishing) — served as realistic stubs until Phase 2+; video
 rendering + TTS + captions are not built at all yet (Phase 3).
+
+**SVG rendering note:** cairosvg (the plan's primary thumbnail renderer) needs
+the native cairo DLL, which is missing on this Windows box. resvg-py — the
+plan's named fallback — is installed and verified rendering the stub thumbnails
+to valid PNGs. Phase 3 will use resvg-py.
