@@ -71,6 +71,12 @@ backend/.venv/Scripts/python -m uvicorn backend.main:app --reload
 
 The API lives at http://localhost:8000 — interactive docs at `/docs`.
 
+**LLM provider (Phase 2 dev default):** local **Ollama** (`llama3.2:1b`) via
+`backend/agents/llm.py` — every agent call goes through `call_llm()`, the one
+place that talks to a model. To switch to the Anthropic API (the production
+stack): set `LLM_PROVIDER=anthropic` and fill `ANTHROPIC_API_KEY` in `.env`.
+No code changes needed.
+
 **Endpoints** (Phase 0 Step 10 contract, all verified live):
 
 | Endpoint | Status | What it does today |
