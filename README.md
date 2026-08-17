@@ -59,11 +59,61 @@ backend/.venv/Scripts/python -m backend.db.seed
 The schema is one SQL file per table in `backend/db/sql/` — applied in sorted
 filename order on `init` and on backend startup.
 
-### Backend (Phase 1+)
+### Backend (Phase 1)
 
-*Placeholder — once dependencies are installed: `uvicorn backend.main:app --reload`.*
+```bash
+# Install backend dependencies into backend/.venv
+backend/.venv/Scripts/python -m pip install -r backend/requirements.txt
+
+# Start the API (repo root). Auto-applies the DB schema on startup.
+backend/.venv/Scripts/python -m uvicorn backend.main:app --reload
+```
+
+The API lives at http://localhost:8000 — interactive docs at `/docs`.
+
+**Endpoints** (Phase 0 Step 10 contract, all verified live):
+
+| Endpoint | Status | What it does today |
+|---|---|---|---|
+| `GET /health` | real | liveness check |
+| `POST /catalog/ingest` | real | stores Source Video objects (storage only) |
+| `POST /profile/build` | stub* | returns + stores a realistic DNA profile |
+| `GET /profile/{creator_id}` | real | returns the stored profile or 404 |
+| `POST /content/recommend` | stub* | 3 ranked opportunities (0.87 / 0.71 / 0.58) |
+| `POST /content/generate` | stub* | full asset: script + 3 thumbnails + metadata |
+| `POST /content/score` | stub* | alternates reject (0.62) / pass (0.81) |
+| `POST /content/publish` | stub* | returns a fake YouTube post id + URL |
+| `POST /pipeline/run` | stub* | full run + 8-entry decision log (persisted) |
+| `GET /pipeline/{run_id}/status` | real | run status + progress % for the UI poll |
+| `GET /pipeline/{run_id}/log` | real | the full decision log, oldest first |
+| `GET /output/video/{filename}` | stub* | 404 until rendering exists (Phase 3) |
+| `GET /output/thumbnail/{filename}` | stub* | real file, else a generated placeholder PNG |
+
+*\*Stub* = realistic fake data (Phase 1 Step 3) shaped exactly like the real
+response will be, built through the real Pydantic models. The frontend can build
+against these today; real agents replace them in Phase 2+. The `POST /pipeline/run`
+stub persists its run + decision-log rows, so the *real* status/log endpoints
+serve the full demo timeline immediately.
+
+Errors follow one shape everywhere: `{status: "error", message, detail}` —
+422 validation (names the failing field), 404 not-found (names what was missing),
+500 internal (describes what broke), consistent for unknown routes too.
+
+### Demo flow (works end to end today, stubs only)
+
+```bash
+# Seed the 8-video catalog, then run the whole pipeline
+backend/.venv/Scripts/python -m backend.db.seed
+curl -X POST http://localhost:8000/pipeline/run -H "Content-Type: application/json" \
+     -d '{"creator_id": "creator_001"}'
+# -> complete run: selected opportunity, generated asset, 8 decision-log
+#    entries incl. a live reject -> regenerate -> pass cycle
+```
 
 ## What Is Real vs Mocked
 
-*Placeholder — updated as each stage is built. The rule: be honest about mocked
-parts. Judges respect transparency.*
+Phase 1 = backend foundations only. Real: models + validation, SQLite storage,
+all routing, CORS, error handling, seed catalog, benchmark math. **Mocked:** all
+agent output (DNA profile, opportunities, script, thumbnails, metadata,
+scoring, publishing) — served as realistic stubs until Phase 2+; video
+rendering + TTS + captions are not built at all yet (Phase 3).
