@@ -29,23 +29,38 @@ def call_llm(system: str, user: str, *, temperature: float = 0.2, json_mode: boo
 
 
 def _call_ollama(system: str, user: str, temperature: float, json_mode: bool) -> str:
-    """Local Ollama via its OpenAI-compatible /v1/chat/completions endpoint."""
+    """Local Ollama via the native /api/chat endpoint.
+
+    The OpenAI-compatible endpoint is not used: it caps total context at 4096
+    tokens (a 3388-token DNA prompt leaves ~700 for the profile JSON, which
+    truncates mid-output). The native endpoint honors options.num_ctx, so the
+    full prompt + complete JSON fit. "think": false stops reasoning models
+    (e.g. gemma4) from dumping output into a thinking field and returning
+    empty content; non-reasoning models (llama3.2) ignore it.
+    """
     payload = {
         "model": config.OLLAMA_MODEL,
         "messages": [
             {"role": "system", "content": system},
             {"role": "user", "content": user},
         ],
-        "temperature": temperature,
         "stream": False,
+        "think": False,
+        "options": {
+            "temperature": temperature,
+            "num_ctx": config.OLLAMA_NUM_CTX,
+            "num_predict": config.LLM_MAX_TOKENS,
+        },
     }
     if json_mode:
-        payload["response_format"] = {"type": "json_object"}
-    url = f"{config.OLLAMA_BASE_URL.rstrip('/')}/chat/completions"
-    with httpx.Client(timeout=config.AGENT_CALL_TIMEOUT_SECONDS) as client:
-        resp = client.post(url, json=payload)
+        payload["format"] = "json"
+    base = config.OLLAMA_BASE_URL.rstrip("/")
+    if base.endswith("/v1"):
+        base = base[:-3]  # OLLAMA_BASE_URL points at /v1; /api/chat lives on the root
+    with httpx.Client(timeout=config.OLLAMA_CALL_TIMEOUT_SECONDS) as client:
+        resp = client.post(f"{base}/api/chat", json=payload)
         resp.raise_for_status()
-        return resp.json()["choices"][0]["message"]["content"]
+        return resp.json()["message"]["content"]
 
 
 def _call_anthropic(system: str, user: str, temperature: float) -> str:
@@ -60,7 +75,7 @@ def _call_anthropic(system: str, user: str, temperature: float) -> str:
     client = anthropic.Anthropic(api_key=key, timeout=config.AGENT_CALL_TIMEOUT_SECONDS)
     resp = client.messages.create(
         model=config.ANTHROPIC_MODEL,
-        max_tokens=2048,
+        max_tokens=config.LLM_MAX_TOKENS,
         temperature=temperature,
         system=system,
         messages=[{"role": "user", "content": user}],

@@ -20,6 +20,7 @@ Practice 6 — run_stability(): no agent is done until it has run repeatedly
 import json
 from datetime import datetime, timezone
 from pathlib import Path
+from typing import Callable
 
 from pydantic import BaseModel, ValidationError
 
@@ -138,17 +139,24 @@ def call_agent(
     input_summary: str = "",
     temperature: float = 0.2,
     json_mode: bool = True,
+    post_parse: Callable[[dict], None] | None = None,
 ) -> AgentResult:
     """Practices 1-4 in one call: LLM call -> LOG RAW -> strict JSON parse ->
     Pydantic validation. Returns an AgentResult (raw text, parsed dict,
     validated model) for the dev scripts to print; raises AgentOutputError
     otherwise. Agent implementations pass their name and a short input summary
-    so every log entry is attributable."""
+    so every log entry is attributable.
+
+    post_parse(parsed) — optional hook called between parse and validation for
+    fields the agent is not asked to produce (e.g. the orchestrator stamps
+    creator_id deterministically instead of trusting the model to echo it)."""
     raw = call_llm(
         with_json_instruction(system), user, temperature=temperature, json_mode=json_mode
     )
     log_llm_call(agent_name, input_summary, raw)  # Practice 4 — before anything else
     parsed = parse_json(raw, context=agent_name)
+    if post_parse is not None:
+        post_parse(parsed)
     validated = validate(parsed, output_model, context=agent_name)
     return AgentResult(raw=raw, parsed=parsed, validated=validated)
 
