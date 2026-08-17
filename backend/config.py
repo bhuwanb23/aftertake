@@ -26,3 +26,10 @@ LLM_PROVIDER = os.getenv("LLM_PROVIDER", "ollama")  # "ollama" | "anthropic"
 OLLAMA_BASE_URL = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434/v1")
 OLLAMA_MODEL = os.getenv("OLLAMA_MODEL", "llama3.2:1b")
 ANTHROPIC_MODEL = os.getenv("ANTHROPIC_MODEL", "claude-sonnet-4")
+
+# --- Raw-response log (Phase 2 Step 1, Practice 4) --------------------------
+# Every agent call appends its raw LLM response here (timestamp, agent, model,
+# input summary, full raw text) BEFORE anything else happens with it — so a
+# bad output can be debugged from the log without spending another call.
+# Relative paths resolve against the repo root; output/ is gitignored.
+LLM_LOG_PATH = os.getenv("LLM_LOG_PATH", "output/llm_log.txt")

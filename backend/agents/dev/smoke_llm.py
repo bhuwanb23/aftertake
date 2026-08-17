@@ -50,10 +50,15 @@ def main():
         '"likes" (integer), "comments" (integer), "watch_time_hours" (float). '
         'Example: {"views": 420000, "likes": 18400, "comments": 1240, "watch_time_hours": 68.0}'
     )
-    result = core.call_agent(system, user, Performance)
+    result = core.call_agent(system, user, Performance, agent_name="smoke_test", input_summary="Performance for a demo video")
     check("raw response is parseable JSON", result.validated.views > 0)
     print("    raw:", result.raw[:120].replace("\n", " "))
     print("    validated:", result.validated.model_dump())
+
+    print("\n--- 1b. Practice 4: the raw response was logged before parsing ---")
+    log = Path(__file__).resolve().parent.parent.parent.parent / "output" / "llm_log.txt"
+    check("llm_log.txt exists and has a smoke_test entry",
+          log.exists() and "agent=smoke_test" in log.read_text(encoding="utf-8"))
 
     print("\n--- 2. failure path: non-JSON output is a prompt failure, surfaced loudly ---")
     text = call_llm("You output exactly one word.", "Say: hello", json_mode=False)
@@ -67,12 +72,20 @@ def main():
     print("\n--- 3. failure path: shape drift names the failing fields ---")
     user_bad = 'Return a JSON object with only "views": 5.'
     try:
-        core.call_agent(system, user_bad, Performance)
+        core.call_agent(system, user_bad, Performance, agent_name="smoke_test")
         check("missing required fields rejected", False)
     except core.AgentOutputError as exc:
         check("missing required fields rejected", "failed schema validation" in str(exc)
               and "likes" in str(exc) and "Performance" in str(exc))
         print("    error names fields:", str(exc).split(": ")[1][:90], "...")
+
+    print("\n--- 4. Practice 6: stability harness (3 runs, same input) ---")
+    def run_one(_):
+        return core.call_agent(system, user, Performance, agent_name="smoke_stability",
+                               input_summary="stability run")
+    summary = core.run_stability(run_one, ["same input"], runs_per_input=3, name="smoke")
+    print("    " + summary.report())
+    check("stability: all runs OK", summary.passed)
 
     print(f"\n{ok} passed, {fail} failed")
     sys.exit(1 if fail else 0)
