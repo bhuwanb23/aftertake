@@ -355,7 +355,7 @@ def thumbnails(asset_id: str) -> list[ThumbnailVariant]:
             asset_id=asset_id,
             variant_number=1,
             svg_source=svg["red"],
-            png_path="",
+            png_path=None,
             layout_description=(
                 "Solid red background. Bold white all-caps text 'HONEST RANKING' top-left with "
                 "'5 TOOLS TESTED' below it. Creator face occupies the left half of the frame, "
@@ -373,7 +373,7 @@ def thumbnails(asset_id: str) -> list[ThumbnailVariant]:
             asset_id=asset_id,
             variant_number=2,
             svg_source=svg["blue"],
-            png_path="",
+            png_path=None,
             layout_description=(
                 "Dark blue solid background. Five app icons in a clean grid on the right half. "
                 "Bold white '5 TOOLS' text on the left. Creator face absent."
@@ -385,7 +385,7 @@ def thumbnails(asset_id: str) -> list[ThumbnailVariant]:
             asset_id=asset_id,
             variant_number=3,
             svg_source=svg["black"],
-            png_path="",
+            png_path=None,
             layout_description=(
                 "Black solid background. Huge white 'VS' centered with amber 'WHO WINS?' below. "
                 "Battle-style layout with creator face between the two contenders."
