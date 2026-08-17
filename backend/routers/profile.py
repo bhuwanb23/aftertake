@@ -5,8 +5,10 @@ POST /profile/build       — trigger the DNA agent to build a profile from the
                             stored catalog.
 
 Phase 1: build returns a realistic STUB profile (routers/stubs.py) so the
-frontend can build against it. Phase 2 replaces the stub with the real DNA
-agent; the storage path is the same either way.
+frontend can build against it. GET falls back to that same stub for the seeded
+demo creator (creator_001) when no profile is stored yet — per Phase 1 Step 3,
+the demo creator's profile must always render. Phase 2 replaces the stub with
+the real DNA agent; the storage path is the same either way.
 """
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
@@ -54,6 +56,11 @@ def get_profile(creator_id: str):
     ).fetchone()
     conn.close()
     if row is None:
+        # Phase 1 STUB fallback: the seeded demo creator's profile always
+        # renders, even before build has run. Removed when the real DNA agent
+        # lands (Phase 2) — stored profiles then always win.
+        if creator_id == stubs.STUB_CREATOR_ID:
+            return stubs.dna_profile(creator_id).model_dump()
         raise HTTPException(
             status_code=404,
             detail=f"No profile found for creator {creator_id}.",
