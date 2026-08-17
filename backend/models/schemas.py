@@ -8,9 +8,13 @@ and invalid data is rejected with a readable error — a fit_score of 1.5, a nul
 transcript, or an unrecognized stage name must fail validation.
 """
 from datetime import date
-from typing import Literal
+from typing import Annotated, Literal
 
-from pydantic import BaseModel, Field, field_validator, model_validator
+from pydantic import BaseModel, Field, StrictInt, field_validator, model_validator
+
+# Fields the plan calls "always an integer" get StrictInt: rejects floats (487.0),
+# numeric strings ("420000"), and bools — not just fractional floats.
+NonNegInt = Annotated[StrictInt, Field(ge=0)]
 
 # --- Allowed-value sets (Phase 0 Step 9) ------------------------------------
 Platform = Literal["youtube", "tiktok", "instagram", "linkedin"]
@@ -43,13 +47,13 @@ RETRY_CAP = 2
 # --- Schema 1: Source Video ------------------------------------------------
 class Performance(BaseModel):
     """Real performance metrics for one catalog video. Null = unknown, not zero."""
-    views: int
-    likes: int
-    comments: int
-    shares: int | None = None
-    ctr: float | None = Field(default=None, description="Click-through rate, 0.0-100.0")
-    avg_retention: float | None = Field(default=None, description="Avg % of video watched, 0.0-100.0")
-    watch_time_hours: float
+    views: NonNegInt
+    likes: NonNegInt
+    comments: NonNegInt
+    shares: NonNegInt | None = None
+    ctr: float | None = Field(default=None, ge=0.0, le=100.0, description="Click-through rate, 0.0-100.0")
+    avg_retention: float | None = Field(default=None, ge=0.0, le=100.0, description="Avg % of video watched, 0.0-100.0")
+    watch_time_hours: float = Field(ge=0.0)
 
 
 class Thumbnail(BaseModel):
@@ -59,6 +63,13 @@ class Thumbnail(BaseModel):
     url: str = ""  # can be empty for seed data
     description: str = Field(min_length=1, description="Plain-English description of the thumbnail")
 
+    @field_validator("description")
+    @classmethod
+    def _not_blank(cls, v: str) -> str:
+        if not v.strip():
+            raise ValueError("thumbnail description must be non-empty (the DNA agent learns visual style from it)")
+        return v
+
 
 class SourceVideo(BaseModel):
     """One past video from the creator's catalog. Raw input to the DNA agent."""
@@ -66,7 +77,7 @@ class SourceVideo(BaseModel):
     title: str  # always present — the DNA agent cannot function without it
     description: str = ""
     transcript: str  # always present — tone/phrasing source for the DNA agent
-    duration_seconds: int  # whole seconds, never a float
+    duration_seconds: NonNegInt  # whole seconds, never a float
     published_at: str  # ISO date (YYYY-MM-DD) — validated below so the DNA agent can compute posting frequency
     platform: Platform = "youtube"
     performance: Performance
@@ -97,7 +108,7 @@ class Voice(BaseModel):
 class TitleFormula(BaseModel):
     """The pattern the creator's best-performing titles follow."""
     structure: str
-    avg_word_count: int = 0
+    avg_word_count: NonNegInt = 0
     uses_caps: bool = False
     uses_numbers: bool = False
     uses_questions: bool = False
@@ -118,8 +129,8 @@ class ThumbnailStyle(BaseModel):
 
 class DurationRange(BaseModel):
     """A min/max duration range (seconds)."""
-    min: int = 0
-    max: int = 0
+    min: NonNegInt = 0
+    max: NonNegInt = 0
 
     @model_validator(mode="after")
     def _max_not_below_min(self):
@@ -130,7 +141,7 @@ class DurationRange(BaseModel):
 
 class ContentPatterns(BaseModel):
     """Formats, topics, and cadence that correlate with the creator's performance."""
-    avg_duration_seconds: int = 0
+    avg_duration_seconds: NonNegInt = 0
     optimal_duration_range: DurationRange = DurationRange()
     format_preferences: list[str] = Field(min_length=1)
     posting_frequency: str = ""
@@ -139,12 +150,13 @@ class ContentPatterns(BaseModel):
 
 
 class PerformanceBenchmarks(BaseModel):
-    """Calculated mathematically from the catalog — never LLM-generated."""
-    avg_views: float = 0.0
-    avg_ctr: float = 0.0
-    avg_retention: float = 0.0
-    top_quartile_views: float = 0.0
-    bottom_quartile_views: float = 0.0
+    """Calculated mathematically from the catalog — never LLM-generated.
+    All five are non-null floats — they exist before the DNA agent runs."""
+    avg_views: float = Field(default=0.0, ge=0.0)
+    avg_ctr: float = Field(default=0.0, ge=0.0)
+    avg_retention: float = Field(default=0.0, ge=0.0)
+    top_quartile_views: float = Field(default=0.0, ge=0.0)
+    bottom_quartile_views: float = Field(default=0.0, ge=0.0)
 
 
 class CreatorDNAProfile(BaseModel):
