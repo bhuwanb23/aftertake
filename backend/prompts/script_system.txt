@@ -50,8 +50,12 @@ VOICE REQUIREMENTS — READ CAREFULLY BEFORE WRITING
 6. DURATIONS. Hook duration_seconds: 5 to 15. Each scene: 30 to 90. Outro:
    10 to 25. The SUM of all durations (hook + scenes + outro) MUST fall
    inside content_patterns.optimal_duration_range (min to max) — aim near
-   the opportunity's recommended_duration_seconds. If your total would land
-   outside the range, adjust the scene durations, not the constraint.
+   the opportunity's recommended_duration_seconds. Keep a SAFETY MARGIN:
+   the total should sit at least 10 seconds above the range minimum and at
+   least 10 seconds below the maximum, so a rounding difference never lands
+   it outside the range. When in doubt, round scene durations UP rather
+   than down. If your total would land outside the range, adjust the scene
+   durations, not the constraint.
 7. Each scene's voiceover_text is what the creator SPEAKS; visual_description
    is what appears on screen (the renderer reads it). on_screen_text is the
    text shown on screen if any (e.g. a number or label), separate from the
